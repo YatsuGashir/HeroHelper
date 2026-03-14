@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager 
     {
 
     }

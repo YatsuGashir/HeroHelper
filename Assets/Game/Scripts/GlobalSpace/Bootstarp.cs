@@ -1,4 +1,6 @@
 using Core;
+using Core.StateMachine;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace GlobalSpace
@@ -7,9 +9,24 @@ namespace GlobalSpace
     {
         [SerializeField] private GameManager gameManager;
 
-        private void Awake()
+        public Fsm GameFlowFsm { get; private set; }
+
+        async void Start()
         {
-            Global.gameManager = gameManager;
+            G.GameManager = gameManager;
+
+            GameFlowFsm = new Fsm();
+            InitializeGameFlowStates();
+            
+            //GameFlowFsm.SetState<GameplayState>();
+            //PlayerFsm.SetState<IdleState>();
+
+        }
+        
+            
+        private void InitializeGameFlowStates()
+        {
+            //GameFlowFsm.AddState(new GameplayState(GameFlowFsm, this));
         }
     }
 }

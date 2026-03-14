@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace GlobalSpace
 {
-    public static class Global 
+    public static class G 
     {
         
         //Core
-        public static GameManager gameManager;
+        public static GameManager GameManager;
     }
 }
