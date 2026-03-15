@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f17eb2530de8647acbd438307df7b2, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Data.GameConfig
+  allBuildings:
+  - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
+  allSuccessors: []
+  terrainGenerationParams:
+    seed: 77270
+    scale: 0.1
+    octaves: 4
+    persistence: 0.5
+    lacunarity: 2
+    waterMax: 0.35
+    meadowMax: 0.45
+    forestMax: 0.6
+    stoneMax: 0.75
+    featureNoiseScale: 0.2
+    featureThreshold: 0.85
+  gridWidth: 20
+  gridHeight: 20
+  baseHandSize: 1
+  cardsDrawnPerTurn: 1
+  disasterChanceIncreasePerTurn: 1
+  turnsUntilFirstDisaster: 1

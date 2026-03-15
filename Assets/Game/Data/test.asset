@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: aa
+  buildingName: aa
+  buildingIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  allowedTerrainTypes: 00000000
+  requiredNeighborTag: -1
+  cost:
+    costs:
+    - Type: 1
+      Amount: 1
+  lifeCycle: 1
+  stage1Effect:
+    production: []
+    consumption: []
+  stage2Effect:
+    production: []
+    consumption: []
+  stage3Effect:
+    production: []
+    consumption: []
+  buildingTags: 1

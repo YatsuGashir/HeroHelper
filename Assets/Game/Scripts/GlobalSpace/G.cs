@@ -1,4 +1,6 @@
 using Core;
+using Core.Base;
+using Data;
 using UnityEngine;
 
 namespace GlobalSpace
@@ -7,6 +9,21 @@ namespace GlobalSpace
     {
         
         //Core
-        public static GameManager GameManager;
+        public static GameManager GameManager {get; private set;}
+        public static GameConfig Config {get; private set;}
+        public static GridSystem  GridSystem {get; private set;}
+        
+        public static void Initialize(GameConfig config)
+        {
+            Config = config;
+            GridSystem = new GridSystem();
+            GameManager = new GameManager();
+        }
+        
+        
+        public static void ResetRun()
+        {
+
+        }
     }
 }

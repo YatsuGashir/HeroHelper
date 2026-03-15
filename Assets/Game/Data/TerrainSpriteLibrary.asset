@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c89821dfb8332c44bbd9b9de1a01488, type: 3}
+  m_Name: TerrainSpriteLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::Data.TerrainSpriteLibrary
+  terrainSprites:
+  - type: 0
+    sprite: {fileID: -2579957754792524931, guid: 887c433f6da3c4143b25b2e42a497aa7, type: 3}
+  - type: 1
+    sprite: {fileID: 2706957563085047793, guid: f156b990d31c2114b8e13ea93606bfd6, type: 3}
