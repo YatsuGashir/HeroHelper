@@ -1,5 +1,6 @@
 using System;
 using Data;
+using DG.Tweening;
 using UniRx;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
@@ -75,12 +76,11 @@ public class CellView : MonoBehaviour
       if (isActive)
       {
          _highlightRenderer.color = isValid ? _highlightValidColor : _highlightInvalidColor;
-         // Небольшая анимация появления
-         // DOTween.Scale(_highlightRenderer.transform, Vector3.one * 1.05f, 0.1f).SetEase(Ease.OutQuad);
+         _highlightRenderer.transform.DOScale(Vector3.one * 1.05f, 0.1f).SetEase(Ease.OutQuad);
       }
       else
       {
-         // DOTween.Kill(_highlightRenderer.transform);
+         DOTween.Kill(_highlightRenderer.transform);
          _highlightRenderer.transform.localScale = Vector3.one;
       }
    }
@@ -89,16 +89,14 @@ public class CellView : MonoBehaviour
    private void OnMouseEnter()
    {
       _onCellHoverEnter.OnNext(this);
-      // Эффект наведения (зум)
-      // DOTween.Scale(transform, Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
+      transform.DOScale(Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
    }
 
    private void OnMouseExit()
    {
       _onCellHoverExit.OnNext(this);
-      // Возврат размера
-      // DOTween.Kill(transform);
-      // transform.localScale = Vector3.one;
+      DOTween.Kill(transform);
+      transform.localScale = Vector3.one;
    }
 
    private void OnMouseDown()

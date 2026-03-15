@@ -63,12 +63,15 @@ namespace View
                     CellView view = _cellPool[x, y];
 
                     view.SetTerrain(data.terrainType, _spriteLibrary);
-
+                    G.PlacementManager.RegisterCell(view);
                 }
             }
         }
 
-        
+        public CellView GetCellView(int x, int y)
+        {
+            return _cellPool[x, y];
+        }
         private void UpdateCellVisuals(CellUpdateEventData eventData)
         {
             int x = eventData.X;
@@ -83,7 +86,7 @@ namespace View
 
         }
 
-        private IEnumerable<CellView> GetAllCells()
+        public IEnumerable<CellView> GetAllCells()
         {
             for (int x = 0; x < _width; x++)
             for (int y = 0; y < _height; y++)
@@ -101,6 +104,15 @@ namespace View
             _cellPool = null;
         }
 
+        public void ClearAllHighlights()
+        {
+            if (_cellPool == null) return;
+            foreach (var cell in GetAllCells())
+            {
+                cell.SetHighlight(false, true);
+            }
+        }
+        
         private void OnDestroy()
         {
             _disposables?.Dispose();

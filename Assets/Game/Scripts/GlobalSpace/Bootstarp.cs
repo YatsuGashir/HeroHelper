@@ -1,5 +1,6 @@
 using System;
 using Core;
+using Core.Base;
 using Core.StateMachine;
 using Cysharp.Threading.Tasks;
 using Data;
@@ -13,18 +14,24 @@ namespace GlobalSpace
     {
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private GridView gridView;
+        [SerializeField] private BuildingViewSystem buildingView;
 
         public Fsm GameFlowFsm { get; private set; }
+        
 
         private async UniTaskVoid Start()
         {
 
             G.Initialize(gameConfig);
+            G.GridView= gridView;
 
             GameFlowFsm = new Fsm();
             InitializeGameFlowStates();
 
+            G.PlacementManager.SelectBuilding(gameConfig.allBuildings[1]);
 
+            buildingView.Init();
+            
             G.GameManager.StartNewRun(gridView);
 
             await UniTask.Yield();

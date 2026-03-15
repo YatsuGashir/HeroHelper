@@ -11,7 +11,7 @@ namespace Data
         public Sprite buildingIcon;
         
         [Header("Placement Rules")]
-        public TerrainType[] allowedTerrainTypes;
+        public TerrainMask allowedTerrainTypes;
         //public bool requiresSpecificNeighbor;
         public BuildingTag requiredNeighborTag;
 

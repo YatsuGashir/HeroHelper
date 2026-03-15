@@ -14,22 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.GameConfig
   allBuildings:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
+  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
   allSuccessors: []
   terrainGenerationParams:
-    seed: 77270
-    scale: 0.1
-    octaves: 4
-    persistence: 0.5
-    lacunarity: 2
-    waterMax: 0.35
-    meadowMax: 0.45
-    forestMax: 0.6
-    stoneMax: 0.75
-    featureNoiseScale: 0.2
-    featureThreshold: 0.85
-  gridWidth: 20
-  gridHeight: 20
+    seed: 119333953
+    baseNoiseScale: 0.2
+    forestThreshold: 0.6
+    waterNoiseScale: 0.2
+    waterThreshold: 0.75
+    stoneNoiseScale: 0.37
+    stoneThreshold: 0.73
+    stoneClusterMin: 2
+    stoneClusterMax: 4
+    crystalChance: 0.15
+  gridWidth: 50
+  gridHeight: 50
   baseHandSize: 1
   cardsDrawnPerTurn: 1
-  disasterChanceIncreasePerTurn: 1
-  turnsUntilFirstDisaster: 1

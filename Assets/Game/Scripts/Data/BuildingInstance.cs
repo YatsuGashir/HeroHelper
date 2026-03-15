@@ -10,7 +10,7 @@ namespace Data
         public int x, y;
         
         public BuildingStage stage;
-        public int age;
+        public int remaingTime;
         
         private BuildingDefinition _definition;
 
@@ -22,7 +22,7 @@ namespace Data
             y = yCord;
 
             stage = BuildingStage.Stage1;
-            age = 0;
+            remaingTime = definition.lifeCycle;
             
             _definition = definition;
         }
@@ -42,6 +42,33 @@ namespace Data
                 BuildingStage.Stage3Trasformation => def.stage3Effect,
                 _ => null
             };
+        }
+
+        public bool Tick()
+        {
+            remaingTime--;
+            
+            bool stageChanged = false;
+            
+            
+            if (stage == BuildingStage.Stage2)
+            {
+                remaingTime--;
+            }
+
+            if (stage == BuildingStage.Stage1)
+            {
+                stage = BuildingStage.Stage2;
+                stageChanged = true;
+            }
+
+            if (remaingTime <= 0)
+            {
+                stage = BuildingStage.Stage3Trasformation;
+                stageChanged = true;
+            }
+            return stageChanged;
+            
         }
     }
 }

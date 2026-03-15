@@ -21,8 +21,7 @@ namespace Data
         public int baseHandSize;
         public int cardsDrawnPerTurn;
     
-        [Header("Difficulty Scaling")]
-        public float disasterChanceIncreasePerTurn;
-        public int turnsUntilFirstDisaster;
+        //[Header("Difficulty Scaling")]
+        //добавить связь с событиями
     }
 }

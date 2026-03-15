@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.TerrainSpriteLibrary
   terrainSprites:
   - type: 0
-    sprite: {fileID: -2579957754792524931, guid: 887c433f6da3c4143b25b2e42a497aa7, type: 3}
+    sprite: {fileID: -552033525250359963, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 1
-    sprite: {fileID: 2706957563085047793, guid: f156b990d31c2114b8e13ea93606bfd6, type: 3}
+    sprite: {fileID: -58031792, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+  - type: 2
+    sprite: {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+  - type: 3
+    sprite: {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+  - type: 4
+    sprite: {fileID: 596796613, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}

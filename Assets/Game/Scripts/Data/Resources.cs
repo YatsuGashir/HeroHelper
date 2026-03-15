@@ -63,5 +63,6 @@ namespace Data
     {
         public List<ResourceAmount> production;
         public List<ResourceAmount> consumption;
+        public BuildingDefinition blockTileAfterStage;
     }
 }
