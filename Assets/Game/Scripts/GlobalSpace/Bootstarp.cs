@@ -15,6 +15,7 @@ namespace GlobalSpace
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private GridView gridView;
         [SerializeField] private BuildingViewSystem buildingView;
+        [SerializeField] private ResourceView resourceView;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -31,8 +32,10 @@ namespace GlobalSpace
             G.PlacementManager.SelectBuilding(gameConfig.allBuildings[1]);
 
             buildingView.Init();
+            resourceView.Init();
             
             G.GameManager.StartNewRun(gridView);
+            
 
             await UniTask.Yield();
 
@@ -56,6 +59,11 @@ namespace GlobalSpace
             {
                 G.ResetRun();
                 G.GameManager.StartNewRun(gridView);
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                G.PlacementManager.SelectBuilding(gameConfig.allBuildings[0]);
             }
         }
     }

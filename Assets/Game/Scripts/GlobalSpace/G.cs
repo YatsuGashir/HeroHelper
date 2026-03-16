@@ -2,6 +2,7 @@ using Core;
 using Core.Base;
 using Core.Factories;
 using Data;
+using Core.Base;
 using UnityEngine;
 using View;
 
@@ -18,7 +19,11 @@ namespace GlobalSpace
         public static BuildingFactory  BuildingFactory { get; private set; }
         public static PlacementManager PlacementManager { get; private set; }
         
+        public static ResourceManager ResourceManager { get; private set; }
+        
+        public static TurnManager TurnManager { get; private set; }
         public static GridView GridView { get;  set; }
+        public static BuildingLifecycleManager LifecycleManager { get;  set; }
         
         public static void Initialize(GameConfig config)
         {
@@ -28,6 +33,9 @@ namespace GlobalSpace
             Events = new CustomEventBus();
             BuildingFactory = new BuildingFactory();
             PlacementManager = new PlacementManager();
+            ResourceManager = new ResourceManager();
+            TurnManager = new TurnManager();
+            LifecycleManager = new BuildingLifecycleManager();
         }
         
         

@@ -23,15 +23,30 @@ MonoBehaviour:
       Amount: 1
   lifeCycle: 2
   stage1Effect:
-    production: []
-    consumption: []
-    blockTileAfterStage: {fileID: 0}
+    effects:
+    - rid: 2979482268928573547
   stage2Effect:
-    production: []
-    consumption: []
-    blockTileAfterStage: {fileID: 0}
+    effects:
+    - rid: 2979482268928573550
   stage3Effect:
-    production: []
-    consumption: []
-    blockTileAfterStage: {fileID: 0}
+    effects: []
   buildingTags: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482268928573547
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        debugDescription: 
+        cost:
+          costs: []
+        type: 1
+        amount: 0
+    - rid: 2979482268928573550
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        debugDescription: 
+        cost:
+          costs: []
+        type: 0
+        amount: 0

@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
+using Core.Effects;
+using UnityEngine;
 
 namespace Data
 {
-    [Flags]
+
     public enum ResourceType
     {
         None,
         Spore,
         Stone, 
         Water, 
-        Crystal
+        Crystal,
+        Food
     }
 
     [Flags]
@@ -39,6 +42,12 @@ namespace Data
     {
         public ResourceType Type;
         public int Amount;
+        
+        public ResourceAmount(ResourceType type, int amount)
+        {
+            Type = type;
+            Amount = amount;
+        }
     }
     
     [Serializable]
@@ -61,8 +70,10 @@ namespace Data
     [Serializable]
     public class EffectDefinition
     {
-        public List<ResourceAmount> production;
-        public List<ResourceAmount> consumption;
-        public BuildingDefinition blockTileAfterStage;
+        [Header("Список эффектов этой стадии")]
+        [Tooltip("Нажмите '+', чтобы добавить эффект, и выберите его тип из меню")]
+        [SerializeReference]
+        public List<GameEffectBase> effects = new List<GameEffectBase>();
+
     }
 }

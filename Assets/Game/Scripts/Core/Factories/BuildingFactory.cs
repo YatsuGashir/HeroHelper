@@ -59,15 +59,10 @@ namespace Core.Factories
             if (cell == null || cell.building == null) return;
 
             var building = cell.building;
+            
 
-            if (!isTransformation && building.GetEffectDefinition()?.blockTileAfterStage == true)
-            {
-                cell.building = null;
-            }
-            else
-            {
-                cell.building = null;
-            }
+            cell.building = null;
+
             
             G.Events.CellChanged.OnNext(new CellUpdateEventData
             {

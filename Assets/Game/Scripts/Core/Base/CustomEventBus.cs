@@ -25,6 +25,9 @@ namespace Core.Base
         public Subject<CellState[,]> GridGenerated { get; } = new Subject<CellState[,]>();
         public Subject<string> DisasterOccurred { get; } = new Subject<string>();
         
+        public Subject<Unit> TurnEndRequested { get; } = new Subject<Unit>();
+
+    
         public void Dispose()
         {
             CellChanged.Dispose();
@@ -36,6 +39,7 @@ namespace Core.Base
             TurnEnded.Dispose();
             GridGenerated.Dispose();
             DisasterOccurred.Dispose();
+            TurnEndRequested.Dispose();
         }
     }
 }
