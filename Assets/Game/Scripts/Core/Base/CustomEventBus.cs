@@ -26,7 +26,7 @@ namespace Core.Base
         public Subject<string> DisasterOccurred { get; } = new Subject<string>();
         
         public Subject<Unit> TurnEndRequested { get; } = new Subject<Unit>();
-
+        public Subject<BuildingInstance> Ticked { get; } = new Subject<BuildingInstance>();
     
         public void Dispose()
         {
@@ -40,6 +40,7 @@ namespace Core.Base
             GridGenerated.Dispose();
             DisasterOccurred.Dispose();
             TurnEndRequested.Dispose();
+            Ticked.Dispose();
         }
     }
 }

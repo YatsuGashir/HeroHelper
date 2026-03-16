@@ -41,6 +41,13 @@ namespace Core.Base
                     var building = cell.building;
 
                     bool stageChanged = building.Tick();
+                    if (stageChanged)
+                    {
+                        G.Events.BuildingStageChanged.OnNext(building);
+    
+                        // Также можно отправить CellChanged, если нужно перерисовать спрайт
+                        // G.Events.CellChanged.OnNext(...);
+                    }
 
                     var effects = building.GetEffectDefinition()?.effects;
                     if (effects == null) continue;

@@ -39,6 +39,7 @@ namespace View
             buildingPrefab.sprite = instance.GetDefinition().buildingIcon;
             var go = Instantiate(buildingPrefab, cellView.transform);
             go.transform.localPosition = Vector3.zero;
+            go.GetComponent<BuildingStatusView>().Init(instance);
         }
 
         private void ClearBuilding(CellView cellView)

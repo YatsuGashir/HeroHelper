@@ -1,4 +1,6 @@
 using System;
+using GlobalSpace;
+using UnityEngine;
 
 namespace Data
 {
@@ -21,7 +23,7 @@ namespace Data
             x = xCord;
             y = yCord;
 
-            stage = BuildingStage.Stage1;
+            stage = BuildingStage.Stage2;
             remaingTime = definition.lifeCycle;
             
             _definition = definition;
@@ -46,29 +48,25 @@ namespace Data
 
         public bool Tick()
         {
-            remaingTime--;
-            
-            bool stageChanged = false;
-            
-            
-            if (stage == BuildingStage.Stage2)
+            Debug.Log("Тик идёт");
+            if (stage != BuildingStage.Stage2) 
+                return false;
+    
+            if (remaingTime > 0)
             {
+                Debug.Log("Осталось "+ remaingTime);
                 remaingTime--;
+                G.Events.Ticked.OnNext(this);
+                return false;
             }
-
-            if (stage == BuildingStage.Stage1)
-            {
-                stage = BuildingStage.Stage2;
-                stageChanged = true;
-            }
-
-            if (remaingTime <= 0)
-            {
-                stage = BuildingStage.Stage3Trasformation;
-                stageChanged = true;
-            }
-            return stageChanged;
             
+            stage = BuildingStage.Stage3Trasformation;
+    
+            Debug.Log($"[Building] Stage 2 completed at ({x},{y}), moving to Stage 3");
+            G.Events.Ticked.OnNext(this);
+            G.Events.BuildingStageChanged.OnNext(this);
+    
+            return true; 
         }
     }
 }
