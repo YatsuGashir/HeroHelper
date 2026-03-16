@@ -2,6 +2,7 @@ using Data;
 using GlobalSpace;
 using UniRx;
 using UnityEngine;
+using View;
 
 namespace Data
 {
@@ -16,6 +17,7 @@ namespace Data
         private bool _isPlacing;
         
         private CompositeDisposable _disposables = new CompositeDisposable();
+        
 
         public void RegisterCell(CellView cell)
         {
@@ -30,6 +32,27 @@ namespace Data
             cell.OnCellHoverExit
                 .Subscribe(OnCellHoverExit)
                 .AddTo(_disposables);
+        }
+        public void RegisterCard(CardView card)
+        {
+            card.OnCellClick
+                .Subscribe(OnCardClicked)
+                .AddTo(_disposables);
+        }
+        private void OnCardClicked(BuildingDefinition building)
+        {
+            if (building == null) return;
+
+            // Если кликнули по уже выбранному зданию — отменяем размещение
+            if (_isPlacing && _selectedBuilding == building)
+            {
+                ClearSelection();
+            }
+            else
+            {
+                // Иначе выбираем новое здание
+                SelectBuilding(building);
+            }
         }
 
         private void OnCellHoverEnter(CellView cell)
@@ -70,6 +93,12 @@ namespace Data
             if (CanPlaceBuilding(_selectedBuilding, cell))
             {
                 G.BuildingFactory.CreateBuilding(_selectedBuilding, cell.X, cell.Y);
+                
+                G.HandManager.RemoveCard(_selectedBuilding);
+        
+                Debug.Log($"[Placement] Здание { _selectedBuilding.name} размещено, карта удалена из руки");
+        
+                // 3. Сбрасываем выбор
                 ClearSelection();
             }
             else

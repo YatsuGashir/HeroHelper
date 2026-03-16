@@ -32,6 +32,34 @@ namespace Core
 
                 gridView.SyncWithGrid(newGridData); 
             }
+            
+            G.DeckManager.InitializeDeck(config.allBuildings);
+            G.DeckManager.Shuffle();
+            GiveFullHandForTest(); 
+        }
+        
+        public void GiveFullHandForTest()
+        {
+            // 1. Получаем лимит руки (по умолчанию 10)
+            int maxHandSize = G.HandManager.MaxHandSize;
+    
+            // 2. Считаем, сколько не хватает
+            int cardsNeeded = maxHandSize - G.HandManager.Count;
+    
+            if (cardsNeeded > 0)
+            {
+                // 3. Тянем карты из колоды
+                var drawnCards = G.DeckManager.DrawCards(cardsNeeded);
+        
+                // 4. Добавляем их в руку
+                G.HandManager.AddCards(drawnCards);
+        
+                Debug.Log($"[TEST] Выдано {drawnCards.Count} карт. Всего в руке: {G.HandManager.Count}");
+            }
+            else
+            {
+                Debug.Log("[TEST] Рука уже полная!");
+            }
         }
     }
 }

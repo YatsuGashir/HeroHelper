@@ -16,6 +16,8 @@ namespace GlobalSpace
         [SerializeField] private GridView gridView;
         [SerializeField] private BuildingViewSystem buildingView;
         [SerializeField] private ResourceView resourceView;
+        [SerializeField] private HandView handView;
+        [SerializeField] private CardView cardView;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -29,10 +31,10 @@ namespace GlobalSpace
             GameFlowFsm = new Fsm();
             InitializeGameFlowStates();
 
-            G.PlacementManager.SelectBuilding(gameConfig.allBuildings[1]);
-
             buildingView.Init();
             resourceView.Init();
+            
+            handView.Init(G.HandManager);
             
             G.GameManager.StartNewRun(gridView);
             

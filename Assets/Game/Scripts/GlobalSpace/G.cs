@@ -24,6 +24,9 @@ namespace GlobalSpace
         public static TurnManager TurnManager { get; private set; }
         public static GridView GridView { get;  set; }
         public static BuildingLifecycleManager LifecycleManager { get;  set; }
+        public static DeckManager DeckManager { get;  set; }
+        public static HandManager HandManager { get;  set; }
+        
         
         public static void Initialize(GameConfig config)
         {
@@ -36,6 +39,8 @@ namespace GlobalSpace
             ResourceManager = new ResourceManager();
             TurnManager = new TurnManager();
             LifecycleManager = new BuildingLifecycleManager();
+            DeckManager = new DeckManager();
+            HandManager = new HandManager();
         }
         
         

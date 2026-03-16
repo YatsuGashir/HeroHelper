@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace View
 {
-    public class CardView : MonoBehaviour
+    public class CardViewa : MonoBehaviour
     {
         [Header("Components")] 
         [SerializeField] private Image iconImage;
