@@ -32,8 +32,8 @@ namespace Core
 
                 gridView.SyncWithGrid(newGridData); 
             }
-            
-            G.DeckManager.InitializeDeck(config.allBuildings);
+            G.successionManager.StartFirstRun();
+            G.DeckManager.InitializeDeck(G.successionManager.GetStartingHandIds());
             G.DeckManager.Shuffle();
             GiveFullHandForTest(); 
         }

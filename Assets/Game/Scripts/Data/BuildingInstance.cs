@@ -39,7 +39,7 @@ namespace Data
             var def = GetDefinition();
             return stage switch
             {
-                BuildingStage.Stage1 => def.stage1Effect,
+                //BuildingStage.Stage1 => def.stage1Effect,
                 BuildingStage.Stage2 => def.stage2Effect,
                 BuildingStage.Stage3Trasformation => def.stage3Effect,
                 _ => null

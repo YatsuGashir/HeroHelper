@@ -22,7 +22,7 @@ namespace Data
         public int lifeCycle;
         
         [Header("Effect by stage")]
-        public EffectDefinition stage1Effect;
+        //public EffectDefinition stage1Effect;
         public EffectDefinition stage2Effect;
         public EffectDefinition stage3Effect;
         

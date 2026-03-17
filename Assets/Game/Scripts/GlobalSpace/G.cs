@@ -3,6 +3,7 @@ using Core.Base;
 using Core.Factories;
 using Data;
 using Core.Base;
+using Core.Successors;
 using UnityEngine;
 using View;
 
@@ -26,6 +27,7 @@ namespace GlobalSpace
         public static BuildingLifecycleManager LifecycleManager { get;  set; }
         public static DeckManager DeckManager { get;  set; }
         public static HandManager HandManager { get;  set; }
+        public static SuccessionManager successionManager { get;  set; }
         
         
         public static void Initialize(GameConfig config)
@@ -37,6 +39,7 @@ namespace GlobalSpace
             BuildingFactory = new BuildingFactory();
             PlacementManager = new PlacementManager();
             ResourceManager = new ResourceManager();
+            successionManager = new SuccessionManager();
             TurnManager = new TurnManager();
             LifecycleManager = new BuildingLifecycleManager();
             DeckManager = new DeckManager();
