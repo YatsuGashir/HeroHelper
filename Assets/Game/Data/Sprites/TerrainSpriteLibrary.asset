@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.TerrainSpriteLibrary
   terrainSprites:
   - type: 0
-    sprite: {fileID: -552033525250359963, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite:
+    - {fileID: -552033525250359963, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 1
-    sprite: {fileID: -58031792, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite:
+    - {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 2
-    sprite: {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite:
+    - {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 3
-    sprite: {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite:
+    - {fileID: -58031792, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 4
-    sprite: {fileID: 596796613, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite:
+    - {fileID: -6937154614026109424, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}
+    - {fileID: 1217779802, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}
+    - {fileID: 2029147527, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}

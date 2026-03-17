@@ -10,7 +10,7 @@ namespace Data
         public class SpriteEntry
         {
             public TerrainType type;
-            public Sprite sprite;
+            public List<Sprite> sprite;
         }
 
         public List<SpriteEntry> terrainSprites;
@@ -18,7 +18,7 @@ namespace Data
         public Sprite GetTerrainSprite(TerrainType type)
         {
             var entry = terrainSprites.Find(e => e.type == type);
-            return entry?.sprite;
+            return entry?.sprite[Random.Range(0, entry.sprite.Count)];
         }
     }
 }
