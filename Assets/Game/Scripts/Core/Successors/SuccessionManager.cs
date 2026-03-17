@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Data;
 using GlobalSpace;
+using UniRx;
 using UnityEngine;
 
 namespace Core.Successors
@@ -12,6 +13,8 @@ namespace Core.Successors
         private List<SuccessorProfile> _availableProfiles; 
         private List<SuccessorProfile> _historyProfiles;
         
+        
+        public Subject<SuccessorState> OnSuccessorChanged = new Subject<SuccessorState>();
         public SuccessorState CurrentState => _currentState;
         
         public SuccessionManager()
@@ -61,9 +64,9 @@ namespace Core.Successors
             _currentState = new SuccessorState();
             _currentState.Initialize(profile, generation);
 
+            OnSuccessorChanged.OnNext(_currentState);
             Debug.Log($"=== НОВЫЙ НАСЛЕДНИК: {profile.successorName} (Поколение {generation}) ===");
             
-            // Примечание: Колода и рука настраиваются в DeckManager через вызов этого менеджера
         }
 
 

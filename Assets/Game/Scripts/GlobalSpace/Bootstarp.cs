@@ -17,7 +17,7 @@ namespace GlobalSpace
         [SerializeField] private BuildingViewSystem buildingView;
         [SerializeField] private ResourceView resourceView;
         [SerializeField] private HandView handView;
-        [SerializeField] private CardView cardView;
+        [SerializeField] private CurrentSuccessorView currentSuccessorView;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -35,6 +35,7 @@ namespace GlobalSpace
             resourceView.Init();
             
             handView.Init(G.HandManager);
+            currentSuccessorView.Init(G.successionManager);
             
             G.GameManager.StartNewRun(gridView);
             
