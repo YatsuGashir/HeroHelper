@@ -13,20 +13,47 @@ MonoBehaviour:
   m_Name: TerrainSpriteLibrary
   m_EditorClassIdentifier: Assembly-CSharp::Data.TerrainSpriteLibrary
   terrainSprites:
-  - type: 0
-    sprite:
-    - {fileID: -552033525250359963, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   - type: 1
-    sprite:
-    - {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    sprite: []
+    autoTileSprites:
+    - {fileID: -49755426, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 260092408, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 332321912, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: -970312809, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 9078822206214338704, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1019002323, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1839453946429424755, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1389592271, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1263747253, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1022475504, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 77369527, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: -688336184, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 8395035123030963460, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: -749547348, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: -858204740801193290, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 463502749, guid: fcf89648a214ba14590437d081a72731, type: 3}
+    - {fileID: 1322160733, guid: 62fd755fb1fff5c429045debc03a5b8f, type: 3}
+    - {fileID: 981091969555768303, guid: 62fd755fb1fff5c429045debc03a5b8f, type: 3}
+    - {fileID: -1271031016, guid: 62fd755fb1fff5c429045debc03a5b8f, type: 3}
+    - {fileID: 2071412528, guid: 62fd755fb1fff5c429045debc03a5b8f, type: 3}
+    useAutotile: 1
   - type: 2
     sprite:
-    - {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    - {fileID: -58031792, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    autoTileSprites: []
+    useAutotile: 0
   - type: 3
     sprite:
-    - {fileID: -58031792, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    - {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    autoTileSprites: []
+    useAutotile: 0
   - type: 4
     sprite:
-    - {fileID: -6937154614026109424, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}
-    - {fileID: 1217779802, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}
-    - {fileID: 2029147527, guid: 204c8bd4e6f910f4ca992f98926744b5, type: 3}
+    - {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    autoTileSprites: []
+    useAutotile: 0
+  - type: 5
+    sprite:
+    - {fileID: 596796613, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    autoTileSprites: []
+    useAutotile: 0

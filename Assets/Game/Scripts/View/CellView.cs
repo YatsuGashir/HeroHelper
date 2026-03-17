@@ -3,12 +3,12 @@ using Data;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
-using UnityEngine.U2D.Animation;
 
 public class CellView : MonoBehaviour
 {
    [Header("Components")]
-   [SerializeField] private SpriteRenderer _terrainRenderer;
+   [SerializeField] private SpriteRenderer _baseRenderer;      // Meadow/Water
+   [SerializeField] private SpriteRenderer _overlayRenderer;   // Forest/Stone/Crystal/Grass
    [SerializeField] private SpriteRenderer _highlightRenderer;
    [SerializeField] private Transform _buildingAnchor;
    [SerializeField] private Collider2D _collider;
@@ -22,8 +22,6 @@ public class CellView : MonoBehaviour
    public int X { get; private set; }
    public int Y { get; private set; }
    
-   //ссылка на постройку
-   
    private readonly Subject<CellView> _onCellClick = new Subject<CellView>();
    private readonly Subject<CellView> _onCellHoverEnter = new Subject<CellView>();
    private readonly Subject<CellView> _onCellHoverExit = new Subject<CellView>();
@@ -36,10 +34,17 @@ public class CellView : MonoBehaviour
    
    private void Awake()
    {
-      if (_terrainRenderer == null) _terrainRenderer = GetComponentInChildren<SpriteRenderer>();
+      if (_baseRenderer == null) _baseRenderer = GetComponentInChildren<SpriteRenderer>();
       if (_collider == null) _collider = GetComponent<Collider2D>();
         
       _disposables = new CompositeDisposable();
+      
+      // Настройка оверлей-рендерера: выше базы, но ниже хайлайта
+      if (_overlayRenderer != null)
+      {
+          _overlayRenderer.sortingOrder = (_baseRenderer?.sortingOrder ?? 0) + 1;
+          _overlayRenderer.gameObject.SetActive(false); // по умолчанию скрыт
+      }
    }
    
    public void Initialize(int x, int y)
@@ -48,23 +53,107 @@ public class CellView : MonoBehaviour
       Y = y;
       transform.position = new Vector3(x, y, 0);
       gameObject.name = $"Cell_{x}_{y}";
-        
       ResetVisuals();
    }
-   
-   public void SetTerrain(TerrainType terrain, TerrainSpriteLibrary terrainSpriteLibrary)
+
+   // === Установка базового тайла (Meadow с autotile или Water) ===
+   public void SetBaseTerrain(TerrainType terrain, TerrainSpriteLibrary library, 
+       Func<int, int, TerrainType> getNeighborTerrain)
    {
-      if (_terrainRenderer == null) return;
-        
-      Sprite sprite = terrainSpriteLibrary.GetTerrainSprite(terrain);
-      _terrainRenderer.sprite = sprite;
-      _terrainRenderer.color = Color.white;
-      
+       if (_baseRenderer == null || library == null) return;
+    
+       Sprite sprite = null;
+
+       // Autotile только для Meadow
+       if (terrain != TerrainType.Water)
+       {
+           int autotileIndex = CalculateMeadowAutotileIndex(getNeighborTerrain);
+           sprite = library.GetAutotileSprite(TerrainType.Meadow, autotileIndex);
+       }
+    
+       // Фоллбэк на обычный спрайт
+       if (sprite == null)
+       {
+           sprite = library.GetTerrainSprite(terrain);
+       }
+    
+       if (sprite != null)
+       {
+           _baseRenderer.sprite = sprite;
+           _baseRenderer.color = Color.white;
+           _baseRenderer.gameObject.SetActive(true);
+       }
+   }
+
+   // Расчёт индекса autotile для Meadow
+   // Расчёт индекса autotile для Meadow (с поддержкой 20 спрайтов)
+   private int CalculateMeadowAutotileIndex(Func<int, int, TerrainType> getNeighbor)
+   {
+       if (getNeighbor == null) return 0;
+    
+       // Ортогональные соседи
+       bool top = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X, Y + 1));
+       bool right = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X + 1, Y));
+       bool bottom = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X, Y - 1));
+       bool left = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X - 1, Y));
+    
+       // Диагональные соседи (для углов)
+       bool topLeft = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X - 1, Y + 1));
+       bool topRight = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X + 1, Y + 1));
+       bool bottomRight = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X + 1, Y - 1));
+       bool bottomLeft = !AutotileHelper.IsBlockingTerrain(getNeighbor.Invoke(X - 1, Y - 1));
+    
+       return AutotileHelper.CalculateAutotileIndexWithCorners(
+           top, right, bottom, left,
+           topLeft, topRight, bottomRight, bottomLeft);
+   }
+
+   // === Установка оверлея (Forest/Stone/Crystal/Grass) ===
+   public void SetOverlay(TerrainType overlayType, TerrainSpriteLibrary library)
+   {
+       if (_overlayRenderer == null || library == null) return;
+
+       // Если тип не является оверлеем — скрываем рендерер
+       if (!library.IsOverlayTerrain(overlayType))
+       {
+           _overlayRenderer.gameObject.SetActive(false);
+           _overlayRenderer.sprite = null;
+           return;
+       }
+
+       // Берём спрайт и показываем оверлей
+       Sprite sprite = library.GetTerrainSprite(overlayType);
+       if (sprite != null)
+       {
+           _overlayRenderer.sprite = sprite;
+           _overlayRenderer.color = Color.white;
+           _overlayRenderer.gameObject.SetActive(true);
+
+       }
+   }
+
+   // === Legacy-метод для совместимости ===
+   [Obsolete("Use SetBaseTerrain + SetOverlay separately")]
+   public void SetTerrain(TerrainType terrain, TerrainSpriteLibrary library)
+   {
+
+       SetBaseTerrain(terrain, library, null);
+       SetOverlay(TerrainType.None, library);
+
+       if (library.IsOverlayTerrain(terrain))
+       {
+           SetOverlay(terrain, library);
+       }
    }
    
    private void ResetVisuals()
    {
       SetHighlight(false, true);
+      if (_overlayRenderer != null)
+      {
+          _overlayRenderer.gameObject.SetActive(false);
+          _overlayRenderer.sprite = null;
+      }
    }
    
    public void SetHighlight(bool isActive, bool isValid)
@@ -85,7 +174,6 @@ public class CellView : MonoBehaviour
       }
    }
    
-   
    private void OnMouseEnter()
    {
       _onCellHoverEnter.OnNext(this);
@@ -103,7 +191,6 @@ public class CellView : MonoBehaviour
    {
       _onCellClick.OnNext(this);
    }
-
 
    private void OnDestroy()
    {

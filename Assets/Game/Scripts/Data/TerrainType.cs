@@ -2,8 +2,31 @@ using System;
 
 namespace Data
 {
+    namespace Data
+    {
+        public enum GroundType
+        {
+            Meadow,
+            Water
+        }
+
+        public enum OverlayType
+        {
+            None,
+            Stone,
+            Crystal,
+            Grass
+        }
+
+        public class CellState
+        {
+            public GroundType Ground;
+            public OverlayType Overlay;
+        }
+    }
     public enum TerrainType
     {
+        None,
         Meadow,
         Stone,
         Water,

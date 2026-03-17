@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7beeb42a9e5149948a55be7ee9c71e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::View.HandView
-  cardPrefab: {fileID: 0}
-  cardsContainer: {fileID: 0}
-  cardSpacing: 1.2
+  cardPrefab: {fileID: 8534642366920415510, guid: 0f9259d32eeba6746b019bedf3f142cd, type: 3}
+  cardsContainer: {fileID: 1646332426}
+  cardSpacing: 100
   cardOffset: {x: 0, y: 0, z: -0.1}
 --- !u!1 &43256827
 GameObject:
@@ -3072,7 +3072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2144322919
 RectTransform:
   m_ObjectHideFlags: 0

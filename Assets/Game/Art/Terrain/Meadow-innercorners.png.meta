@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 202cecbf82dbb9340b4af0dcbf41ac54
+guid: 62fd755fb1fff5c429045debc03a5b8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -552033525250359963
-    second: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-      (1)_0"
+      213: 981091969555768303
+    second: Meadow-innercorners_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,14 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-        (1)_0"
+      name: Meadow-innercorners_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 100
-        height: 100
+        y: 600
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,21 +141,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56d785ffe68c658f0800000000000000
-      internalID: -552033525250359963
+      spriteID: fe32c51c2f98d9d00800000000000000
+      internalID: 981091969555768303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-        (1)_1"
+      name: Meadow-innercorners_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 100
-        height: 100
+        x: 0
+        y: 400
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,21 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 412b0585e9869db4ea12937bb939aa0b
-      internalID: -1478491689
+      spriteID: 5c8e7de65ff030340bf4f66d91a7ef2a
+      internalID: 1322160733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-        (1)_2"
+      name: Meadow-innercorners_2
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 100
-        height: 100
+        x: 0
+        y: 200
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,21 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f6ab6446d861c4b920d04d50803904
-      internalID: 143657644
+      spriteID: 6d4eeb02fbf8afe4a8b246243249b236
+      internalID: -1271031016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-        (1)_3"
+      name: Meadow-innercorners_3
       rect:
         serializedVersion: 2
-        x: 300
+        x: 0
         y: 0
-        width: 100
-        height: 100
+        width: 200
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,31 +207,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 941e058e82148eb458f5b50fc112d39d
-      internalID: -58031792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B
-        (1)_4"
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9fcd41c245041d348a3c54df4d1599be
-      internalID: 596796613
+      spriteID: d4e0d9f58957fff4d992622409a14356
+      internalID: 2071412528
       vertices: []
       indices: 
       edges: []
@@ -245,7 +217,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 158feeae16930c3479c338a0f6e3915c
+    spriteID: 3e8cd28495b9f5046abf27e71bc1720e
     internalID: 0
     vertices: []
     indices: 
@@ -255,13 +227,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":100.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B (1)_0": -552033525250359963
-      "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B (1)_1": -1478491689
-      "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B (1)_2": 143657644
-      "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B (1)_3": -58031792
-      "\u0417\u0430\u0433\u043B\u0443\u0448\u043A\u0438_\u0442\u0430\u0439\u043B\u044B (1)_4": 596796613
+      Meadow-innercorners_0: 981091969555768303
+      Meadow-innercorners_1: 1322160733
+      Meadow-innercorners_2: -1271031016
+      Meadow-innercorners_3: 2071412528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
