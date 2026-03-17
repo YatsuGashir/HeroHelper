@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour
     void HandlePanning()
     {
         // Проверяем зажатие Правой Кнопки Мыши
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(2))
         {
             float xAxis = Input.GetAxis("Mouse X");
             float yAxis = Input.GetAxis("Mouse Y");
