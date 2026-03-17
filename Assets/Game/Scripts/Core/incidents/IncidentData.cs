@@ -12,6 +12,7 @@ namespace Core.incidents
         public string incidentId;
         public string incidentName;
         public string description;
+        public Sprite incidentSprite;
         
         [Header("Type & Timing")]
         public IncidentType durationType;
@@ -20,7 +21,6 @@ namespace Core.incidents
         public float chancePerTurn; 
 
         [Header("Consequences (The Penalty)")]
-        [Tooltip("Что заберут или сломают, когда время выйдет (или сразу для коротких)")]
         public List<ResourceAmount> resourceLoss;
         
         [Tooltip("Сломать случайное здание? (опционально)")]

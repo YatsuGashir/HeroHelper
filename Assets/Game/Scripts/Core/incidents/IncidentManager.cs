@@ -30,17 +30,12 @@ namespace Game.Scripts.Core.incidents
             _currentTurn = 0;
         }
 
-        /// <summary>
-        /// Вызывается в начале каждого хода (после инкремента счета ходов)
-        /// </summary>
         public void OnTurnStart(int turnNumber)
         {
             _currentTurn = turnNumber;
-
-            // 1. Обработка ДОЛГОСРОЧНЫХ событий (уменьшение таймера)
+            
             ProcessLongTermEvents();
 
-            // 2. Проверка на КРАТКОСРОЧНЫЕ события (рандом)
             TryTriggerShortTermEvent();
         }
 
@@ -60,7 +55,6 @@ namespace Game.Scripts.Core.incidents
                 }
             }
 
-            // Применяем последствия для тех, чей таймер истек
             foreach (var active in eventsToResolve)
             {
                 ApplyConsequences(active.Data);
@@ -102,17 +96,14 @@ namespace Game.Scripts.Core.incidents
             G.Events.LongIncidentStarted.OnNext(active);
         }
 
-        /// <summary>
-        /// Единая логика нанесения урона (для обоих типов)
-        /// </summary>
+
         private void ApplyConsequences(IncidentData data)
         {
             Debug.Log("Применяем дебафф");
-            // 1. Потеря ресурсов
             if (data.resourceLoss != null && data.resourceLoss.Count > 0)
             {
                 Debug.Log("Вычитаем ресурсы");
-                // Создаем список изменений с отрицательными значениями
+
                 var losses = new List<ResourceAmount>();
                 foreach (var res in data.resourceLoss)
                 {
@@ -121,13 +112,11 @@ namespace Game.Scripts.Core.incidents
                 G.ResourceManager.ApplyChanges(losses);
             }
 
-            // 2. Поломка зданий (урон по времени жизни)
             if (data.buildingLifetimeDamage != 0)
             {
                 DamageBuildings(data.buildingLifetimeDamage, data.maxBuildingsToDestroy);
             }
 
-            // 3. Полное уничтожение зданий
             if (data.destroyRandomBuilding)
             {
                 DestroyRandomBuildings(data.maxBuildingsToDestroy);
@@ -139,7 +128,7 @@ namespace Game.Scripts.Core.incidents
             var grid = G.GridSystem.GetGridData();
             int count = 0;
             
-            // Простой проход по всем зданиям
+
             for (int x = 0; x < grid.GetLength(0); x++)
             {
                 for (int y = 0; y < grid.GetLength(1); y++)
@@ -152,7 +141,7 @@ namespace Game.Scripts.Core.incidents
                         cell.building.remaingTime += damage; // damage отрицательный
                         if (cell.building.remaingTime <= 0)
                         {
-                            cell.building = null; // Или пометить на удаление через Factory
+                            G.BuildingFactory.DestroyBuilding(cell.building.x, cell.building.y);
                             G.Events.CellChanged.OnNext(new CellUpdateEventData { X = x, Y = y, State = cell });
                         }
                         count++;

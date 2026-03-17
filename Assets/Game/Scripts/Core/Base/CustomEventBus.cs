@@ -33,8 +33,8 @@ namespace Core.Base
         //ообытия инцидентов
         public Subject<ActiveIncident> LongIncidentUpdated { get; } = new Subject<ActiveIncident>();
         public Subject<ActiveIncident> LongIncidentResolved { get; }  = new Subject<ActiveIncident>();
-        public Subject<IncidentData> ShortIncidentOccurred { get; set; }  = new Subject<IncidentData>();
-        public Subject<ActiveIncident> LongIncidentStarted { get; set; } = new Subject<ActiveIncident>();
+        public Subject<IncidentData> ShortIncidentOccurred { get; }  = new Subject<IncidentData>();
+        public Subject<ActiveIncident> LongIncidentStarted { get; } = new Subject<ActiveIncident>();
 
         public void Dispose()
         {

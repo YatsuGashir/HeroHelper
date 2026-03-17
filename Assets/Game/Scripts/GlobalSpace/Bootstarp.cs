@@ -19,6 +19,7 @@ namespace GlobalSpace
         [SerializeField] private HandView handView;
         [SerializeField] private CurrentSuccessorView currentSuccessorView;
         [SerializeField] private IncidentPanel incidentPanel;
+        [SerializeField] private IncidentInfoPanel incidentInfoPanel;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -38,6 +39,7 @@ namespace GlobalSpace
             handView.Init(G.HandManager);
             currentSuccessorView.Init(G.successionManager);
             
+            incidentInfoPanel.Init();
             incidentPanel.Init();
             
             G.GameManager.StartNewRun(gridView);
