@@ -18,8 +18,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   allSuccessors:
   - {fileID: 11400000, guid: b7b78f7dd24555f45b0575b80573b7c1, type: 2}
+  allIncidents:
+  - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   terrainGenerationParams:
-    seed: 1466904928
+    seed: 879911290
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2

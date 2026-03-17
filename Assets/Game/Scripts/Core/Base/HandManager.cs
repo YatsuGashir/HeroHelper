@@ -148,7 +148,7 @@ namespace Core.Base
         public int Count => _hand.Count;
         public bool IsEmpty => _hand.Count == 0;
         public bool IsFull { get; set; } = false; 
-        public int MaxHandSize { get; set; } = 10; 
+        public int MaxHandSize { get; set; } = 5; 
 
 
         public bool CanAddCard()

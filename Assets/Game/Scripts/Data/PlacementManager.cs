@@ -94,6 +94,7 @@ namespace Data
             {
                 G.BuildingFactory.CreateBuilding(_selectedBuilding, cell.X, cell.Y);
                 
+                G.DeckManager.DiscardCard(_selectedBuilding);
                 G.HandManager.RemoveCard(_selectedBuilding);
         
                 Debug.Log($"[Placement] Здание { _selectedBuilding.name} размещено, карта удалена из руки");

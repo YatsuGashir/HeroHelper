@@ -68,6 +68,7 @@ namespace Core.Base
             Shuffle();
         }
 
+
         public BuildingDefinition DrawCard()
         {
             if (_deck.Count == 0)

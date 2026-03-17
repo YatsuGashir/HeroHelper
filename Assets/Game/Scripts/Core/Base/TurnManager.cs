@@ -11,11 +11,14 @@ public class TurnManager
 
     private BuildingLifecycleManager _lifecycleManager;
     
+    private int _currentTurn;
+    
     public TurnManager()
     {
         _disposables = new CompositeDisposable();
         SubscribeToEvents();
         _lifecycleManager = new BuildingLifecycleManager();
+        _currentTurn = 0;
     }
 
     private void SubscribeToEvents()
@@ -28,8 +31,12 @@ public class TurnManager
     public async UniTask EndTurnAsync()
     {
         Debug.Log("Фаза расчетов...");
-        _lifecycleManager.ProcessEndOfTurn(); 
-        
+        _lifecycleManager.ProcessEndOfTurn();
+
+        G.DeckManager.DrawCardWithReshuffle();
+        G.GameManager.GiveFullHandForTest();
+        _currentTurn++;
+        G.IncidentManager.OnTurnStart(_currentTurn);
         await UniTask.Delay(500);
 
     }

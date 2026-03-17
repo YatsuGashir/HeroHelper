@@ -4,6 +4,7 @@ using Core.Factories;
 using Data;
 using Core.Base;
 using Core.Successors;
+using Game.Scripts.Core.incidents;
 using UnityEngine;
 using View;
 
@@ -28,6 +29,7 @@ namespace GlobalSpace
         public static DeckManager DeckManager { get;  set; }
         public static HandManager HandManager { get;  set; }
         public static SuccessionManager successionManager { get;  set; }
+        public static IncidentManager IncidentManager { get;  set; }
         
         
         public static void Initialize(GameConfig config)
@@ -44,6 +46,7 @@ namespace GlobalSpace
             LifecycleManager = new BuildingLifecycleManager();
             DeckManager = new DeckManager();
             HandManager = new HandManager();
+            IncidentManager = new IncidentManager(Config);
         }
         
         

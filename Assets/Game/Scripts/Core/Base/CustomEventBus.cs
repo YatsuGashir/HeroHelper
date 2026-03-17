@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Core.incidents;
 using Data;
+using Game.Scripts.Core.incidents;
 using UniRx;
 using View;
 
@@ -27,7 +29,13 @@ namespace Core.Base
         
         public Subject<Unit> TurnEndRequested { get; } = new Subject<Unit>();
         public Subject<BuildingInstance> Ticked { get; } = new Subject<BuildingInstance>();
-    
+        
+        //ообытия инцидентов
+        public Subject<ActiveIncident> LongIncidentUpdated { get; } = new Subject<ActiveIncident>();
+        public Subject<ActiveIncident> LongIncidentResolved { get; }  = new Subject<ActiveIncident>();
+        public Subject<IncidentData> ShortIncidentOccurred { get; set; }  = new Subject<IncidentData>();
+        public Subject<ActiveIncident> LongIncidentStarted { get; set; } = new Subject<ActiveIncident>();
+
         public void Dispose()
         {
             CellChanged.Dispose();

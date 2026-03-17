@@ -88,4 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eeb8b95c4a10b43ac90cc420221ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::View.CardView
-  _hoverScale: 3
+  _hoverScale: 1.1
+  _enableLogs: 0

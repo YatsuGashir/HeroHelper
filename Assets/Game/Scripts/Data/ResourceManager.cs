@@ -70,6 +70,56 @@ namespace Core.Base
 
         }
         
+                public void ApplyChanges(List<ResourceAmount> changes)
+        {
+            if (changes == null || changes.Count == 0) return;
+
+            var aggregatedChanges = new Dictionary<ResourceType, int>();
+
+            foreach (var change in changes)
+            {
+                if (!aggregatedChanges.ContainsKey(change.Type))
+                {
+                    aggregatedChanges[change.Type] = 0;
+                }
+                aggregatedChanges[change.Type] += change.Amount;
+            }
+
+            bool hasAnyChange = false;
+
+            foreach (var kvp in aggregatedChanges)
+            {
+                ResourceType type = kvp.Key;
+                int delta = kvp.Value;
+
+                if (!_resources.ContainsKey(type))
+                {
+                    Debug.LogWarning($"Попытка изменить неизвестный ресурс: {type}");
+                    continue;
+                }
+
+                int newValue = _resources[type] + delta;
+
+                if (newValue < 0)
+                {
+                    Debug.Log($"Ресурс {type} не может быть отрицательным ({_resources[type]} + {delta}). Установлено в 0.");
+                    newValue = 0;
+
+                }
+
+                if (_resources[type] != newValue)
+                {
+                    _resources[type] = newValue;
+                    hasAnyChange = true;
+                }
+            }
+
+            if (hasAnyChange)
+            {
+                _onResourcesChanged.OnNext(new Dictionary<ResourceType, int>(_resources));
+            }
+        }
+        
         public bool TrySpend(ResourceCost cost)
         {
             if (!HasEnough(cost)) return false;

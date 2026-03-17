@@ -33,6 +33,8 @@ namespace Core
                 gridView.SyncWithGrid(newGridData); 
             }
             G.successionManager.StartFirstRun();
+            G.IncidentManager.StartRun();
+            G.IncidentManager.StartLongTermEvent(config.allIncidents[0]);
             G.DeckManager.InitializeDeck(G.successionManager.GetStartingHandIds());
             G.DeckManager.Shuffle();
             GiveFullHandForTest(); 

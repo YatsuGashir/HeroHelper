@@ -18,6 +18,7 @@ namespace GlobalSpace
         [SerializeField] private ResourceView resourceView;
         [SerializeField] private HandView handView;
         [SerializeField] private CurrentSuccessorView currentSuccessorView;
+        [SerializeField] private IncidentPanel incidentPanel;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -36,6 +37,8 @@ namespace GlobalSpace
             
             handView.Init(G.HandManager);
             currentSuccessorView.Init(G.successionManager);
+            
+            incidentPanel.Init();
             
             G.GameManager.StartNewRun(gridView);
             
@@ -62,11 +65,6 @@ namespace GlobalSpace
             {
                 G.ResetRun();
                 G.GameManager.StartNewRun(gridView);
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                G.PlacementManager.SelectBuilding(gameConfig.allBuildings[0]);
             }
         }
     }

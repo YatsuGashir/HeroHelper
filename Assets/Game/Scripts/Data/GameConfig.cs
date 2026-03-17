@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.incidents;
 using Data;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Data
         [Header("References")]
         public List<BuildingDefinition> allBuildings;
         public List<SuccessorProfile> allSuccessors;
+        public List<IncidentData> allIncidents;
         
         [Header("Map generation")]
         public TerrainGenerationParams terrainGenerationParams;
