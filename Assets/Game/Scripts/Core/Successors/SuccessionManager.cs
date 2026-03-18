@@ -12,9 +12,11 @@ namespace Core.Successors
         private SuccessorState _currentState;
         private List<SuccessorProfile> _availableProfiles; 
         private List<SuccessorProfile> _historyProfiles;
+        private SuccessionSelector _pendingSelection;
         
         
         public Subject<SuccessorState> OnSuccessorChanged = new Subject<SuccessorState>();
+        public Subject<SuccessionSelector> OnSelectionReady = new Subject<SuccessionSelector>();
         public SuccessorState CurrentState => _currentState;
         
         public SuccessionManager()
@@ -39,24 +41,70 @@ namespace Core.Successors
 
         public void StartNextSuccession(SuccessorProfile forcedProfile = null)
         {
-            if (_currentState != null)
-            {
-                _currentState.Deactivate();
-                _historyProfiles.Add(_currentState.CurrentProfile);
-            }
-
-            SuccessorProfile next;
             if (forcedProfile != null)
             {
-                next = forcedProfile;
+                // Прямой выбор (для событий, скриптов)
+                if (_currentState != null)
+                {
+                    _currentState.Deactivate();
+                    _historyProfiles.Add(_currentState.CurrentProfile);
+                }
+                StartSuccession(forcedProfile, (_currentState?.GenerationNumber ?? 0) + 1);
             }
             else
             {
-                var candidates = _availableProfiles.Where(p => p != _currentState?.CurrentProfile).ToList();
-                next = candidates[UnityEngine.Random.Range(0, candidates.Count)];
+                RequestSuccessorSelection();
+            }
+        }
+        
+        public void RequestSuccessorSelection()
+        {
+            if (_pendingSelection != null && !_pendingSelection.IsResolved)
+            {
+                Debug.LogWarning("[SuccessionManager] Selection already pending!");
+                return;
             }
 
-            StartSuccession(next, (_currentState?.GenerationNumber ?? 0) + 1);
+            _pendingSelection = new SuccessionSelector();
+            var candidates = PickRandomCandidates(3);
+            _pendingSelection.SetCandidates(candidates);
+            
+            OnSelectionReady.OnNext(_pendingSelection);
+            Debug.Log($"[SuccessionManager] Selection ready: {candidates.Count} candidates");
+        }
+        
+        public void ConfirmSelection(SuccessorProfile chosen)
+        {
+            if (_pendingSelection == null || _pendingSelection.IsResolved)
+            {
+                return;
+            }
+
+            _pendingSelection.Choose(chosen);
+            StartSuccession(chosen, (_currentState?.GenerationNumber ?? 0) + 1);
+            _pendingSelection = null;
+        }
+        private List<SuccessorProfile> PickRandomCandidates(int count)
+        {
+            var excluded = new HashSet<SuccessorProfile>();
+
+            if (_currentState?.CurrentProfile != null)
+                excluded.Add(_currentState.CurrentProfile);
+
+            foreach (var profile in _historyProfiles.Take(2))
+                excluded.Add(profile);
+
+            var pool = _availableProfiles.Where(p => !excluded.Contains(p)).ToList();
+
+            if (pool.Count < count)
+                pool = _availableProfiles.Where(p => p != _currentState?.CurrentProfile).ToList();
+
+            var shuffled = pool.OrderBy(x => Random.value).Take(count).ToList();
+
+            if (shuffled.Count == 0 && _availableProfiles.Count > 0)
+                shuffled.Add(_availableProfiles[Random.Range(0, _availableProfiles.Count)]);
+                
+            return shuffled;
         }
 
         public void CanDeath()

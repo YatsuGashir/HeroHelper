@@ -28,7 +28,7 @@ namespace GlobalSpace
         public static BuildingLifecycleManager LifecycleManager { get;  set; }
         public static DeckManager DeckManager { get;  set; }
         public static HandManager HandManager { get;  set; }
-        public static SuccessionManager successionManager { get;  set; }
+        public static SuccessionManager SuccessionManager { get;  set; }
         public static IncidentManager IncidentManager { get;  set; }
         
         
@@ -41,7 +41,7 @@ namespace GlobalSpace
             BuildingFactory = new BuildingFactory();
             PlacementManager = new PlacementManager();
             ResourceManager = new ResourceManager();
-            successionManager = new SuccessionManager();
+            SuccessionManager = new SuccessionManager();
             TurnManager = new TurnManager();
             LifecycleManager = new BuildingLifecycleManager();
             DeckManager = new DeckManager();

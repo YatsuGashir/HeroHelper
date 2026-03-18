@@ -37,7 +37,7 @@ public class TurnManager
         _currentTurn++;
 
         G.IncidentManager.OnTurnStart(_currentTurn);
-        G.successionManager.CanDeath();
+        G.SuccessionManager.CanDeath();
 
         await DrawPhaseAsync();
 

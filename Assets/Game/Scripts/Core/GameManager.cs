@@ -32,10 +32,10 @@ namespace Core
 
                 gridView.SyncWithGrid(newGridData); 
             }
-            G.successionManager.StartFirstRun();
+            G.SuccessionManager.StartFirstRun();
             G.IncidentManager.StartRun();
             G.IncidentManager.StartLongTermEvent(config.allIncidents[0]);
-            G.DeckManager.InitializeDeck(G.successionManager.GetStartingHandIds());
+            G.DeckManager.InitializeDeck(G.SuccessionManager.GetStartingHandIds());
             G.DeckManager.Shuffle();
             
             int startHandSize = 5;

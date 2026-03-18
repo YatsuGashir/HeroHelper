@@ -61,6 +61,7 @@ namespace View
         
         private void ShowPanel(IncidentData data)
         {
+            Time.timeScale = 0;
             incidentInfoPanel.SetActive(true);
             
             if (nameText != null) nameText.text = data.incidentName;
@@ -127,6 +128,7 @@ namespace View
 
         private void ConfirmEvent()
         {
+            Time.timeScale = 1;
             incidentInfoPanel.SetActive(false);
         }
 

@@ -19,11 +19,14 @@ MonoBehaviour:
   allSuccessors:
   - {fileID: 11400000, guid: b7b78f7dd24555f45b0575b80573b7c1, type: 2}
   - {fileID: 11400000, guid: 660ca22feff16ec4b8a216e0efd3845c, type: 2}
+  - {fileID: 11400000, guid: e31b9aaafbfd02b49879aa317c3f7227, type: 2}
+  - {fileID: 11400000, guid: 8b92797d7630bd5488976d9a4c1b1b89, type: 2}
+  - {fileID: 11400000, guid: 4eab12a46468076458dca36ce8b2a350, type: 2}
   allIncidents:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 353f4985301412b4a8c5ee89504f3009, type: 2}
   terrainGenerationParams:
-    seed: 1127472555
+    seed: 799867911
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2
