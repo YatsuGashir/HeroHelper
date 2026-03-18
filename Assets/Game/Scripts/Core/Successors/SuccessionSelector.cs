@@ -1,33 +1,35 @@
 using System.Collections.Generic;
 using Data;
-using UnityEngine;
 
-[System.Serializable]
-public class SuccessionSelector
+namespace Core.Successors
 {
-    public List<SuccessorProfile> Candidates { get; private set; } = new List<SuccessorProfile>(3);
-    public SuccessorProfile Chosen { get; private set; }
-    public bool IsResolved => Chosen != null;
-
-    public void SetCandidates(List<SuccessorProfile> candidates)
+    [System.Serializable]
+    public class SuccessionSelector
     {
-        Candidates.Clear();
-        Candidates.AddRange(candidates);
-        Chosen = null;
-    }
+        public List<SuccessorProfile> Candidates { get; private set; } = new List<SuccessorProfile>(3);
+        public SuccessorProfile Chosen { get; private set; }
+        public bool IsResolved => Chosen != null;
 
-    public void Choose(SuccessorProfile profile)
-    {
-        if (!Candidates.Contains(profile))
+        public void SetCandidates(List<SuccessorProfile> candidates)
         {
-            return;
+            Candidates.Clear();
+            Candidates.AddRange(candidates);
+            Chosen = null;
         }
-        Chosen = profile;
-    }
 
-    public void Clear()
-    {
-        Candidates.Clear();
-        Chosen = null;
+        public void Choose(SuccessorProfile profile)
+        {
+            if (!Candidates.Contains(profile))
+            {
+                return;
+            }
+            Chosen = profile;
+        }
+
+        public void Clear()
+        {
+            Candidates.Clear();
+            Chosen = null;
+        }
     }
 }

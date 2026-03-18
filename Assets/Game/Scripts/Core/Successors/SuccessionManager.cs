@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using Core.Successors;
 using GlobalSpace;
 using UniRx;
 using UnityEngine;
@@ -13,10 +14,12 @@ namespace Core.Successors
         private List<SuccessorProfile> _availableProfiles; 
         private List<SuccessorProfile> _historyProfiles;
         private SuccessionSelector _pendingSelection;
-        
+        private List<SuccessorProfile> _currentCandidates = new List<SuccessorProfile>();
+        public IReadOnlyList<SuccessorProfile> CurrentCandidates => _currentCandidates;
         
         public Subject<SuccessorState> OnSuccessorChanged = new Subject<SuccessorState>();
         public Subject<SuccessionSelector> OnSelectionReady = new Subject<SuccessionSelector>();
+        public Subject<List<SuccessorProfile>> OnCandidatesUpdated = new Subject<List<SuccessorProfile>>();
         public SuccessorState CurrentState => _currentState;
         
         public SuccessionManager()
@@ -36,24 +39,32 @@ namespace Core.Successors
 
             var starter = _availableProfiles[0];
             StartSuccession(starter, 1);
+            
+            GenerateNewCandidates();
         }
 
-
+        private void GenerateNewCandidates()
+        {
+            _currentCandidates = PickRandomCandidates(3);
+            OnCandidatesUpdated.OnNext(_currentCandidates);
+        }
         public void StartNextSuccession(SuccessorProfile forcedProfile = null)
         {
             if (forcedProfile != null)
             {
-                // Прямой выбор (для событий, скриптов)
                 if (_currentState != null)
                 {
                     _currentState.Deactivate();
                     _historyProfiles.Add(_currentState.CurrentProfile);
                 }
+
                 StartSuccession(forcedProfile, (_currentState?.GenerationNumber ?? 0) + 1);
+                
             }
             else
             {
                 RequestSuccessorSelection();
+                GenerateNewCandidates();
             }
         }
         
@@ -66,11 +77,9 @@ namespace Core.Successors
             }
 
             _pendingSelection = new SuccessionSelector();
-            var candidates = PickRandomCandidates(3);
-            _pendingSelection.SetCandidates(candidates);
-            
+            _pendingSelection.SetCandidates(_currentCandidates);
+
             OnSelectionReady.OnNext(_pendingSelection);
-            Debug.Log($"[SuccessionManager] Selection ready: {candidates.Count} candidates");
         }
         
         public void ConfirmSelection(SuccessorProfile chosen)

@@ -21,6 +21,7 @@ namespace GlobalSpace
         [SerializeField] private IncidentPanel incidentPanel;
         [SerializeField] private IncidentInfoPanel incidentInfoPanel;
         [SerializeField] private SuccessorSelectionUI successorSelectionUI;
+        [SerializeField] private FeatureCandidatesView featureCandidatesView;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -39,6 +40,7 @@ namespace GlobalSpace
             
             handView.Init(G.HandManager);
             currentSuccessorView.Init(G.SuccessionManager);
+            featureCandidatesView.Init();
             successorSelectionUI.Init();
             
             incidentInfoPanel.Init();

@@ -1,8 +1,8 @@
-// Assets/Game/Scripts/View/SuccessorSelectionUI.cs
 using System;
 using System.Collections.Generic;
 using Core.Successors;
 using Data;
+using Core.Successors;
 using GlobalSpace;
 using UniRx;
 using UnityEngine;
