@@ -37,31 +37,12 @@ namespace Core
             G.IncidentManager.StartLongTermEvent(config.allIncidents[0]);
             G.DeckManager.InitializeDeck(G.successionManager.GetStartingHandIds());
             G.DeckManager.Shuffle();
-            GiveFullHandForTest(); 
+            
+            int startHandSize = 5;
+            var startCards = G.DeckManager.DrawCardsWithReshuffle(startHandSize);
+            G.HandManager.AddCards(startCards);
         }
         
-        public void GiveFullHandForTest()
-        {
-            // 1. Получаем лимит руки (по умолчанию 10)
-            int maxHandSize = G.HandManager.MaxHandSize;
-    
-            // 2. Считаем, сколько не хватает
-            int cardsNeeded = maxHandSize - G.HandManager.Count;
-    
-            if (cardsNeeded > 0)
-            {
-                // 3. Тянем карты из колоды
-                var drawnCards = G.DeckManager.DrawCards(cardsNeeded);
-        
-                // 4. Добавляем их в руку
-                G.HandManager.AddCards(drawnCards);
-        
-                Debug.Log($"[TEST] Выдано {drawnCards.Count} карт. Всего в руке: {G.HandManager.Count}");
-            }
-            else
-            {
-                Debug.Log("[TEST] Рука уже полная!");
-            }
-        }
+
     }
 }

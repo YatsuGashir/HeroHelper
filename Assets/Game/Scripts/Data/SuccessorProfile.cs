@@ -10,6 +10,8 @@ namespace Data
         public string successorId;
         public string successorName;
         public Sprite portrait;
+
+        public int timeToDeath;
         
         public List<BuildingDefinition> successorDeck;
         

@@ -59,6 +59,17 @@ namespace Core.Successors
             StartSuccession(next, (_currentState?.GenerationNumber ?? 0) + 1);
         }
 
+        public void CanDeath()
+        {
+            _currentState.CurrentLifeTime--;
+            Debug.Log($"Новому наследнику осталось {_currentState.CurrentLifeTime} хода");
+
+            if (_currentState.CurrentLifeTime == 0)
+            {
+                StartNextSuccession();
+            }
+        }
+
         private void StartSuccession(SuccessorProfile profile, int generation)
         {
             _currentState = new SuccessorState();

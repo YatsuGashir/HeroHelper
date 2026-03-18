@@ -21,7 +21,8 @@ namespace View
         [SerializeField] private Image image;
         [SerializeField] private Button confirmButton;
         
-         
+        private bool _isLongIncident = false;
+        private ActiveIncident _currentActiveIncident;
 
         private void Awake()
         {
@@ -33,24 +34,54 @@ namespace View
 
         public void Init()
         {
-            G.Events.LongIncidentStarted.Subscribe(OnIncidentStarted).AddTo(this);
+            G.Events.LongIncidentStarted.Subscribe(OnLongIncidentStarted).AddTo(this);
+            G.Events.ShortIncidentOccurred.Subscribe(OnShortIncidentOccurred).AddTo(this);
         }
 
-        private void OnIncidentStarted(ActiveIncident incident)
+        private void OnLongIncidentStarted(ActiveIncident incident)
         { 
             if (incident == null || incident.Data == null) return;
 
+            _isLongIncident = true;
+            _currentActiveIncident = incident;
+
+            ShowPanel(incident.Data);
+        }
+        
+        private void OnShortIncidentOccurred(IncidentData incident)
+        {
+            if (incident == null) return;
+
+            _isLongIncident = false;
+            _currentActiveIncident = null;
+
+            ShowPanel(incident);
+
+        }
+        
+        private void ShowPanel(IncidentData data)
+        {
             incidentInfoPanel.SetActive(true);
             
-            if (nameText != null) nameText.text = incident.Data.incidentName;
-            if (image != null && incident.Data.incidentSprite != null) image.sprite = incident.Data.incidentSprite;
+            if (nameText != null) nameText.text = data.incidentName;
             
-            string lossDescription = FormatResourceLoss(incident.Data.resourceLoss);
+            if (image != null && data.incidentSprite != null) 
+                image.sprite = data.incidentSprite;
+            else if (image != null)
+                image.color = Color.clear;
+            string lossDescription = FormatResourceLoss(data.resourceLoss);
             
             if (resourceLossText != null)
             {
                 resourceLossText.text = lossDescription;
                 resourceLossText.color = Color.red;
+                resourceLossText.gameObject.SetActive(!string.IsNullOrEmpty(lossDescription) && lossDescription != "Нет прямых потерь ресурсов");
+            }
+
+            if (descriptionText != null)
+            {
+                string prefix = _isLongIncident ? "ПРЕДУПРЕЖДЕНИЕ:\n" : "<color=red>СОБЫТИЕ!</color>\n";
+                descriptionText.text = prefix + data.description;
             }
         }
 

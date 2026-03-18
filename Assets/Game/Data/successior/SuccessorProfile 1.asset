@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de983e4adfec5db47aea2bea30eca48b, type: 3}
-  m_Name: SuccessorProfile
+  m_Name: SuccessorProfile 1
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
-  successorId: aaa
-  successorName: aaa
-  portrait: {fileID: 21300000, guid: d96dd2e7c6e3107419d4cf4f9c338d0a, type: 3}
-  timeToDeath: 4
+  successorId: bbb
+  successorName: bbb
+  portrait: {fileID: -1478491689, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+  timeToDeath: 2
   successorDeck:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
   - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}

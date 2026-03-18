@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Data;
+using GlobalSpace;
 using UniRx;
 using UnityEngine;
 
@@ -166,6 +167,36 @@ namespace Core.Base
             
             DeckCount.Value = _deck.Count;
             DiscardCount.Value = _discardPile.Count;
+        }
+
+        public List<BuildingDefinition> DrawCardsWithReshuffle(int count)
+        {
+            List<BuildingDefinition> result = new List<BuildingDefinition>();
+
+            for (int i = 0; i < count; i++)
+            {
+                if (_deck.Count == 0)
+                {
+                    if (_discardPile.Count > 0)
+                    {
+                        ShuffleDiscardIntoDeck();
+                        Debug.Log("Колода пуста! Сброс перетасован в колоду.");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Колода и сброс пусты! Невозможно вытянуть больше карт.");
+                        break;
+                    }
+                }
+
+                var card = DrawCard();
+                if (card != null)
+                {
+                    result.Add(card);
+                }
+            }
+
+            return result;
         }
 
         public void Dispose()

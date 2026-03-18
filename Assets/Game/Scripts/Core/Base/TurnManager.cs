@@ -30,15 +30,41 @@ public class TurnManager
 
     public async UniTask EndTurnAsync()
     {
-        Debug.Log("Фаза расчетов...");
+        Debug.Log($"=== ЗАВЕРШЕНИЕ ХОДА {_currentTurn} ===");
+
         _lifecycleManager.ProcessEndOfTurn();
 
-        G.DeckManager.DrawCardWithReshuffle();
-        G.GameManager.GiveFullHandForTest();
         _currentTurn++;
-        G.IncidentManager.OnTurnStart(_currentTurn);
-        await UniTask.Delay(500);
 
+        G.IncidentManager.OnTurnStart(_currentTurn);
+        G.successionManager.CanDeath();
+
+        await DrawPhaseAsync();
+
+        await UniTask.Delay(500);
+        
+    }
+    
+    private async UniTask DrawPhaseAsync()
+    {
+        int maxHandSize = G.HandManager.MaxHandSize;
+        int currentHandSize = G.HandManager.Count;
+        
+        if (currentHandSize >= maxHandSize)
+        {
+            return;
+        }
+
+        int cardsToDraw = maxHandSize - currentHandSize;
+        
+        var newCards = G.DeckManager.DrawCardsWithReshuffle(cardsToDraw);
+
+        if (newCards.Count > 0)
+        {
+            G.HandManager.AddCards(newCards);
+        }
+        
+        await UniTask.Delay(1000); 
     }
     
     public void Dispose() => _disposables.Dispose();

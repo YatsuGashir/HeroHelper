@@ -29,8 +29,7 @@ namespace Core.Base
             List<ResourceAmount> totalResourceChanges = new();
             List<CellChange> totalCellChanges = new();
             List<BuildingChange> totalBuildingChanges = new();
-        
-            Debug.Log("Processing end of turn");
+            
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)

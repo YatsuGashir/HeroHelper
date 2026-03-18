@@ -11,7 +11,7 @@ namespace Game.Scripts.Core.incidents
 {
     public class IncidentManager
     {
- private List<IncidentData> _allIncidents;
+        private List<IncidentData> _allIncidents;
         private List<ActiveIncident> _activeLongEvents;
         private int _currentTurn;
 

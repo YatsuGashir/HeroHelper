@@ -18,7 +18,6 @@ namespace View
 
         private void OnButtonClick()
         {
-            Debug.Log("Нажал на кнопку");
             //button.interactable = false;
 
             G.Events.TurnEndRequested.OnNext(Unit.Default);

@@ -21,75 +21,61 @@ namespace View
         private HandManager _handManager;
         private List<Image> _cardViews = new List<Image>();
 
-        /// <summary>
-        /// Инициализация HandView с подключением к HandManager
-        /// </summary>
+
         public void Init(HandManager handManager)
         {
             _handManager = handManager;
             _disposables = new CompositeDisposable();
-
-            // Подписка на изменение состава руки (полная перерисовка)
+            
+            _handManager.HandCards
+                .Subscribe(cards => 
+                {
+                    RefreshHand(); 
+                })
+                .AddTo(_disposables);
+            
+/*
             _handManager.HandCards
                 .Subscribe(OnHandCardsChanged)
                 .AddTo(_disposables);
 
-            // Подписка на добавление карты
             _handManager.OnCardAdded
                 .Subscribe(OnCardAdded)
                 .AddTo(_disposables);
 
-            // Подписка на удаление карты
             _handManager.OnCardRemoved
                 .Subscribe(OnCardRemoved)
                 .AddTo(_disposables);
 
-            // Подписка на очистку руки
             _handManager.OnHandCleared
                 .Subscribe(_ => OnHandCleared())
-                .AddTo(_disposables);
+                .AddTo(_disposables);*/
 
-            // Первичная отрисовка
             RefreshHand();
         }
 
-        /// <summary>
-        /// Полная перерисовка руки (при изменении списка карт)
-        /// </summary>
         private void OnHandCardsChanged(List<BuildingDefinition> cards)
         {
             RefreshHand();
         }
 
-        /// <summary>
-        /// Обработка добавления карты
-        /// </summary>
         private void OnCardAdded(BuildingDefinition card)
         {
             SpawnCard(card);
             UpdateCardsPosition();
         }
 
-        /// <summary>
-        /// Обработка удаления карты
-        /// </summary>
         private void OnCardRemoved(BuildingDefinition card)
         {
             RemoveCardView(card);
             UpdateCardsPosition();
         }
 
-        /// <summary>
-        /// Обработка очистки руки
-        /// </summary>
         private void OnHandCleared()
         {
             ClearAllCards();
         }
 
-        /// <summary>
-        /// Полное обновление отображения руки
-        /// </summary>
         private void RefreshHand()
         {
             ClearAllCards();
@@ -103,9 +89,6 @@ namespace View
             UpdateCardsPosition();
         }
 
-        /// <summary>
-        /// Создать визуальное представление карты
-        /// </summary>
         private void SpawnCard(BuildingDefinition card)
         {
             if (card == null || cardPrefab == null) return;
@@ -115,7 +98,6 @@ namespace View
             go.sprite = card.buildingIcon;
             go.name = $"Card_{card.name}";
 
-            // Добавляем ссылку на карту в компонент для последующего поиска
             var cardView = go.GetComponent<CardView>();
             if (cardView == null)
             {
@@ -128,9 +110,6 @@ namespace View
             G.PlacementManager?.RegisterCard(cardView);
         }
 
-        /// <summary>
-        /// Удалить визуальное представление конкретной карты
-        /// </summary>
         private void RemoveCardView(BuildingDefinition card)
         {
             foreach (var cardView in _cardViews)
@@ -147,9 +126,6 @@ namespace View
             }
         }
 
-        /// <summary>
-        /// Очистить все карты из руки
-        /// </summary>
         private void ClearAllCards()
         {
             foreach (var cardView in _cardViews)
@@ -162,9 +138,6 @@ namespace View
             _cardViews.Clear();
         }
 
-        /// <summary>
-        /// Обновить позиции карт (выстроить в ряд)
-        /// </summary>
         private void UpdateCardsPosition()
         {
             for (int i = 0; i < _cardViews.Count; i++)
@@ -177,17 +150,11 @@ namespace View
             }
         }
 
-        /// <summary>
-        /// Очистка подписок при уничтожении
-        /// </summary>
         private void OnDestroy()
         {
             _disposables?.Dispose();
         }
 
-        /// <summary>
-        /// Принудительная очистка (например, при смене сцены)
-        /// </summary>
         public void Cleanup()
         {
             _disposables?.Dispose();
