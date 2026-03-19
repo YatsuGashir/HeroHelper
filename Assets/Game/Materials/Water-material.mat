@@ -67,17 +67,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 97.16
+    - _CellSize: 190.5
     - _EnableExternalAlpha: 0
-    - _MultiplySize: 2.72
+    - _MultiplySize: 4.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _TimeMultiply: 2
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.19530971, g: 0.4428317, b: 0.7264151, a: 1}
+    - _BaseColor: {r: 0.2981043, g: 0.65048945, b: 0.8207547, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _LightColor: {r: 0.3517711, g: 0.7525311, b: 0.8773585, a: 1}
+    - _LightColor: {r: 0.41006586, g: 0.6799185, b: 0.8962264, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
