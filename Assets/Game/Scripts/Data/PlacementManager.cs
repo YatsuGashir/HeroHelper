@@ -98,8 +98,7 @@ namespace Data
                 G.HandManager.RemoveCard(_selectedBuilding);
         
                 Debug.Log($"[Placement] Здание { _selectedBuilding.name} размещено, карта удалена из руки");
-        
-                // 3. Сбрасываем выбор
+                
                 ClearSelection();
             }
             else

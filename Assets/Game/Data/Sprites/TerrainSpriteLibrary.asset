@@ -54,6 +54,8 @@ MonoBehaviour:
     useAutotile: 0
   - type: 5
     sprite:
-    - {fileID: 596796613, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+    - {fileID: 4129560487790404355, guid: f68c19707cd3cd943bbaaeeef8b92c5c, type: 3}
+    - {fileID: -1619544403879945242, guid: 79af47878f5b8cd409e5bd6152fb53bf, type: 3}
+    - {fileID: 7382720709556204231, guid: 46ba3923006f1144e9109967f96dbae0, type: 3}
     autoTileSprites: []
     useAutotile: 0

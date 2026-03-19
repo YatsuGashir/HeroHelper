@@ -15,7 +15,7 @@ namespace Data
             None,
             Stone,
             Crystal,
-            Grass
+            Threes
         }
 
         public class CellState
@@ -31,7 +31,7 @@ namespace Data
         Stone,
         Water,
         Crystal,
-        Grass,
+        Threes,
     }
     
     [Flags]
@@ -42,7 +42,7 @@ namespace Data
         Stone   = 1 << 1,
         Water   = 1 << 2,
         Crystal = 1 << 3,
-        Grass   = 1 << 4
+        Threes   = 1 << 4
     }
     
     public static class TerrainMaskExtensions

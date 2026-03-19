@@ -14,9 +14,6 @@ namespace Data
         public TerrainMask allowedTerrainTypes;
         //public bool requiresSpecificNeighbor;
         public BuildingTag requiredNeighborTag;
-
-        [Header("Resource Cost")] 
-        public ResourceCost cost;
         
         [Header("Life Cycle")]
         public int lifeCycle;
