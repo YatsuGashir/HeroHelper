@@ -11,8 +11,6 @@ namespace View
     public class CardView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private float _hoverScale = 1.1f;
-        [Header("Debug")]
-        [SerializeField] private bool _enableLogs = true;
 
         public BuildingDefinition CardDefinition { get; private set; }
         
@@ -27,7 +25,6 @@ namespace View
             _originalScale = transform.localScale;
             _cardImage = GetComponent<Image>();
             
-            // Если Image на дочернем объекте, ищем его
             if (_cardImage == null)
             {
                 _cardImage = GetComponentInChildren<Image>();
@@ -35,7 +32,7 @@ namespace View
 
             if (_cardImage != null)
             {
-                _cardImage.raycastTarget = true; // Принудительно включаем
+                _cardImage.raycastTarget = true;
             }
         }
 
@@ -46,23 +43,20 @@ namespace View
             if (_cardImage != null && card != null)
             {
                 _cardImage.sprite = card.buildingIcon;
-                _cardImage.color = Color.white; // Убеждаемся, что карта не прозрачная
+                _cardImage.color = Color.white;
             }
         }
 
         public void OnPointerClick(PointerEventData eventData)
-        {
-            if (_enableLogs) Debug.Log($"[CardView] КЛИК: {CardDefinition?.name}");
+        { ;
             _onCardClick.OnNext(CardDefinition);
         }
         
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_enableLogs) Debug.Log($"[CardView] НАВЕДЕНИЕ: {CardDefinition?.name}");
             
             if (_cardImage == null)
             {
-                if (_enableLogs) Debug.LogWarning("[CardView] Image компонент не найден!");
                 return;
             }
 
@@ -72,7 +66,6 @@ namespace View
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_enableLogs) Debug.Log($"[CardView] УХОД: {CardDefinition?.name}");
             
             transform.DOKill();
             transform.DOScale(_originalScale, 0.15f).SetEase(Ease.OutQuad);

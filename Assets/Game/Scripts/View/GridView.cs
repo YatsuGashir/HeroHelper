@@ -41,6 +41,8 @@ namespace View
                     _cellPool[x, y] = cell;
                 }
             }
+            
+            G.Events.CellChanged.Subscribe(UpdateCell).AddTo(_disposables);
         }
 
         public void SyncWithGrid(CellState[,] gridData)
