@@ -10,29 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
-  m_Name: mycelium
+  m_Name: pileOfStones
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
-  buildingId: mycelium
-  buildingName: mycelium
-  buildingIcon: {fileID: 5540467610723922016, guid: caba2fe1358c74248b665d8d96286f4f, type: 3}
+  buildingId: pile of stones
+  buildingName: pile of stones
+  buildingIcon: {fileID: 5725184139431673129, guid: 66959f1d12017c54b9a2be712c09d354, type: 3}
   allowedTerrainTypes: -1
   requiredNeighborTag: 0
   lifeCycle: 0
   stage2Effect:
     effects: []
   stage3Effect:
-    effects:
-    - rid: 2979482340603723860
-  buildingTags: 33
+    effects: []
+  buildingTags: 0
   references:
     version: 2
-    RefIds:
-    - rid: 2979482340603723860
-      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
-      data:
-        cost:
-          costs:
-          - Type: 3
-            Amount: 2
-        type: 1
-        amount: 4
+    RefIds: []
