@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace View
 {
-    public class BuildingStatusView : MonoBehaviour
+    public class BuildingStatusView : MonoBehaviour, IBuildingView
     {
         [SerializeField] private TMP_Text statusText;
     

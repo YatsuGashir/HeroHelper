@@ -44,9 +44,17 @@ namespace View
 
         private void ClearBuilding(CellView cellView)
         {
-            foreach (Transform child in cellView.transform)
+            var buildingViews = cellView.GetComponentsInChildren<IBuildingView>(true);
+
+            foreach (var buildingView in buildingViews)
             {
-                Destroy(child.gameObject);
+                if (buildingView is Component component)
+                {
+                    if (component.gameObject != cellView.gameObject)
+                    {
+                        Destroy(component.gameObject);
+                    }
+                }
             }
         }
     }

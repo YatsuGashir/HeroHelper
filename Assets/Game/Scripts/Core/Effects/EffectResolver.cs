@@ -30,7 +30,7 @@ namespace Core.Effects
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogError($"Effect error: {effect.debugDescription} {e}");
+                    Debug.LogError($"Effect error: {effect} {e}");
                 }
             }
 

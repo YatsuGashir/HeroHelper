@@ -32,7 +32,7 @@ namespace Core.Base
                     );
 
                     cell.terrainType = noise > p.forestThreshold
-                        ? TerrainType.Grass
+                        ? TerrainType.Threes
                         : TerrainType.Meadow;
 
                     grid[x, y] = cell;

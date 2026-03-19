@@ -30,5 +30,6 @@ namespace Core.Effects
             CurrentResources = resources;
             Result = new EffectResult();
         }
+        
     }
 }

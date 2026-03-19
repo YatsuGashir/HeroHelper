@@ -9,16 +9,32 @@ namespace Core.Factories
     {
         public bool CanPlaceBuilding(BuildingDefinition definition, int x, int y)
         {
-            if (definition == null) return false;
+            if (definition == null)
+            {
+                Debug.Log("Нет здания");
+                return false;
+            }
 
             var cell = G.GridSystem.GetCell(x, y);
-            if (cell == null) return false;
-            
-            if (cell.isOccupied || cell.building != null) return false;
+            if (cell == null)
+            {
+                Debug.Log("Клетка нуль");
+                return false;
+            }
+
+            if (cell.isOccupied || cell.building != null)
+            {
+                Debug.Log("Клетка занята или стоит здание");
+                return false;
+            }
             
             bool terrainAllowed = definition.allowedTerrainTypes.Contains(cell.terrainType);
-           
-            if (!terrainAllowed) return false;
+
+            if (!terrainAllowed)
+            {
+                Debug.Log("Не тот тип клетки");
+                return false;
+            }
 
             // добавить проверку соседей
             
@@ -62,6 +78,7 @@ namespace Core.Factories
             
 
             cell.building = null;
+            cell.isOccupied = false;
 
             
             G.Events.CellChanged.OnNext(new CellUpdateEventData

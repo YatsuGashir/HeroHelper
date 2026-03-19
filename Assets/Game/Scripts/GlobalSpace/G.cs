@@ -30,6 +30,7 @@ namespace GlobalSpace
         public static HandManager HandManager { get;  set; }
         public static SuccessionManager SuccessionManager { get;  set; }
         public static IncidentManager IncidentManager { get;  set; }
+        public static TickModifierManager  TickModifierManager { get;  set; }
         
         
         public static void Initialize(GameConfig config)
@@ -38,6 +39,7 @@ namespace GlobalSpace
             GridSystem = new GridSystem();
             GameManager = new GameManager();
             Events = new CustomEventBus();
+            TickModifierManager =  new TickModifierManager();
             BuildingFactory = new BuildingFactory();
             PlacementManager = new PlacementManager();
             ResourceManager = new ResourceManager();

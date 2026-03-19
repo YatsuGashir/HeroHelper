@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: pileOfStones
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: pile of stones
+  buildingName: pile of stones
+  buildingIcon: {fileID: 5725184139431673129, guid: 66959f1d12017c54b9a2be712c09d354, type: 3}
+  allowedTerrainTypes: -1
+  requiredNeighborTag: 0
+  lifeCycle: 0
+  stage2Effect:
+    effects: []
+  stage3Effect:
+    effects: []
+  buildingTags: 0
+  references:
+    version: 2
+    RefIds: []
