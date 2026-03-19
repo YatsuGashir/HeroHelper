@@ -48,25 +48,27 @@ namespace Data
 
         public bool Tick()
         {
-            Debug.Log("Тик идёт");
             if (stage != BuildingStage.Stage2) 
                 return false;
-    
+
+            int delta = 1; // базовое старение
+
+            delta += G.TickModifierManager.GetLifeDelta(this);
+
+            remaingTime -= delta;
+
             if (remaingTime > 0)
             {
-                Debug.Log("Осталось "+ remaingTime);
-                remaingTime--;
                 G.Events.Ticked.OnNext(this);
                 return false;
             }
-            
+
             stage = BuildingStage.Stage3Trasformation;
-    
-            Debug.Log($"[Building] Stage 2 completed at ({x},{y}), moving to Stage 3");
+
             G.Events.Ticked.OnNext(this);
             G.Events.BuildingStageChanged.OnNext(this);
-    
-            return true; 
+
+            return true;
         }
     }
 }
