@@ -26,12 +26,12 @@ namespace Data
     }
     public enum TerrainType
     {
-        None,
-        Meadow,
-        Stone,
-        Water,
-        Crystal,
-        Threes,
+        None    = 0,
+        Meadow  = 1,
+        Stone   = 2,
+        Water   = 4,
+        Crystal = 8,
+        Threes  = 16,
     }
     
     [Flags]
@@ -49,7 +49,8 @@ namespace Data
     {
         public static bool Contains(this TerrainMask mask, TerrainType terrain)
         {
-            return (mask & (TerrainMask)(1 << (int)terrain)) != 0;
+            if (terrain == TerrainType.None) return false;
+            return (mask & (TerrainMask)terrain) != 0;
         }
     }
 }
