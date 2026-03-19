@@ -16,26 +16,26 @@ MonoBehaviour:
   - type: 1
     sprite: []
     autoTileSprites:
-    - {fileID: 2134148509, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 360997336, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 385946349, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 376551768, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -959817941, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -81152198, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 1971589289, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 1653170927, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 191441924, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -1432485848, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -686338375, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -879412420, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -1834669362, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: 1668707415, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -474687310, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -1292586938, guid: f7e0c798e7df899418e76735f71323d3, type: 3}
-    - {fileID: -1745498467, guid: 08225b52e592abc408a60ba5b548967e, type: 3}
-    - {fileID: -864635072, guid: 08225b52e592abc408a60ba5b548967e, type: 3}
-    - {fileID: -1718142421, guid: 08225b52e592abc408a60ba5b548967e, type: 3}
-    - {fileID: 1183606463, guid: 08225b52e592abc408a60ba5b548967e, type: 3}
+    - {fileID: -200706754, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1589425155, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: -1195452303, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1707626765, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 9078822206214338704, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 914049286, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1839453946429424755, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1818065281, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: -1079310479, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 444182056, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1142709757, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1731971011, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 8395035123030963460, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1198217626, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: -858204740801193290, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 2122859902, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: -1490937030, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 1562049515, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: 2112220836, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
+    - {fileID: -5618505608035358409, guid: 4092d32ecd6abb94ab8c43a32ebbacba, type: 3}
     useAutotile: 1
   - type: 2
     sprite:

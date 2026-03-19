@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcf89648a214ba14590437d081a72731
+guid: 4092d32ecd6abb94ab8c43a32ebbacba
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 8395035123030963460
     second: Meadow-tiles_3
+  - first:
+      213: -5618505608035358409
+    second: Meadow-tiles_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -107,19 +110,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -226,8 +216,8 @@ TextureImporter:
       name: Meadow-tiles_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 400
+        x: 800
+        y: 600
         width: 200
         height: 200
       alignment: 0
@@ -236,10 +226,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2999c3f6edee78243a3145df1aa3c14a
-      internalID: -397959430
+      spriteID: 7392388eaee0702b0800000000000000
+      internalID: -5618505608035358409
       vertices: []
       indices: 
       edges: []
@@ -248,7 +238,7 @@ TextureImporter:
       name: Meadow-tiles_5
       rect:
         serializedVersion: 2
-        x: 200
+        x: 0
         y: 400
         width: 200
         height: 200
@@ -260,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5030f571e748be74abce2cdff437179f
-      internalID: -1108397766
+      spriteID: 9729b932b8e0504489fbf1d007d37b70
+      internalID: 914049286
       vertices: []
       indices: 
       edges: []
@@ -270,7 +260,7 @@ TextureImporter:
       name: Meadow-tiles_6
       rect:
         serializedVersion: 2
-        x: 400
+        x: 200
         y: 400
         width: 200
         height: 200
@@ -282,8 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 132fa30844fe50d4c87ff5a7cc1d1a8d
-      internalID: 1896172569
+      spriteID: b51a7bdd15d7e5a42bb608fa5f877b8d
+      internalID: 1818065281
       vertices: []
       indices: 
       edges: []
@@ -292,6 +282,28 @@ TextureImporter:
       name: Meadow-tiles_7
       rect:
         serializedVersion: 2
+        x: 400
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a258917f21b904cb918358418e9452
+      internalID: 2122859902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meadow-tiles_8
+      rect:
+        serializedVersion: 2
         x: 600
         y: 400
         width: 200
@@ -304,30 +316,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce4e2e61486a81e4abd86482ba109b28
-      internalID: 411619985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Meadow-tiles_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 200
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48e1b74b13e064d40945d1b00f9e3819
-      internalID: 122254317
+      spriteID: e6eb53a82c7322d4092b5225e52518d3
+      internalID: 1198217626
       vertices: []
       indices: 
       edges: []
@@ -336,6 +326,50 @@ TextureImporter:
       name: Meadow-tiles_9
       rect:
         serializedVersion: 2
+        x: 800
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1513de5d917a7e43a056e3df68fee7c
+      internalID: 2112220836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meadow-tiles_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38001db27c95e5542a7d66c39d2a5628
+      internalID: 1589425155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meadow-tiles_11
+      rect:
+        serializedVersion: 2
         x: 200
         y: 200
         width: 200
@@ -348,14 +382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 724ca31a0f77da74da72046995a9fc57
-      internalID: -834134045
+      spriteID: b8b6c1c302fb09641825ba3d77d5775f
+      internalID: 1707626765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_10
+      name: Meadow-tiles_12
       rect:
         serializedVersion: 2
         x: 400
@@ -370,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be22ca74acadd434bbadd125d742a59f
-      internalID: 1028639983
+      spriteID: ce734302ed4dc594d9dcb6d28b2d3116
+      internalID: 1731971011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_11
+      name: Meadow-tiles_13
       rect:
         serializedVersion: 2
         x: 600
@@ -392,14 +426,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3522f46ea62942a478a2668fece81fd2
-      internalID: -1034663192
+      spriteID: a462f88370b92ab4da6bff0b41cf5675
+      internalID: 444182056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_12
+      name: Meadow-tiles_14
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1610121c9e3149b478cdabd8d24b9a66
+      internalID: -1490937030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meadow-tiles_15
       rect:
         serializedVersion: 2
         x: 0
@@ -414,14 +470,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287c622aeae1be7499c9e942d2a048c5
-      internalID: 896134836
+      spriteID: b9293bbeb9dee4340a414fdba7dec183
+      internalID: -200706754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_13
+      name: Meadow-tiles_16
       rect:
         serializedVersion: 2
         x: 200
@@ -436,14 +492,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1127efa1db8c6e94b9a2798e8477e159
-      internalID: 1648290167
+      spriteID: 683f6c808281c8a4892a5916fc300816
+      internalID: -1195452303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_14
+      name: Meadow-tiles_17
       rect:
         serializedVersion: 2
         x: 400
@@ -458,14 +514,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3074d477987cf784188117f582b4a1c4
-      internalID: -172915901
+      spriteID: 603527ed50d76954894ffb0569faec5a
+      internalID: 1142709757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Meadow-tiles_15
+      name: Meadow-tiles_18
       rect:
         serializedVersion: 2
         x: 600
@@ -480,8 +536,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51376008d3293934a8fded67ee53b0d0
-      internalID: -961510832
+      spriteID: b2593563aef1a9841b1b149c189864a5
+      internalID: -1079310479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meadow-tiles_19
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 383872bbe2fcce3428193bdf068f7fe3
+      internalID: 1562049515
       vertices: []
       indices: 
       edges: []
@@ -490,7 +568,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e69eb5abf1e874443a0466801099a3fc
+    spriteID: 2b544eedb9ab23948ac3556c6b9113a8
     internalID: 0
     vertices: []
     indices: 
@@ -504,20 +582,24 @@ TextureImporter:
     nameFileIdTable:
       Meadow-tiles_0: 9078822206214338704
       Meadow-tiles_1: 1839453946429424755
-      Meadow-tiles_10: 1028639983
-      Meadow-tiles_11: -1034663192
-      Meadow-tiles_12: 896134836
-      Meadow-tiles_13: 1648290167
-      Meadow-tiles_14: -172915901
-      Meadow-tiles_15: -961510832
+      Meadow-tiles_10: 1589425155
+      Meadow-tiles_11: 1707626765
+      Meadow-tiles_12: 1731971011
+      Meadow-tiles_13: 444182056
+      Meadow-tiles_14: -1490937030
+      Meadow-tiles_15: -200706754
+      Meadow-tiles_16: -1195452303
+      Meadow-tiles_17: 1142709757
+      Meadow-tiles_18: -1079310479
+      Meadow-tiles_19: 1562049515
       Meadow-tiles_2: -858204740801193290
       Meadow-tiles_3: 8395035123030963460
-      Meadow-tiles_4: -397959430
-      Meadow-tiles_5: -1108397766
-      Meadow-tiles_6: 1896172569
-      Meadow-tiles_7: 411619985
-      Meadow-tiles_8: 122254317
-      Meadow-tiles_9: -834134045
+      Meadow-tiles_4: -5618505608035358409
+      Meadow-tiles_5: 914049286
+      Meadow-tiles_6: 1818065281
+      Meadow-tiles_7: 2122859902
+      Meadow-tiles_8: 1198217626
+      Meadow-tiles_9: 2112220836
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
