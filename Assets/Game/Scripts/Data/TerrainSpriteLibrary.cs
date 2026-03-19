@@ -16,12 +16,29 @@ namespace Data
         }
 
         public List<SpriteEntry> terrainSprites;
+        
+        private Dictionary<TerrainType, int> _lastUsedIndices = new Dictionary<TerrainType, int>();
 
         public Sprite GetTerrainSprite(TerrainType type)
         {
             var entry = terrainSprites.Find(e => e.type == type);
-            if (entry == null || entry.sprite == null || entry.sprite.Count == 0) return null;
-            return entry.sprite[Random.Range(0, entry.sprite.Count)];
+            
+            if (entry == null || entry.sprite == null || entry.sprite.Count == 0) 
+                return null;
+            if (entry.sprite.Count == 1)
+                return entry.sprite[0];
+            int lastIndex = _lastUsedIndices.TryGetValue(type, out var last) ? last : -1;
+
+            int newIndex = Random.Range(0, entry.sprite.Count);
+
+            if (entry.sprite.Count > 1 && newIndex == lastIndex)
+            {
+                newIndex = (newIndex + 1) % entry.sprite.Count;
+            }
+
+            _lastUsedIndices[type] = newIndex;
+
+            return entry.sprite[newIndex];
         }
 
         public Sprite GetAutotileSprite(TerrainType type, int autotileIndex)
@@ -42,6 +59,6 @@ namespace Data
         // Типы для оверлей-рендерера
         public bool IsOverlayTerrain(TerrainType type) => 
             type == TerrainType.Stone || 
-            type == TerrainType.Crystal || type == TerrainType.Grass;
+            type == TerrainType.Crystal || type == TerrainType.Threes;
     }
 }

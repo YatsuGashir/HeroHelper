@@ -54,6 +54,28 @@ public class CellView : MonoBehaviour
       transform.position = new Vector3(x, y, 0);
       gameObject.name = $"Cell_{x}_{y}";
       ResetVisuals();
+      UpdateSortingOrder();
+   }
+   
+   private int _baseSortingOrder = 2; 
+   private void UpdateSortingOrder()
+   {
+       
+       int calculatedOrder = _baseSortingOrder - Y;
+
+       if (_baseRenderer != null)
+           _baseRenderer.sortingOrder = calculatedOrder;
+
+       if (_overlayRenderer != null)
+       {
+           _overlayRenderer.sortingOrder = calculatedOrder + 1;
+       }
+
+       if (_highlightRenderer != null)
+       {
+           _highlightRenderer.sortingOrder = calculatedOrder + 2;
+       }
+
    }
 
    // === Установка базового тайла (Meadow с autotile или Water) ===

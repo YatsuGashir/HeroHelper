@@ -33,12 +33,13 @@ public class TurnManager
         Debug.Log($"=== ЗАВЕРШЕНИЕ ХОДА {_currentTurn} ===");
 
         _lifecycleManager.ProcessEndOfTurn();
-
+    
         _currentTurn++;
-
+        await UniTask.Delay(500);
         G.IncidentManager.OnTurnStart(_currentTurn);
+        await UniTask.Delay(500);
         G.SuccessionManager.CanDeath();
-
+        await UniTask.Delay(500);
         await DrawPhaseAsync();
 
         await UniTask.Delay(500);

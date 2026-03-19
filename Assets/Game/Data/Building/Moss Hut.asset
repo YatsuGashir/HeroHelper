@@ -14,35 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: Moss Hut
   buildingName: Moss Hut
-  buildingIcon: {fileID: 21300000, guid: 9b19edeab1298cc468ab794373f31cd9, type: 3}
-  allowedTerrainTypes: -1
+  buildingIcon: {fileID: -8052348218355767564, guid: 75281d2de67fbe348a64603073ac732d, type: 3}
+  allowedTerrainTypes: 1
   requiredNeighborTag: 0
-  cost:
-    costs: []
-  lifeCycle: 2
+  lifeCycle: 10
   stage2Effect:
     effects:
     - rid: 2979482294196633696
   stage3Effect:
     effects:
-    - rid: 2979482294196633697
-  buildingTags: 0
+    - rid: 2979482340603723856
+  buildingTags: 33
   references:
     version: 2
     RefIds:
     - rid: 2979482294196633696
       type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
-        debugDescription: 
         cost:
-          costs: []
+          costs:
+          - Type: 3
+            Amount: 2
+          - Type: 5
+            Amount: 2
         type: 1
-        amount: 5
-    - rid: 2979482294196633697
-      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+        amount: 3
+    - rid: 2979482340603723856
+      type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
       data:
-        debugDescription: 
-        cost:
-          costs: []
-        type: 5
-        amount: 5
+        Definition: {fileID: 11400000, guid: 173a052c9f1694b41aa9a8ea42c757a9, type: 2}

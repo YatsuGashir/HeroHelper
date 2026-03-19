@@ -18,8 +18,8 @@ MonoBehaviour:
   timeToDeath: 4
   successorDeck:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
-  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
-  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
+  - {fileID: 11400000, guid: 64e22d3666661b14294f75b065d26f04, type: 2}
+  - {fileID: 11400000, guid: 64e22d3666661b14294f75b065d26f04, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
@@ -27,5 +27,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1d8366d4aa24af4488d2bf81bcefddf9, type: 2}
+  - {fileID: 11400000, guid: 1d8366d4aa24af4488d2bf81bcefddf9, type: 2}

@@ -67,6 +67,8 @@ namespace Core.Base
             }
             ApplyResults(totalResourceChanges, totalCellChanges, totalBuildingChanges);
         
+            G.TickModifierManager.Tick();
+            
             G.Events.ResourceChanged.OnNext(G.ResourceManager.GetResources());
         }
         private void ApplyResults(

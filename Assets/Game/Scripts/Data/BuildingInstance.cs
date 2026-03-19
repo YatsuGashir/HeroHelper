@@ -23,8 +23,16 @@ namespace Data
             x = xCord;
             y = yCord;
 
-            stage = BuildingStage.Stage2;
+            
             remaingTime = definition.lifeCycle;
+            if (remaingTime > 0)
+            {
+                stage = BuildingStage.Stage2;
+            }
+            else
+            {
+                stage = BuildingStage.Stage3;
+            }
             
             _definition = definition;
         }
@@ -41,32 +49,34 @@ namespace Data
             {
                 //BuildingStage.Stage1 => def.stage1Effect,
                 BuildingStage.Stage2 => def.stage2Effect,
-                BuildingStage.Stage3Trasformation => def.stage3Effect,
+                BuildingStage.Stage3 => def.stage3Effect,
                 _ => null
             };
         }
 
         public bool Tick()
         {
-            Debug.Log("Тик идёт");
             if (stage != BuildingStage.Stage2) 
                 return false;
-    
+
+            int delta = 1;
+
+            delta += G.TickModifierManager.GetLifeDelta(this);
+
+            remaingTime -= delta;
+
             if (remaingTime > 0)
             {
-                Debug.Log("Осталось "+ remaingTime);
-                remaingTime--;
                 G.Events.Ticked.OnNext(this);
                 return false;
             }
-            
-            stage = BuildingStage.Stage3Trasformation;
-    
-            Debug.Log($"[Building] Stage 2 completed at ({x},{y}), moving to Stage 3");
+
+            stage = BuildingStage.Stage3;
+
             G.Events.Ticked.OnNext(this);
             G.Events.BuildingStageChanged.OnNext(this);
-    
-            return true; 
+
+            return true;
         }
     }
 }

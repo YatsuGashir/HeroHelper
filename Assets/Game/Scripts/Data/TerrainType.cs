@@ -15,7 +15,7 @@ namespace Data
             None,
             Stone,
             Crystal,
-            Grass
+            Threes
         }
 
         public class CellState
@@ -26,12 +26,12 @@ namespace Data
     }
     public enum TerrainType
     {
-        None,
-        Meadow,
-        Stone,
-        Water,
-        Crystal,
-        Grass,
+        None    = 0,
+        Meadow  = 1,
+        Stone   = 2,
+        Water   = 4,
+        Crystal = 8,
+        Threes  = 16,
     }
     
     [Flags]
@@ -42,14 +42,15 @@ namespace Data
         Stone   = 1 << 1,
         Water   = 1 << 2,
         Crystal = 1 << 3,
-        Grass   = 1 << 4
+        Threes   = 1 << 4
     }
     
     public static class TerrainMaskExtensions
     {
         public static bool Contains(this TerrainMask mask, TerrainType terrain)
         {
-            return (mask & (TerrainMask)(1 << (int)terrain)) != 0;
+            if (terrain == TerrainType.None) return false;
+            return (mask & (TerrainMask)terrain) != 0;
         }
     }
 }

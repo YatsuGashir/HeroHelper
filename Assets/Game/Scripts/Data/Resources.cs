@@ -12,8 +12,9 @@ namespace Data
         Spore,
         Stone, 
         Water, 
-        Crystal,
-        Food
+        Wood,
+        Food,
+        Crystal
     }
 
     [Flags]
@@ -34,7 +35,7 @@ namespace Data
     {
         Stage1,
         Stage2,
-        Stage3Trasformation
+        Stage3
     }
 
     [Serializable]

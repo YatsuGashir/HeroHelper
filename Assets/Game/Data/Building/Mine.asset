@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: Mine
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: Mine
+  buildingName: Mine
+  buildingIcon: {fileID: -1093897896430776101, guid: 2cef1a8115e44db4cbad376f60ad9b71, type: 3}
+  allowedTerrainTypes: 2
+  requiredNeighborTag: 0
+  lifeCycle: 2
+  stage2Effect:
+    effects:
+    - rid: 2979482340603723891
+  stage3Effect:
+    effects:
+    - rid: 2979482340603723892
+    - rid: 2979482340603723893
+  buildingTags: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482340603723891
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        cost:
+          costs:
+          - Type: 1
+            Amount: 1
+        type: 2
+        amount: 3
+    - rid: 2979482340603723892
+      type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        affectedTag: 0
+        lifetimeChange: -3
+    - rid: 2979482340603723893
+      type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Definition: {fileID: 11400000, guid: c1f864e7a67236d4ca1029f31bb92145, type: 2}
