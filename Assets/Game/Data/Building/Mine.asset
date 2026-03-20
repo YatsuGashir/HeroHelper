@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: Mine
   buildingName: Mine
-  buildingIcon: {fileID: -1093897896430776101, guid: 2cef1a8115e44db4cbad376f60ad9b71, type: 3}
+  buildingIcon: {fileID: 8135663367076951168, guid: bc2debd184be44c47a0a9752218b0c90, type: 3}
   allowedTerrainTypes: 2
   requiredNeighborTag: 0
   lifeCycle: 2
