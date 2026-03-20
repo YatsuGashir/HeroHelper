@@ -19,11 +19,16 @@ namespace Data
         [Header("Grid Settings")]
         public int gridWidth;
         public int gridHeight;
-    
-        [Header("Economy")]
-        public int baseHandSize;
-        public int cardsDrawnPerTurn;
-    
+
+        [Header("Successor Look variants")] 
+        public List<Sprite> headSprites;
+        public List<Sprite> faceSprites;
+        public List<Sprite> bodySprites;
+
+        //[Header("Economy")]
+        //public int baseHandSize;
+        //public int cardsDrawnPerTurn;
+
         //[Header("Difficulty Scaling")]
         //добавить связь с событиями
     }

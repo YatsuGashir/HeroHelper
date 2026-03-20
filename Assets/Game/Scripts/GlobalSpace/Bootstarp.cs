@@ -40,11 +40,13 @@ namespace GlobalSpace
             
             handView.Init(G.HandManager);
             currentSuccessorView.Init(G.SuccessionManager);
-            featureCandidatesView.Init();
             successorSelectionUI.Init();
+            featureCandidatesView.Init();
             
             incidentInfoPanel.Init();
             incidentPanel.Init();
+            
+            await UniTask.Yield(); 
             
             G.GameManager.StartNewRun(gridView);
             

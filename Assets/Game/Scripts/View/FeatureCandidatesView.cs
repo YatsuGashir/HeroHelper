@@ -9,14 +9,17 @@ namespace View
 {
     public class FeatureCandidatesView : MonoBehaviour
     {
-        [SerializeField] private List<Image>  CandidatesIcon;
+        [SerializeField] private List<RectTransform>  CandidatesIconAnchor;
         
         private CompositeDisposable _disposables;
+        private List<GameObject> _currentPortrait = new List<GameObject>();
 
         public void Init()
         {
             _disposables = new CompositeDisposable();
 
+            _currentPortrait = new List<GameObject>(new GameObject[CandidatesIconAnchor?.Count ?? 0]);
+            
             G.SuccessionManager.OnCandidatesUpdated
                 .Subscribe(UpdateView)
                 .AddTo(_disposables);
@@ -24,16 +27,19 @@ namespace View
 
         private void UpdateView(List<SuccessorProfile> candidates)
         {
-            for (int i = 0; i < CandidatesIcon.Count; i++)
+            for (int i = 0; i <  CandidatesIconAnchor.Count; i++)
             {
                 if (i < candidates.Count)
                 {
-                    CandidatesIcon[i].sprite = candidates[i].portrait;
-                    CandidatesIcon[i].gameObject.SetActive(true);
+                    Destroy(_currentPortrait[i]);
+                    _currentPortrait[i] =G.SuccessorFaceBuilder.BuildSuccessor(candidates[i]);
+                    _currentPortrait[i].transform.SetParent(CandidatesIconAnchor[i],  false);
+                    _currentPortrait[i].transform.localPosition = Vector3.zero;
+                    CandidatesIconAnchor[i].gameObject.SetActive(true);
                 }
                 else
                 {
-                    CandidatesIcon[i].gameObject.SetActive(false);
+                    CandidatesIconAnchor[i].gameObject.SetActive(false);
                 }
             }
         }

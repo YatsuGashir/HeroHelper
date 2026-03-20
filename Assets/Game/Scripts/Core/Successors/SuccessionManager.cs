@@ -31,7 +31,10 @@ namespace Core.Successors
         private void LoadProfiles()
         {
             _availableProfiles = G.Config.allSuccessors;
-
+            foreach (var profile in _availableProfiles)
+            {
+                profile.GenerateVisualSeed();
+            }
         }
         
          public void StartFirstRun()

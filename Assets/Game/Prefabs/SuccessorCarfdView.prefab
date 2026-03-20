@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cad886783424f946b97bd9bb2ef33fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuccessorCardView
-  _portrait: {fileID: 1850691230883066055}
+  _portraitAnchor: {fileID: 432951590270365595}
   _nameText: {fileID: 6318301597286298165}
   _lifespanText: {fileID: 8235051221431011234}
   _selectButton: {fileID: 4246750105874266600}

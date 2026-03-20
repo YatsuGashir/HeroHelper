@@ -31,6 +31,7 @@ namespace GlobalSpace
         public static SuccessionManager SuccessionManager { get;  set; }
         public static IncidentManager IncidentManager { get;  set; }
         public static TickModifierManager  TickModifierManager { get;  set; }
+        public static SuccessorFaceBuilder SuccessorFaceBuilder { get;  set; }
         
         
         public static void Initialize(GameConfig config)
@@ -44,6 +45,7 @@ namespace GlobalSpace
             PlacementManager = new PlacementManager();
             ResourceManager = new ResourceManager();
             SuccessionManager = new SuccessionManager();
+            SuccessorFaceBuilder = new SuccessorFaceBuilder(config.headSprites, config.faceSprites,  config.bodySprites);
             TurnManager = new TurnManager();
             LifecycleManager = new BuildingLifecycleManager();
             DeckManager = new DeckManager();

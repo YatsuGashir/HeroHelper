@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 353f4985301412b4a8c5ee89504f3009, type: 2}
   terrainGenerationParams:
-    seed: 799867911
+    seed: 1167049162
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2
@@ -38,5 +38,19 @@ MonoBehaviour:
     crystalChance: 0.15
   gridWidth: 50
   gridHeight: 50
-  baseHandSize: 1
-  cardsDrawnPerTurn: 1
+  headSprites:
+  - {fileID: -15010592504469569, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
+  - {fileID: -6817055215115558570, guid: f90457e7bb05166419d2988259d2d71f, type: 3}
+  - {fileID: 6501884530696578183, guid: 4913ca10cb0dd1341b4f0181b7fd3769, type: 3}
+  - {fileID: -4612184266790696760, guid: fdea41550e808014e9db1a321b51e655, type: 3}
+  - {fileID: -6561189182595476402, guid: 8776ae9064e2ebd48b649d91662adbbd, type: 3}
+  faceSprites:
+  - {fileID: 3339935832689807930, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
+  - {fileID: 2122089843114098278, guid: f1df103afdbf2234481f6f30bd83c243, type: 3}
+  - {fileID: -5343335289217629083, guid: 2681e7a4c5d5e0549b78af131cf20679, type: 3}
+  - {fileID: -7288421860349223093, guid: dc244cc51f83f9442a804761d4ebc688, type: 3}
+  - {fileID: 3526833687614617459, guid: 2966e1b43b0cee749b4d8fe99809a6e0, type: 3}
+  - {fileID: 7330501059305547962, guid: c64f26843aa83484ea2223e847557534, type: 3}
+  - {fileID: -7284879750280097606, guid: ff71dac0d4d80294195f2fd338cb51da, type: 3}
+  bodySprites:
+  - {fileID: -1721480172531217584, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
