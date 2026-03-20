@@ -128,10 +128,13 @@ namespace View
         // Пересчёт autotile у 4 соседей при изменении клетки
         private void UpdateMeadowNeighborsAutotile(int centerX, int centerY)
         {
-            int[] dx = { 0, 1, 0, -1 };
-            int[] dy = { 1, 0, -1, 0 };
+            //int[] dx = { 0, 1, 0, -1 };
+            //int[] dy = { 1, 0, -1, 0 };
             
-            for (int i = 0; i < 4; i++)
+            int[] dx = { -1 , 0, 1, -1, 1, -1, 0, 1 };
+            int[] dy = { -1, -1, -1, 0, 0, 1, 1, 1 };
+            
+            for (int i = 0; i < 8; i++)
             {
                 int nx = centerX + dx[i], ny = centerY + dy[i];
                 if (nx >= 0 && nx < _width && ny >= 0 && ny < _height && 

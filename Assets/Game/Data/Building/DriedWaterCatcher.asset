@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: DriedWaterCatcher
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: DriedWater
+  buildingName: "\u0432\u044B\u0441\u0445\u0448\u0438\u0439 \u0440\u043E\u0441\u043E\u0441\u0431\u043E\u0440\u043D\u0438\u043A"
+  buildingIcon: {fileID: 2042138639408548973, guid: 61e10c3ffdd320f4c913826d3623c887, type: 3}
+  allowedTerrainTypes: -1
+  requiredNeighborTag: 0
+  lifeCycle: 0
+  stage2Effect:
+    effects: []
+  stage3Effect:
+    effects:
+    - rid: 2979482340603724117
+  buildingTags: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482340603724117
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        cost:
+          costs:
+          - Type: 3
+            Amount: 2
+        type: 6
+        amount: 2

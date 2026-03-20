@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: ccc
   successorName: ccc
-  portrait: {fileID: 143657644, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
+  portrait: {fileID: -2844414510791129701, guid: 8346192aa662ef04e93f264d4cc8d728, type: 3}
   timeToDeath: 3
   successorDeck:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}

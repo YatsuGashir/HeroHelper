@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: aaa
   successorName: aaa
-  portrait: {fileID: 21300000, guid: d96dd2e7c6e3107419d4cf4f9c338d0a, type: 3}
+  portrait: {fileID: 3854322906489033181, guid: 5dbb032553c685d40b54de74eb3b3db0, type: 3}
   timeToDeath: 4
   successorDeck:
-  - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
+  - {fileID: 11400000, guid: 3c133a8b280e2c54f8445bd865b23a46, type: 2}
+  - {fileID: 11400000, guid: 6afc62720ca0313408666c5a43e2a1ce, type: 2}
   - {fileID: 11400000, guid: 64e22d3666661b14294f75b065d26f04, type: 2}
-  - {fileID: 11400000, guid: 64e22d3666661b14294f75b065d26f04, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: a6e58b2453116d34fa9e0376e56731b7, type: 2}
   - {fileID: 11400000, guid: 1d8366d4aa24af4488d2bf81bcefddf9, type: 2}
-  - {fileID: 11400000, guid: 1d8366d4aa24af4488d2bf81bcefddf9, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: a07e813479d2b8f44ad15573e1ba8286, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 83031d90e51956a41815b454d7f9a457, type: 2}
+  - {fileID: 11400000, guid: 83031d90e51956a41815b454d7f9a457, type: 2}

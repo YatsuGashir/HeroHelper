@@ -17,23 +17,23 @@ MonoBehaviour:
   buildingIcon: {fileID: -2420991655748849362, guid: 8d99eae9604aafd4aace9bd807664d38, type: 3}
   allowedTerrainTypes: -1
   requiredNeighborTag: -1
-  cost:
-    costs:
-    - Type: 4
-      Amount: 1
-  lifeCycle: 2
+  lifeCycle: 3
   stage2Effect:
     effects:
-    - rid: 2979482337527726184
+    - rid: 2979482359937368155
   stage3Effect:
-    effects: []
+    effects:
+    - rid: 2979482359937368156
   buildingTags: -1
   references:
     version: 2
     RefIds:
-    - rid: 2979482337527726184
-      type: {class: TimeDistortionEffect, ns: , asm: Assembly-CSharp}
+    - rid: 2979482359937368155
+      type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
       data:
-        debugDescription: 
-        currentDelta: -5
-        duration: 3
+        affectedTag: 0
+        lifetimeChange: 1
+    - rid: 2979482359937368156
+      type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Definition: {fileID: 11400000, guid: c1f864e7a67236d4ca1029f31bb92145, type: 2}
