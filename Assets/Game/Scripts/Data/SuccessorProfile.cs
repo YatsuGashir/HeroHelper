@@ -25,7 +25,7 @@ namespace Data
         
         public List<BuildingDefinition> successorDeck;
         
-        //баффы и дебаФФЫ
+        public EffectDefinition SuccessorEffect;
     
     }
 }

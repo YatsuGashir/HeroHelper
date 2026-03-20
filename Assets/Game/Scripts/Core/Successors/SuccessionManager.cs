@@ -134,25 +134,13 @@ namespace Core.Successors
         {
             _currentState = new SuccessorState();
             _currentState.Initialize(profile, generation);
-
+            
             OnSuccessorChanged.OnNext(_currentState);
             Debug.Log($"=== НОВЫЙ НАСЛЕДНИК: {profile.successorName} (Поколение {generation}) ===");
             
         }
 
-
-/*
-        public ResourceCost GetModifiedCost(ResourceCost originalCost)
-        {
-
-        }
-
-
-        public int GetModifiedProductionAmount(int baseAmount)
-        {
-            if (_currentState == null) return baseAmount;
-            return Mathf.CeilToInt(baseAmount * _currentState.CurrentProfile.globalProductionMultiplier);
-        }*/
+        
 
         public List<BuildingDefinition> GetStartingHandIds()
         {
