@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Core.incidents;
 using Data;
 using UnityEngine;
+using View;
 
 namespace Data
 {
@@ -24,6 +25,9 @@ namespace Data
         public List<Sprite> headSprites;
         public List<Sprite> faceSprites;
         public List<Sprite> bodySprites;
+        
+        [SerializeField] public WandererView wandererPrefab;
+        [SerializeField] public int initialWandererCount = 5;
 
         //[Header("Economy")]
         //public int baseHandSize;

@@ -32,7 +32,8 @@ namespace GlobalSpace
         public static IncidentManager IncidentManager { get;  set; }
         public static TickModifierManager  TickModifierManager { get;  set; }
         public static SuccessorFaceBuilder SuccessorFaceBuilder { get;  set; }
-        
+        public static WandererManager WandererManager { get; private set; }
+
         
         public static void Initialize(GameConfig config)
         {
@@ -51,6 +52,8 @@ namespace GlobalSpace
             DeckManager = new DeckManager();
             HandManager = new HandManager();
             IncidentManager = new IncidentManager(Config);
+            WandererManager = new WandererManager();
+
         }
         
         

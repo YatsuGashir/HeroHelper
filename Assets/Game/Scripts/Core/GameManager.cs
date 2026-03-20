@@ -32,11 +32,13 @@ namespace Core
 
                 gridView.SyncWithGrid(newGridData); 
             }
+            G.WandererManager.Initialize(G.Config.initialWandererCount);
             G.SuccessionManager.StartFirstRun();
             G.IncidentManager.StartRun();
             G.IncidentManager.StartLongTermEvent(config.allIncidents[0]);
             G.DeckManager.InitializeDeck(G.SuccessionManager.GetStartingHandIds());
             G.DeckManager.Shuffle();
+            
             
             int startHandSize = 5;
             var startCards = G.DeckManager.DrawCardsWithReshuffle(startHandSize);

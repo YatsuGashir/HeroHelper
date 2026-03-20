@@ -46,8 +46,9 @@ namespace GlobalSpace
             incidentInfoPanel.Init();
             incidentPanel.Init();
             
-            await UniTask.Yield(); 
+
             
+            await UniTask.Yield(); 
             G.GameManager.StartNewRun(gridView);
             
 

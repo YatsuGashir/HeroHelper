@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 353f4985301412b4a8c5ee89504f3009, type: 2}
   terrainGenerationParams:
-    seed: 1167049162
+    seed: 258136958
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2
@@ -54,3 +54,5 @@ MonoBehaviour:
   - {fileID: -7284879750280097606, guid: ff71dac0d4d80294195f2fd338cb51da, type: 3}
   bodySprites:
   - {fileID: -1721480172531217584, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
+  wandererPrefab: {fileID: 721983442143536304, guid: 95ad976433411a648942b9f596be50ea, type: 3}
+  initialWandererCount: 5

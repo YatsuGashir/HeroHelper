@@ -53,6 +53,7 @@ namespace Core.Factories
             
             var instance = new BuildingInstance();
             instance.Initialize(definition, x, y);
+            G.WandererManager.SpawnWandererAt(x, y);
 
             cell.building = instance;
             cell.isOccupied = true;
