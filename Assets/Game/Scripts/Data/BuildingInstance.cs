@@ -16,6 +16,11 @@ namespace Data
         
         private BuildingDefinition _definition;
 
+        public BuildingDefinition Definition
+        {
+            get { return _definition; }
+        }
+
         public void Initialize(BuildingDefinition definition, int xCord, int yCord)
         {
             buildingId = definition.buildingId;

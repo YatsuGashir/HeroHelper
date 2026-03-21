@@ -12,6 +12,11 @@ namespace View
     
         private CompositeDisposable _disposables = new CompositeDisposable();
         private BuildingInstance _myBuilding;
+
+        public BuildingInstance MyBuilding
+        {
+            get { return _myBuilding; }
+        }
         
         public void Init(BuildingInstance instance)
         {
