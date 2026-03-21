@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: ddd
   successorName: dddd
-  portrait: {fileID: -4373646994847491342, guid: e5692f848067fd7438ccfe1bd72f3596, type: 3}
-  timeToDeath: 3
+  timeToDeath: 1
   successorDeck:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
   - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
@@ -29,3 +28,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
   - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  SuccessorEffect:
+    effects: []
+  references:
+    version: 2
+    RefIds: []
