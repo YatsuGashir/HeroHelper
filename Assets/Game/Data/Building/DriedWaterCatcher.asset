@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: DriedWater
   buildingName: "\u0432\u044B\u0441\u0445\u0448\u0438\u0439 \u0440\u043E\u0441\u043E\u0441\u0431\u043E\u0440\u043D\u0438\u043A"
-  buildingIcon: {fileID: 2042138639408548973, guid: 61e10c3ffdd320f4c913826d3623c887, type: 3}
+  buildingIcon: {fileID: -8107279963207232031, guid: 5ba17e46ffaeb0248bda7864c37703af, type: 3}
   allowedTerrainTypes: -1
   requiredNeighborTag: 0
   lifeCycle: 0

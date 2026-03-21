@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: pile of stones
   buildingName: pile of stones
-  buildingIcon: {fileID: 5725184139431673129, guid: 66959f1d12017c54b9a2be712c09d354, type: 3}
+  buildingIcon: {fileID: 6723870601765490865, guid: 22835aafe73964a4eb4ac833001d3a29, type: 3}
   allowedTerrainTypes: -1
   requiredNeighborTag: 0
   lifeCycle: 0

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: f68c19707cd3cd943bbaaeeef8b92c5c
+guid: 35e0e3b16d9408e4388fa625b1bff9ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4129560487790404355
-    second: Forest-1_0
-  - first:
-      213: -2248030476242673234
-    second: Forest-1_1
+      213: 782591277426364175
+    second: Stone-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 450
+  spritePixelsToUnits: 398
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forest-1_0
+      name: Stone-1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 396
-        height: 574
-      alignment: 9
-      pivot: {x: 0.5, y: 0.34843206}
+        width: 351
+        height: 319
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3036c3162652f4930800000000000000
-      internalID: 4129560487790404355
+      spriteID: f0f4157de925cda00800000000000000
+      internalID: 782591277426364175
       vertices: []
       indices: 
       edges: []
@@ -141,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3f4471f7f9903e94ca771ea9ed6f437b
+    spriteID: 0d05f7a9daca4f74d9b7746df1d54561
     internalID: 0
     vertices: []
     indices: 
@@ -151,9 +148,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":396.0,"y":574.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":351.0,"y":319.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Forest-1_0: 4129560487790404355
+      Stone-1_0: 782591277426364175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
