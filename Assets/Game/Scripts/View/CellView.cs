@@ -18,6 +18,9 @@ public class CellView : MonoBehaviour
    [SerializeField] private Color _highlightInvalidColor = new Color(1f, 0.2f, 0.2f, 0.6f);
    [SerializeField] private float _hoverScale = 1.1f;
    [SerializeField] private float _defaultScale = 1.0f;
+
+   [Header("References")]
+   [SerializeField] private Material forestMaterial;
    
    public int X { get; private set; }
    public int Y { get; private set; }
@@ -142,7 +145,7 @@ public class CellView : MonoBehaviour
            _overlayRenderer.sprite = null;
            return;
        }
-
+       
        // Берём спрайт и показываем оверлей
        Sprite sprite = library.GetTerrainSprite(overlayType);
        if (sprite != null)
@@ -150,21 +153,10 @@ public class CellView : MonoBehaviour
            _overlayRenderer.sprite = sprite;
            _overlayRenderer.color = Color.white;
            _overlayRenderer.gameObject.SetActive(true);
-
-       }
-   }
-
-   // === Legacy-метод для совместимости ===
-   [Obsolete("Use SetBaseTerrain + SetOverlay separately")]
-   public void SetTerrain(TerrainType terrain, TerrainSpriteLibrary library)
-   {
-
-       SetBaseTerrain(terrain, library, null);
-       SetOverlay(TerrainType.None, library);
-
-       if (library.IsOverlayTerrain(terrain))
-       {
-           SetOverlay(terrain, library);
+           if (overlayType == TerrainType.Threes)
+           {
+                _overlayRenderer.sharedMaterial = forestMaterial;
+           }
        }
    }
    
