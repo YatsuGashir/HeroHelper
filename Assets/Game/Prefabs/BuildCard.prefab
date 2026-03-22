@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1660546763616169453}
   - component: {fileID: 8534642366920415510}
   - component: {fileID: 7610660530765565173}
+  - component: {fileID: 2464677023712015895}
+  - component: {fileID: 6252962753943327105}
   m_Layer: 5
   m_Name: BuildCard
   m_TagString: Untagged
@@ -89,4 +91,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::View.CardView
   _hoverScale: 1.1
-  _enableLogs: 0
+--- !u!114 &2464677023712015895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57984281777999800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: 
+  showDelay: 0.3
+--- !u!114 &6252962753943327105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57984281777999800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c60aba90521fda4b9abbe7bba263400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrepareCardForTooltip
+  tooltipTriger: {fileID: 2464677023712015895}
+  cardVIew: {fileID: 7610660530765565173}

@@ -4,7 +4,7 @@ using View;
 
 public class PrepareInfoForTooltip : MonoBehaviour
 {
-    [SerializeField] private TooltipTrigerForGameObject tooltipTriger;
+    [SerializeField] private TooltipTriger tooltipTriger;
     [SerializeField] private BuildingStatusView buildingStatusView;
 
     private string _bodyText = "";
@@ -49,7 +49,7 @@ public class PrepareInfoForTooltip : MonoBehaviour
         
         if (buildingStatusView.MyBuilding != null && 
             buildingStatusView.MyBuilding.Definition != null &&
-            string.IsNullOrEmpty(tooltipTriger.header))
+            string.IsNullOrEmpty(tooltipTriger.Header))
         {
             InitializeTooltip();
         }
@@ -57,11 +57,11 @@ public class PrepareInfoForTooltip : MonoBehaviour
 
     private void InitializeTooltip()
     {
-        tooltipTriger.header = buildingStatusView.MyBuilding.Definition.buildingName;
+        tooltipTriger.Header = buildingStatusView.MyBuilding.Definition.buildingName;
         
         _bodyText = buildingStatusView.MyBuilding.Definition.buildingTags.ToString() + "\n"
             + buildingStatusView.MyBuilding.stage.ToString();
 
-        tooltipTriger.content = _bodyText;
+        tooltipTriger.Content = _bodyText;
     }
 }

@@ -23,6 +23,8 @@ namespace View
         {
             _disposables = new CompositeDisposable();
             
+            coronationAnimation.Init();
+            
             successionManager.OnSuccessorChanged
                 .Subscribe(SetPortrait)
                 .AddTo(_disposables);

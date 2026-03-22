@@ -191,13 +191,13 @@ public class CellView : MonoBehaviour
    private void OnMouseEnter()
    {
       _onCellHoverEnter.OnNext(this);
-      transform.DOScale(Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
+      //transform.DOScale(Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
    }
 
    private void OnMouseExit()
    {
       _onCellHoverExit.OnNext(this);
-      DOTween.Kill(transform);
+      //DOTween.Kill(transform);
       transform.localScale = Vector3.one;
    }
 

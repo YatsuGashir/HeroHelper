@@ -58,7 +58,6 @@ MonoBehaviour:
   _hoverScale: 1.1
   _defaultScale: 1
   forestMaterial: {fileID: 2100000, guid: 3d80c6ed2ec03694bad7f2518d97eee7, type: 2}
-  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!61 &8531086993446599412
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1749102889626047864, guid: c2914e83071511644bffe100d1da43a5, type: 3}
+  m_Sprite: {fileID: -552033525250359963, guid: 202cecbf82dbb9340b4af0dcbf41ac54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -252,7 +251,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1034a0aaaf33bb34cacfddcc56fb1d77, type: 2}
+  - {fileID: 2100000, guid: c8294ae49148eac4badfe152cf54c43b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

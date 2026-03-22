@@ -20,9 +20,9 @@ namespace View
         [SerializeField] private Vector2 endOffset = new Vector2(20, 20);        // Позиция "игры"
         
         private RectTransform _rectTransform;
-        private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _canvasGroup;
 
-        private void Awake()
+        public void Init()
         {
             _rectTransform = GetComponent<RectTransform>();
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();

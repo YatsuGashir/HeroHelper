@@ -31,6 +31,17 @@ namespace View
         private bool _isAnimating = false;
         private TextFader textFader;
 
+        public void Init()
+        {
+            for (int i = 0; i < trumpets.Count; i++)
+            {
+                if (trumpets[i] != null)
+                {
+                    trumpets[i].Init();
+                }
+            }
+        }
+
 public async UniTask PlayCoronation(GameObject newPortrait, TextFader fader)
 {
     if (_isAnimating) return;
