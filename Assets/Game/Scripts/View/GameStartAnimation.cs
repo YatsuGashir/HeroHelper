@@ -7,21 +7,23 @@ using View.UI; // Для UISlideMover
 
 public class GameStartAnimation : MonoBehaviour
 {
+    public bool SkipStartScreen = false;
+    
     [Header("UI Elements")]
-    [SerializeField] private CanvasGroup startButtonGroup;    // Кнопка старта (для fade)
-    [SerializeField] private SpriteRenderer mainMenuSprite; // Спрайт главного меню
+    [SerializeField] private CanvasGroup startButtonGroup;
+    [SerializeField] private SpriteRenderer mainMenuSprite;
     
     [Header("Camera")]
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private Vector3 cameraTargetPosition;    // Куда приблизить камеру
+    [SerializeField] private Vector3 cameraTargetPosition;
     [SerializeField] private float cameraZoomDuration = 1f;
     [SerializeField] private float targetSize = 3f;
     [SerializeField] private Ease cameraEase = Ease.OutQuad;
     
     [Header("Slide Animations")]
     [SerializeField] private List<UISlideMover> slideElements = new List<UISlideMover>();
-    [SerializeField] private float slideDelayBetween = 0.15f;  // Задержка между появлениями
-    [SerializeField] private float startDelay = 0.3f;          // Задержка перед началом слайдов
+    [SerializeField] private float slideDelayBetween = 0.15f;
+    [SerializeField] private float startDelay = 0.3f;
     
     [Header("Settings")]
     [SerializeField] private float fadeDuration = 0.3f;
@@ -34,6 +36,7 @@ public class GameStartAnimation : MonoBehaviour
         _isAnimating = true;
         await G.GameManager.StartNewRun();
         
+        if (SkipStartScreen) return;
 
         if (startButtonGroup != null)
         {
@@ -77,19 +80,14 @@ public class GameStartAnimation : MonoBehaviour
                 slideElements[i].SlideIn();
             }
         }
-        
-        // === ЭТАП 4: Ждём завершения всех слайдов (опционально) ===
-        // Если нужно ждать завершения анимаций перед продолжением:
+
         await UniTask.Delay((int)((slideElements.Count * slideDelayBetween + 0.5f) * 1000));
         
         _isAnimating = false;
 
         //await G.GameManager.StartNewRun();
     }
-    
-    /// <summary>
-    /// Быстрый вызов для кнопки (через UnityEvent)
-    /// </summary>
+
     public async void OnStartButtonClick()
     {
         await PlayStartSequence();
@@ -109,12 +107,12 @@ public class GameStartAnimation : MonoBehaviour
 
             
         if (mainCamera != null)
-            mainCamera.transform.position = cameraTargetPosition; // Или сохраните стартовую позицию отдельно
+            mainCamera.transform.position = cameraTargetPosition;
             
         foreach (var slider in slideElements)
         {
             if (slider != null)
-                slider.SetPosition(false); // Скрыть в начальную позицию
+                slider.SetPosition(false);
         }
         
         _isAnimating = false;

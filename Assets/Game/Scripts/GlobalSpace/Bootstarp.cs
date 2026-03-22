@@ -1,10 +1,6 @@
-using System;
-using Core;
-using Core.Base;
 using Core.StateMachine;
 using Cysharp.Threading.Tasks;
 using Data;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using View;
 

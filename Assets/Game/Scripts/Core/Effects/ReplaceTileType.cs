@@ -7,7 +7,7 @@ using View;
 
 public class ReplaceTileType: GameEffectBase
 {
-    public TerrainType tileType = TerrainType.Threes;
+    public TerrainType tileType = TerrainType.Forest;
 
     [Tooltip("Во что превращать очищенную землю.")]
     public TerrainType targetType = TerrainType.Meadow;

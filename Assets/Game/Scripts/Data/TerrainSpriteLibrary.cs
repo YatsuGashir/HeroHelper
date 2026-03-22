@@ -59,6 +59,6 @@ namespace Data
         // Типы для оверлей-рендерера
         public bool IsOverlayTerrain(TerrainType type) => 
             type == TerrainType.Stone || 
-             type == TerrainType.Threes;
+             type == TerrainType.Forest;
     }
 }

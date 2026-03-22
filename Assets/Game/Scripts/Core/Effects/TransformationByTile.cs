@@ -8,7 +8,7 @@ using View;
 public class TransformationByTile: GameEffectBase
 {
     [Tooltip("Какой тип земли ЗАМЕНЯЕМ (источник).")]
-    public TerrainType tileType = TerrainType.Threes;
+    public TerrainType tileType = TerrainType.Forest;
     
     [Tooltip("Во что превращаем (цель).")]
     public TerrainType targetType = TerrainType.Meadow;

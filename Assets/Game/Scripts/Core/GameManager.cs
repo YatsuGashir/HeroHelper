@@ -47,6 +47,8 @@ namespace Core
             
             _isInitialized = true;
             Debug.Log("[GameManager] Systems initialized.");
+            
+            G.AudioController.SetLoop("SongRadio");
         }
 
 

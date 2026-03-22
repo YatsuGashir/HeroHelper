@@ -153,7 +153,7 @@ public class CellView : MonoBehaviour
            _overlayRenderer.sprite = sprite;
            _overlayRenderer.color = Color.white;
            _overlayRenderer.gameObject.SetActive(true);
-           if (overlayType == TerrainType.Threes)
+           if (overlayType == TerrainType.Forest)
            {
                 _overlayRenderer.sharedMaterial = forestMaterial;
            }
@@ -163,6 +163,7 @@ public class CellView : MonoBehaviour
    public void SetVisibleOverlay(bool visible)
    {
        _overlayRenderer.gameObject.SetActive(visible);
+       _overlayRenderer.sprite = null;
    }
    
    private void ResetVisuals()
