@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-[ExecuteInEditMode]
+
 public class ToolTip : MonoBehaviour
 {
     [Header("UI References")]

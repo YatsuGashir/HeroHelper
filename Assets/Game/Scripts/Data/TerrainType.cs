@@ -14,7 +14,7 @@ namespace Data
         {
             None,
             Stone,
-            Crystal,
+            //Crystal,
             Threes
         }
 
@@ -30,8 +30,8 @@ namespace Data
         Meadow  = 1,
         Stone   = 2,
         Water   = 4,
-        Crystal = 8,
-        Threes  = 16,
+        //Crystal = 8,
+        Threes  = 8,
     }
     
     [Flags]

@@ -159,6 +159,11 @@ public class CellView : MonoBehaviour
            }
        }
    }
+
+   public void SetVisibleOverlay(bool visible)
+   {
+       _overlayRenderer.gameObject.SetActive(visible);
+   }
    
    private void ResetVisuals()
    {

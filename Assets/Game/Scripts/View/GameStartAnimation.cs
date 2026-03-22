@@ -32,6 +32,7 @@ public class GameStartAnimation : MonoBehaviour
     {
         if (_isAnimating) return;
         _isAnimating = true;
+        await G.GameManager.StartNewRun();
         
 
         if (startButtonGroup != null)
@@ -83,7 +84,7 @@ public class GameStartAnimation : MonoBehaviour
         
         _isAnimating = false;
 
-        await G.GameManager.StartNewRun();
+        //await G.GameManager.StartNewRun();
     }
     
     /// <summary>

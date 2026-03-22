@@ -78,7 +78,7 @@ namespace Core
             
             if (G.Config.allIncidents != null && G.Config.allIncidents.Count > 0)
             {
-                G.IncidentManager.StartLongTermEvent(G.Config.allIncidents[0]);
+                //G.IncidentManager.StartLongTermEvent(G.Config.allIncidents[0]);
             }
             
             G.ResourceManager.ResetToStart();

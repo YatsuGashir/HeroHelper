@@ -14,7 +14,7 @@ namespace Data
         Water, 
         Wood,
         Food,
-        Crystal
+        //Crystal
     }
 
     [Flags]

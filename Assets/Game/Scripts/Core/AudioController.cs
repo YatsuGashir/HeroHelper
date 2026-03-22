@@ -76,13 +76,13 @@ namespace Core
         {
             source = GetComponent<AudioSource>();
 
-            foreach (object o in Resources.LoadAll("SFX"))
+            foreach (object o in Resources.LoadAll("Audio/SFX"))
             {
                 if (o is not AudioClip clip) continue;
                 SFX.Add(clip);
             }
 
-            foreach (object o in Resources.LoadAll("SFX/Loops"))
+            foreach (object o in Resources.LoadAll("Audio/SFX/Loops"))
             {
                 if (o is not AudioClip clip) continue;
                 Loops.Add(clip);
@@ -504,7 +504,7 @@ namespace Core
             var loadedMixer = loadedMixers.Find(x => x.name == mixerId);
             if (loadedMixer == null)
             {
-                loadedMixer = Resources.Load<AudioMixer>("SFX/Mixing/" + mixerId);
+                loadedMixer = Resources.Load<AudioMixer>("Audio/SFX/Mixing/" + mixerId);
                 loadedMixers.Add(loadedMixer);
             }
 

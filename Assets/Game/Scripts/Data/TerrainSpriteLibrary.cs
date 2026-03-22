@@ -17,7 +17,7 @@ namespace Data
 
         public List<SpriteEntry> terrainSprites;
         
-        private Dictionary<TerrainType, int> _lastUsedIndices = new Dictionary<TerrainType, int>();
+        private static Dictionary<TerrainType, int> _lastUsedIndices = new Dictionary<TerrainType, int>();
 
         public Sprite GetTerrainSprite(TerrainType type)
         {
@@ -59,6 +59,6 @@ namespace Data
         // Типы для оверлей-рендерера
         public bool IsOverlayTerrain(TerrainType type) => 
             type == TerrainType.Stone || 
-            type == TerrainType.Crystal || type == TerrainType.Threes;
+             type == TerrainType.Threes;
     }
 }

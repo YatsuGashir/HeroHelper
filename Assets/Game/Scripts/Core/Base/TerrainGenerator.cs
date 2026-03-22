@@ -134,15 +134,14 @@ namespace Core.Base
                 if (grid[nx, ny].terrainType == TerrainType.Water)
                     continue;
 
-                if (grid[nx, ny].terrainType == TerrainType.Stone ||
-                    grid[nx, ny].terrainType == TerrainType.Crystal)
+                if (grid[nx, ny].terrainType == TerrainType.Stone)
                     continue;
 
                 grid[nx, ny].terrainType = TerrainType.Stone;
 
-                // шанс кристалла
+                /*// шанс кристалла
                 if (random.NextDouble() < p.crystalChance)
-                    grid[nx, ny].terrainType = TerrainType.Crystal;
+                    grid[nx, ny].terrainType = TerrainType.Crystal;*/
 
                 placed++;
             }
