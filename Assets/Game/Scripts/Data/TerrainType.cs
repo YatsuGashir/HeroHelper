@@ -14,8 +14,8 @@ namespace Data
         {
             None,
             Stone,
-            Crystal,
-            Threes
+            //Crystal,
+            Forest 
         }
 
         public class CellState
@@ -30,8 +30,8 @@ namespace Data
         Meadow  = 1,
         Stone   = 2,
         Water   = 4,
-        Crystal = 8,
-        Threes  = 16,
+        //Crystal = 8,
+        Forest  = 8,
     }
     
     [Flags]
@@ -41,8 +41,8 @@ namespace Data
         Meadow  = 1 << 0,
         Stone   = 1 << 1,
         Water   = 1 << 2,
-        Crystal = 1 << 3,
-        Threes   = 1 << 4
+        //Crystal = 1 << 3,
+        Forest   = 1 << 3
     }
     
     public static class TerrainMaskExtensions

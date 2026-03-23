@@ -31,6 +31,7 @@ namespace View
             
             
             GameObject successorObj = new GameObject("Successor");
+            successorObj.AddComponent<RectTransform>();
 
             GameObject headObj = new GameObject("Head");
             GameObject faceObj = new GameObject("Face");

@@ -18,6 +18,9 @@ public class CellView : MonoBehaviour
    [SerializeField] private Color _highlightInvalidColor = new Color(1f, 0.2f, 0.2f, 0.6f);
    [SerializeField] private float _hoverScale = 1.1f;
    [SerializeField] private float _defaultScale = 1.0f;
+
+   [Header("References")]
+   [SerializeField] private Material forestMaterial;
    
    public int X { get; private set; }
    public int Y { get; private set; }
@@ -142,7 +145,7 @@ public class CellView : MonoBehaviour
            _overlayRenderer.sprite = null;
            return;
        }
-
+       
        // Берём спрайт и показываем оверлей
        Sprite sprite = library.GetTerrainSprite(overlayType);
        if (sprite != null)
@@ -150,22 +153,17 @@ public class CellView : MonoBehaviour
            _overlayRenderer.sprite = sprite;
            _overlayRenderer.color = Color.white;
            _overlayRenderer.gameObject.SetActive(true);
-
+           if (overlayType == TerrainType.Forest)
+           {
+                _overlayRenderer.sharedMaterial = forestMaterial;
+           }
        }
    }
 
-   // === Legacy-метод для совместимости ===
-   [Obsolete("Use SetBaseTerrain + SetOverlay separately")]
-   public void SetTerrain(TerrainType terrain, TerrainSpriteLibrary library)
+   public void SetVisibleOverlay(bool visible)
    {
-
-       SetBaseTerrain(terrain, library, null);
-       SetOverlay(TerrainType.None, library);
-
-       if (library.IsOverlayTerrain(terrain))
-       {
-           SetOverlay(terrain, library);
-       }
+       _overlayRenderer.gameObject.SetActive(visible);
+       _overlayRenderer.sprite = null;
    }
    
    private void ResetVisuals()
@@ -199,13 +197,13 @@ public class CellView : MonoBehaviour
    private void OnMouseEnter()
    {
       _onCellHoverEnter.OnNext(this);
-      transform.DOScale(Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
+      //transform.DOScale(Vector3.one * _hoverScale, 0.15f).SetEase(Ease.OutBack);
    }
 
    private void OnMouseExit()
    {
       _onCellHoverExit.OnNext(this);
-      DOTween.Kill(transform);
+      //DOTween.Kill(transform);
       transform.localScale = Vector3.one;
    }
 

@@ -30,15 +30,13 @@ namespace Core.Base
             }
 
             // Спавним начальных путников на валидных клетках
-            for (int i = 0; i < initialCount; i++)
+            /*for (int i = 0; i < initialCount; i++)
             {
                 SpawnRandomWanderer();
-            }
-
-            // Запускаем цикл обновления (альтернатива Update)
+            }*/
+            
             StartUpdateLoop();
             
-            // Подписка на окончание хода — можно дать путникам "дополнительный ход"
             G.Events.TurnEnded.Subscribe(_ => OnTurnEnded()).AddTo(_disposables);
         }
 
@@ -46,7 +44,6 @@ namespace Core.Base
         {
             _isActive = true;
             
-            // UniRx-таймер вместо MonoBehaviour.Update
             _updateLoop = Observable.Interval(TimeSpan.FromSeconds(1.5f))
                 .Where(_ => _isActive)
                 .Subscribe(_ => UpdateWanderers())
@@ -55,9 +52,8 @@ namespace Core.Base
 
         private void UpdateWanderers()
         {
-            foreach (var wanderer in _wanderers.ToList()) // ToList для безопасности при удалении
+            foreach (var wanderer in _wanderers.ToList())
             {
-                // Шанс на движение ~60%, можно настроить
                 if (_random.NextDouble() < 0.6f)
                 {
                     wanderer.TryRandomMove();
@@ -67,7 +63,6 @@ namespace Core.Base
 
         private void OnTurnEnded()
         {
-            // Опционально: все путники делают гарантированный шаг в конце хода
             foreach (var wanderer in _wanderers)
             {
                 wanderer.TryRandomMove();
@@ -76,24 +71,19 @@ namespace Core.Base
 
         public void SpawnWandererAt(int x, int y)
         {
-    
-            // 🔧 Вариант 1: короткая строка из Guid (первые 8 символов)
+            
             string shortGuid = Guid.NewGuid().ToString("N").Substring(0, 8);
             var id = $"Wanderer_{shortGuid}";
-    
-            // 🔧 Вариант 2 (альтернатива): простой счётчик + рандом
-            // static int _spawnCounter = 0;
-            // var id = $"Wanderer_{++_spawnCounter}_{Random.Range(0, 9999):D4}";
+
     
             var data = new WandererData(id, x, y)
             {
-                MoveDelay = UnityEngine.Random.Range(1.5f, 3f),
-                MoveDuration = UnityEngine.Random.Range(0.25f, 0.4f)
+                MoveDelay = UnityEngine.Random.Range(0.2f, 0.5f),
+                MoveDuration = UnityEngine.Random.Range(3f, 5f)
             };
     
             var wanderer = new Wanderer(data);
-    
-            // Создаём View
+
             var view = UnityEngine.Object.Instantiate(
                 G.Config.wandererPrefab,
                 G.GridView.transform
@@ -105,7 +95,7 @@ namespace Core.Base
             _wanderers.Add(wanderer);
         }
 
-        public void SpawnRandomWanderer()
+       /* public void SpawnRandomWanderer()
         {
             var (x, y) = FindRandomValidPosition();
     
@@ -135,7 +125,7 @@ namespace Core.Base
     
             wanderer.AttachView(view);
             _wanderers.Add(wanderer);
-        }
+        }*/
 
         private (int x, int y) FindRandomValidPosition()
         {

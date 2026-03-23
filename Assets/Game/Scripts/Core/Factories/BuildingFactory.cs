@@ -40,6 +40,8 @@ namespace Core.Factories
             
             return true;
         }
+        
+        private int _wandererCounter = 0;
 
         public BuildingInstance CreateBuilding(BuildingDefinition definition, int x, int y)
         {
@@ -53,7 +55,17 @@ namespace Core.Factories
             
             var instance = new BuildingInstance();
             instance.Initialize(definition, x, y);
-            G.WandererManager.SpawnWandererAt(x, y);
+            
+            
+            if (_wandererCounter == 3)
+            {
+                _wandererCounter = 0;
+                G.WandererManager.SpawnWandererAt(x, y);
+            }
+            else
+            {
+                _wandererCounter++;
+            }
 
             cell.building = instance;
             cell.isOccupied = true;

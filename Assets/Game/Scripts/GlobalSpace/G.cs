@@ -33,10 +33,12 @@ namespace GlobalSpace
         public static TickModifierManager  TickModifierManager { get;  set; }
         public static SuccessorFaceBuilder SuccessorFaceBuilder { get;  set; }
         public static WandererManager WandererManager { get; private set; }
+        public static AudioController AudioController { get; private set; }
 
         
         public static void Initialize(GameConfig config)
         {
+            AudioController = new AudioController();
             Config = config;
             GridSystem = new GridSystem();
             GameManager = new GameManager();

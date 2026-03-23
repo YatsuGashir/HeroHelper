@@ -37,6 +37,7 @@ namespace View
         private void SpawnBuilding(CellView cellView, BuildingInstance instance)
         {
             buildingPrefab.sprite = instance.GetDefinition().buildingIcon;
+            cellView.SetVisibleOverlay(false);
             var go = Instantiate(buildingPrefab, cellView.transform);
             go.transform.localPosition = Vector3.zero;
             go.GetComponent<BuildingStatusView>().Init(instance);

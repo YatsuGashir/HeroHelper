@@ -2,19 +2,31 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TooltipTriger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TooltipTriger : MonoBehaviour
 {
-    public string header;
+    [Header("Tooltip Content")]
+    [SerializeField] protected string header;
+    [SerializeField] protected string content;
     
-    public string content;
+    [Header("Settings")]
+    [Min(0f)] [SerializeField] protected float showDelay = 0.3f;
     
+    public string Header 
+    { 
+        get => header; 
+        set => header = value; 
+    }
     
-    [Min(0f)] public float showDelay = 0.3f;
+    public string Content 
+    { 
+        get => content; 
+        set => content = value; 
+    }
     
     private Tween _delayTween;
     private bool _isTooltipVisible = false;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void Enter()
     {
         if (_isTooltipVisible) return;
         
@@ -28,7 +40,7 @@ public class TooltipTriger : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             });
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void Exit()
     {
         _delayTween?.Kill();
 

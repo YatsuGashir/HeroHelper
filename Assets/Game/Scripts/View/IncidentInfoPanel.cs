@@ -121,7 +121,7 @@ namespace View
                 case ResourceType.Stone: return "Камень";
                 case ResourceType.Water: return "Вода";
                 case ResourceType.Wood: return "Дерево";
-                case ResourceType.Crystal: return "Кристалл";
+                //case ResourceType.Crystal: return "Кристалл";
                 case ResourceType.Food: return "Еда";
                 default: return type.ToString();
             }

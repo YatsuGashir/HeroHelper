@@ -9,7 +9,7 @@ namespace View
     {
         [Header("Components")]
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Transform _root; // Для анимации, если нужно
+        [SerializeField] private Transform _root;
         
         [Header("Settings")]
         [SerializeField] private Color _idleTint = Color.white;
@@ -31,7 +31,6 @@ namespace View
         {
             _model = model;
             
-            // Реактивная подписка на состояние движения
             model.Data.IsMoving
                 .Subscribe(isMoving =>
                 {
@@ -45,7 +44,6 @@ namespace View
                     
                     if (isMoving)
                     {
-                        // Лёгкий "подпрыг" при движении
                         if (_root != null)
                         {
                             DOTween.Kill(_root);

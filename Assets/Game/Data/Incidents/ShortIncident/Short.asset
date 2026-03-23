@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc1446a2006bd149841255a7f399fba, type: 3}
   m_Name: Short
   m_EditorClassIdentifier: Assembly-CSharp::Core.incidents.IncidentData
-  incidentId: dgfdfg
-  incidentName: dfgdfg
-  description: dfgdfg
-  incidentSprite: {fileID: 981091969555768303, guid: 62fd755fb1fff5c429045debc03a5b8f, type: 3}
+  incidentId: "\u041D\u0435\u0445\u0432\u0430\u0442\u043A\u0430 \u0435\u0434\u044B"
+  incidentName: "\u041D\u0435\u0445\u0432\u0430\u0442\u043A\u0430 \u0435\u0434\u044B"
+  description: "\u041C\u0438\u043B\u043E\u0440\u0434\u042E \u043D\u0430\u0440\u043E\u0434
+    \u0433\u043E\u043B\u043E\u0434\u0430\u0435\u0442, \u043D\u0443\u0436\u043D\u043E
+    \u0441\u0440\u043E\u0447\u043D\u043E \u0432\u044B\u0434\u0430\u0442\u044C \u0435\u043C\u0443
+    \u0435\u0434\u044B"
+  incidentSprite: {fileID: 3526833687614617459, guid: 2966e1b43b0cee749b4d8fe99809a6e0, type: 3}
   durationType: 0
   turnsUntilTrigger: 0
   chancePerTurn: 0.2
   resourceLoss:
-  - Type: 2
+  - Type: 5
     Amount: 5
   destroyRandomBuilding: 0
   maxBuildingsToDestroy: 1

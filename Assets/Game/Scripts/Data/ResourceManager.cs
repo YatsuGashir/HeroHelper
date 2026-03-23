@@ -16,6 +16,11 @@ namespace Core.Base
 
         public ResourceManager()
         {
+            ResetToStart();
+        }
+
+        public void ResetToStart()
+        {
             _resources = new Dictionary<ResourceType, int>();
             foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
             {

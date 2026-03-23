@@ -1,15 +1,12 @@
-using System;
-using Core;
-using Core.Base;
 using Core.StateMachine;
 using Cysharp.Threading.Tasks;
 using Data;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using View;
 
 namespace GlobalSpace
 {
+    
     public class Bootstarp : MonoBehaviour
     {
         [SerializeField] private GameConfig gameConfig;
@@ -26,6 +23,7 @@ namespace GlobalSpace
         public Fsm GameFlowFsm { get; private set; }
         
 
+        
         private async UniTaskVoid Start()
         {
 
@@ -49,7 +47,7 @@ namespace GlobalSpace
 
             
             await UniTask.Yield(); 
-            G.GameManager.StartNewRun(gridView);
+            G.GameManager.Initialize(gridView);
             
 
             await UniTask.Yield();
@@ -68,13 +66,6 @@ namespace GlobalSpace
             G.ResetRun();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                G.ResetRun();
-                G.GameManager.StartNewRun(gridView);
-            }
-        }
+
     }
 }
