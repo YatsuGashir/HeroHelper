@@ -23,8 +23,18 @@ namespace Core.Effects
             Dictionary<ResourceType, int> resources)
         {
             SourceBuilding = source;
-            X = source.x;
-            Y = source.y;
+            
+            if (source != null)
+            {
+                X = source.x;
+                Y = source.y;
+            }
+            else
+            {
+                X = 0;
+                Y = 0;
+            }
+            
             Grid = grid;
 
             CurrentResources = resources;

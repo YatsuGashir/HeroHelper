@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: sawmill
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: sawmill
+  buildingName: "\u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
+  buildingIcon: {fileID: 8980130189673016619, guid: d6ca1552c07f08743bbb00835534e276, type: 3}
+  allowedTerrainTypes: 8
+  requiredNeighborTag: 33
+  lifeCycle: 3
+  stage2Effect:
+    effects:
+    - rid: 2979482434545385556
+    - rid: 2979482434545385555
+  stage3Effect:
+    effects:
+    - rid: 2979482434545385557
+    - rid: 2979482434545385558
+  buildingTags: 33
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482434545385555
+      type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        resourceType: 4
+        baseAmount: 2
+        bonusPerBuilding: 1
+        bonusPerTerrain: 0
+        neighborTagFilter: 1
+        maxBuildingNeighbors: 0
+        bonusTerrainTypes: 
+        maxTerrainNeighbors: 0
+    - rid: 2979482434545385556
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        type: 3
+        amount: 1
+    - rid: 2979482434545385557
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        type: 3
+        amount: 1
+    - rid: 2979482434545385558
+      type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        resourceType: 4
+        baseAmount: 10
+        bonusPerBuilding: 1
+        bonusPerTerrain: 3
+        neighborTagFilter: 0
+        maxBuildingNeighbors: 0
+        bonusTerrainTypes: 
+        maxTerrainNeighbors: 0

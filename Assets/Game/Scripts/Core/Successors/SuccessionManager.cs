@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core.Effects;
 using Data;
 using Core.Successors;
 using GlobalSpace;
@@ -140,7 +141,13 @@ namespace Core.Successors
             
         }
 
-        
+        public void ActivateGlobalCard(EffectDefinition successorEffects)
+        {
+            var effects = successorEffects;
+            
+            var resolver = new EffectResolver();
+            resolver.ResolveEffects(effects, building: null); 
+        }
 
         public List<BuildingDefinition> GetStartingHandIds()
         {

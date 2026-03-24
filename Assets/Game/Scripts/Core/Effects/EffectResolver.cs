@@ -10,14 +10,17 @@ namespace Core.Effects
     {
         public EffectResult ResolveEffects(
             List<GameEffectBase> effects,
-            BuildingInstance building,
-            GridSystem grid,
-            Dictionary<ResourceType, int> currentResources)
+            BuildingInstance building = null,
+            GridSystem grid = null,
+            Dictionary<ResourceType, int> currentResources = null)
         {
             if (effects == null)
                 return new EffectResult();
+            
+            var safeGrid = grid ?? GlobalSpace.G.GridSystem; 
+            var safeResources = currentResources ?? new Dictionary<ResourceType, int>();
 
-            var context = new EffectContext(building, grid, currentResources);
+            var context = new EffectContext(building, safeGrid, safeResources);
 
             foreach (var effect in effects)
             {
@@ -25,7 +28,7 @@ namespace Core.Effects
 
                 try
                 {
-                    Debug.Log("applyEffect");
+                    Debug.Log($"Apply effect: {effect.GetType().Name}");
                     effect.Apply(context);
                 }
                 catch (System.Exception e)
@@ -36,5 +39,6 @@ namespace Core.Effects
 
             return context.Result;
         }
+
     }
 }
