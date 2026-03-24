@@ -17,6 +17,7 @@ namespace Data
         private bool _isPlacing;
         
         private CompositeDisposable _disposables = new CompositeDisposable();
+        private CardView _selectedCardView;
         
 
         public void RegisterCell(CellView cell)
@@ -39,9 +40,16 @@ namespace Data
                 .Subscribe(OnCardClicked)
                 .AddTo(_disposables);
         }
-        private void OnCardClicked(BuildingDefinition building)
+        private void OnCardClicked(CardView cardView) // измените сигнатуру, если нужно
         {
+            var building = cardView.CardDefinition;
             if (building == null) return;
+
+            // Снимаем выделение с предыдущей карты
+            if (_selectedCardView != null)
+            {
+                _selectedCardView.SetSelected(false);
+            }
 
             // Если кликнули по уже выбранному зданию — отменяем размещение
             if (_isPlacing && _selectedBuilding == building)
@@ -50,8 +58,12 @@ namespace Data
             }
             else
             {
-                // Иначе выбираем новое здание
+                // Выбираем новое здание
                 SelectBuilding(building);
+        
+                // 🔔 Подсвечиваем карту визуально
+                cardView.SetSelected(true);
+                _selectedCardView = cardView;
             }
         }
 
@@ -81,6 +93,13 @@ namespace Data
 
         public void ClearSelection()
         {
+            // Убираем визуальное выделение
+            if (_selectedCardView != null)
+            {
+                _selectedCardView.SetSelected(false);
+                _selectedCardView = null;
+            }
+    
             _selectedBuilding = null;
             _isPlacing = false;
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
