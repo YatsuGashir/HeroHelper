@@ -12,7 +12,7 @@ namespace Core
     {
         private bool _isInitialized = false;
 
-        public void Initialize(GridView gridView)
+        public async void Initialize(GridView gridView)
         {
             if (_isInitialized)
             {
@@ -49,6 +49,8 @@ namespace Core
             Debug.Log("[GameManager] Systems initialized.");
             
             G.AudioController.SetLoop("SongRadio");
+            
+            await G.TutorialSeq.TryStartTutorial();
         }
 
 

@@ -36,8 +36,10 @@ namespace GlobalSpace
         public static AudioController AudioController { get; private set; }
         public static GlobalProductionBonusManager ProductionBonusManager { get;  private set; }
         public static LifetimeBonusManager LifetimeBonusManager { get; private set; } 
+        public static TextController TextController { get; set; }
+        public static TutorialSeq TutorialSeq { get; set; }
 
-        
+
         public static void Initialize(GameConfig config)
         {
             AudioController = new AudioController();
