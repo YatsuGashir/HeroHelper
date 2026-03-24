@@ -29,7 +29,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83031d90e51956a41815b454d7f9a457, type: 2}
   - {fileID: 11400000, guid: 83031d90e51956a41815b454d7f9a457, type: 2}
   SuccessorEffect:
-    effects: []
+    effects:
+    - rid: 2979482451622494288
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2979482451622494288
+      type: {class: TimeDistortionEffect, ns: , asm: Assembly-CSharp}
+      data:
+        currentDelta: 2
+        duration: 6
