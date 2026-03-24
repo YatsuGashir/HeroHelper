@@ -17,6 +17,8 @@ namespace Data
         public float MoveDuration { get; set; } = 0.3f;
         
         public int MaxSpawnRadius { get; set; } = 3;
+        
+        
 
         public WandererData(string id, int startX, int startY)
         {

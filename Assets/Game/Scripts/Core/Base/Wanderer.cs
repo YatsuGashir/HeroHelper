@@ -43,7 +43,7 @@ namespace Core.Base
             
             Data.IsMoving.Value = true;
             
-            View.MoveTo(Data.X.Value, Data.Y.Value, Data.MoveDuration);
+            View.MoveToEdgeThenNext(Data.X.Value, Data.Y.Value, Data.MoveDuration);
             
             Observable.Timer(TimeSpan.FromSeconds(Data.MoveDuration))
                 .Subscribe(_ => 

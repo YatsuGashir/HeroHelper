@@ -140,3 +140,5 @@ MonoBehaviour:
   _idleTint: {r: 1, g: 1, b: 1, a: 1}
   _movingTint: {r: 1, g: 1, b: 0.8, a: 1}
   _bounceScale: 1.15
+  _moveAlongEdges: 1
+  _edgeOffset: {x: 0.5, y: 0.5}

@@ -19,6 +19,7 @@ namespace GlobalSpace
         [SerializeField] private IncidentInfoPanel incidentInfoPanel;
         [SerializeField] private SuccessorSelectionUI successorSelectionUI;
         [SerializeField] private FeatureCandidatesView featureCandidatesView;
+        [SerializeField] private EndTurnButton endTurnButton;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -44,7 +45,7 @@ namespace GlobalSpace
             incidentInfoPanel.Init();
             incidentPanel.Init();
             
-
+            endTurnButton.Init();
             
             await UniTask.Yield(); 
             G.GameManager.Initialize(gridView);

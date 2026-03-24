@@ -78,8 +78,8 @@ namespace Core.Base
     
             var data = new WandererData(id, x, y)
             {
-                MoveDelay = UnityEngine.Random.Range(0.2f, 0.5f),
-                MoveDuration = UnityEngine.Random.Range(3f, 5f)
+                MoveDelay = UnityEngine.Random.Range(0.1f, 5f),
+                MoveDuration = UnityEngine.Random.Range(0.1f, 10f)
             };
     
             var wanderer = new Wanderer(data);

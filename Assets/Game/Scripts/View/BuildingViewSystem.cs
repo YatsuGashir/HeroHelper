@@ -37,6 +37,7 @@ namespace View
         private void SpawnBuilding(CellView cellView, BuildingInstance instance)
         {
             buildingPrefab.sprite = instance.GetDefinition().buildingIcon;
+            UpdateSortingOrder(cellView);
             cellView.SetVisibleOverlay(false);
             var go = Instantiate(buildingPrefab, cellView.transform);
             go.transform.localPosition = Vector3.zero;
@@ -57,6 +58,17 @@ namespace View
                     }
                 }
             }
+        }
+        
+        private int _baseSortingOrder = 3; 
+        private void UpdateSortingOrder(CellView  cellView)
+        {
+       
+            int calculatedOrder = _baseSortingOrder - cellView.Y;
+            
+            buildingPrefab.sortingOrder = calculatedOrder;
+                
+
         }
     }
 }

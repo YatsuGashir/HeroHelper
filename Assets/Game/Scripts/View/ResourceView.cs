@@ -99,7 +99,7 @@ namespace View
 
             TMP_Text floatText = Instantiate(floatingTextPrefab, slot.TextValue.transform.parent);
 
-            floatText.text = (amount > 0 ? "+" : "") + amount;
+            floatText.text = (amount > 0 ? "+" : "-") + amount;
 
             RectTransform rt = floatText.rectTransform;
 

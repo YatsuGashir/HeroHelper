@@ -16,6 +16,10 @@ namespace View
         [SerializeField] private Color _movingTint = new Color(1f, 1f, 0.8f);
         [SerializeField] private float _bounceScale = 1.15f;
         
+        [Header("Grid Alignment")] // 🔽 Новая секция
+        [SerializeField] private bool _moveAlongEdges = true; // Двигаться по границам?
+        [SerializeField] private Vector2 _edgeOffset = new Vector2(0.5f, 0.5f); // Смещение к углу клетки
+
         private Core.Base.Wanderer _model;
         private CompositeDisposable _disposables;
         private Sequence _idleSequence;
@@ -85,16 +89,48 @@ namespace View
             if (_root == null) return;
             
             float currentZ = _root.position.z;
-            var targetPos = new Vector3(targetX, targetY, currentZ);
+            
+            // 🔽 Применяем оффсет, если нужно двигаться по границам
+            Vector3 targetPos = ApplyEdgeOffset(targetX, targetY, currentZ);
+            
             _root.DOMove(targetPos, duration).SetEase(Ease.Linear);
         }
 
+        public void MoveToEdgeThenNext(int targetX, int targetY, float duration)
+        {
+            if (_root == null) return;
+
+            float z = _root.position.z;
+
+            Vector3 current = _root.position;
+            Vector3 target = ApplyEdgeOffset(targetX, targetY, z);
+
+            // середина между клетками (ребро)
+            Vector3 mid = (current + target) / 2f;
+
+            DOTween.Sequence()
+                .Append(_root.DOMove(mid, duration * 0.5f).SetEase(Ease.Linear))
+                .Append(_root.DOMove(target, duration * 0.5f).SetEase(Ease.Linear));
+        }
         public void MoveToImmediate(int x, int y)
         {
             if (_root == null) return;
             
             float currentZ = _root.position.z;
-            _root.position = new Vector3(x, y, currentZ);
+            
+            _root.position = ApplyEdgeOffset(x, y, currentZ);
+        }
+        
+        private Vector3 ApplyEdgeOffset(int x, int y, float z)
+        {
+            if (_moveAlongEdges)
+            {
+                return new Vector3(x + _edgeOffset.x, y + _edgeOffset.y, z);
+            }
+            else
+            {
+                return new Vector3(x, y, z);
+            }
         }
 
         public void Unbind()

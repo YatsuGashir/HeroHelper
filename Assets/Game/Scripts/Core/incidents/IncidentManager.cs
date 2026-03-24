@@ -12,6 +12,7 @@ namespace Game.Scripts.Core.incidents
     public class IncidentManager
     {
         private List<IncidentData> _allIncidents;
+        private List<IncidentData> _allLongIncidents;
         private List<ActiveIncident> _activeLongEvents;
         private int _currentTurn;
 
@@ -20,6 +21,12 @@ namespace Game.Scripts.Core.incidents
         public IncidentManager(GameConfig config)
         {
             _allIncidents = config.allIncidents;
+            _allLongIncidents = new List<IncidentData>();
+            foreach (var incident in _allIncidents)
+            {
+                if(incident.durationType == IncidentType.Incoming)
+                    _allLongIncidents.Add(incident);
+            }
             _activeLongEvents = new List<ActiveIncident>();
             _currentTurn = 0;
         }
@@ -82,8 +89,9 @@ namespace Game.Scripts.Core.incidents
         }
 
 
-        public void StartLongTermEvent(IncidentData data)
+        public void StartLongTermEvent(int index)
         {
+            var data= _allLongIncidents[index];
             if (data.durationType != IncidentType.Incoming) return;
 
 
