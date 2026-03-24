@@ -136,14 +136,16 @@ namespace Core.Successors
             _currentState = new SuccessorState();
             _currentState.Initialize(profile, generation);
             
+            ActivateGlobalEffect(profile.SuccessorEffect);
+            
             OnSuccessorChanged.OnNext(_currentState);
             Debug.Log($"=== НОВЫЙ НАСЛЕДНИК: {profile.successorName} (Поколение {generation}) ===");
             
         }
 
-        public void ActivateGlobalCard(EffectDefinition successorEffects)
+        public void ActivateGlobalEffect(EffectDefinition successorEffects)
         {
-            var effects = successorEffects;
+            var effects = successorEffects.effects;
             
             var resolver = new EffectResolver();
             resolver.ResolveEffects(effects, building: null); 
