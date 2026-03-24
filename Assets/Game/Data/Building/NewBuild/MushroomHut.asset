@@ -24,7 +24,7 @@ MonoBehaviour:
   stage3Effect:
     effects:
     - rid: 2979482434545385560
-  buildingTags: 0
+  buildingTags: 1
   references:
     version: 2
     RefIds:
@@ -34,7 +34,7 @@ MonoBehaviour:
         cost:
           costs:
           - Type: 5
-            Amount: 1
+            Amount: 0
         type: 1
         amount: 2
     - rid: 2979482434545385560

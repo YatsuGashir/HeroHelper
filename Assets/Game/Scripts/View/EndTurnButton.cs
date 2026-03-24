@@ -1,7 +1,6 @@
 using GlobalSpace;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace View
@@ -10,23 +9,36 @@ namespace View
     {
         [SerializeField] private Button button;
 
-        private void Awake()
+        private CompositeDisposable _disposables;
+
+        public void Init()
         {
             if (button == null) button = GetComponent<Button>();
+            _disposables = new CompositeDisposable();
+            
             button.onClick.AddListener(OnButtonClick);
+
+            G.Events.TurnEnded
+                .Subscribe(_ => OnTurnEnded())
+                .AddTo(_disposables);
         }
 
         private void OnButtonClick()
         {
-            //button.interactable = false;
+            button.interactable = false;
 
             G.Events.TurnEndRequested.OnNext(Unit.Default);
-        
-            // Опционально: можно подписаться на TurnEnded, чтобы разблокировать кнопку потом
-            /*G.Events.TurnEnded
-                .Take(1) // Взять только первое событие
-                .Subscribe(_ => button.interactable = true)
-                .AddTo(this); // Отпишется автоматически при уничтожении кнопки*/
+        }
+
+        private void OnTurnEnded()
+        {
+            if (button != null)
+                button.interactable = true;
+        }
+
+        private void OnDestroy()
+        {
+            _disposables?.Dispose();
         }
     }
 }

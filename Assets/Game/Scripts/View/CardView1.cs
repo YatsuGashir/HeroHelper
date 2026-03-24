@@ -11,7 +11,7 @@ namespace View
     public class CardView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private float _hoverScale = 1.1f;
-        [SerializeField] private float _selectLiftY = 20f; // 🔼 Насколько приподнимать карту при выборе (в пикселях Canvas)
+        [SerializeField] private float _selectLiftY = 40f;
 
         public BuildingDefinition CardDefinition { get; private set; }
         
@@ -19,25 +19,28 @@ namespace View
         public IObservable<CardView> OnCellClick => _onCardClick;
 
         private Image _cardImage;
-        private Vector3 _originalLocalPosition; // 🔼 Запоминаем исходную позицию
+        private RectTransform _rectTransform; // 🔽 Добавляем ссылку на RectTransform
+        
+        private Vector2 _originalAnchoredPosition; // 🔽 Храним позицию как Vector2
         private Vector3 _originalScale;
         private bool _isSelected;
 
         private void Awake()
         {
+            _rectTransform = GetComponent<RectTransform>(); // 🔽 Получаем RectTransform
             _originalScale = transform.localScale;
-            _originalLocalPosition = transform.localPosition; // 🔼 Сохраняем исходную позицию
+            
+            // 🔽 Сохраняем исходную позицию в системе координат UI
+            if (_rectTransform != null)
+                _originalAnchoredPosition = _rectTransform.anchoredPosition;
+            
             _cardImage = GetComponent<Image>();
             
             if (_cardImage == null)
-            {
                 _cardImage = GetComponentInChildren<Image>();
-            }
 
             if (_cardImage != null)
-            {
                 _cardImage.raycastTarget = true;
-            }
         }
         
         public void Init(BuildingDefinition card)
@@ -50,8 +53,10 @@ namespace View
                 _cardImage.color = Color.white;
             }
             
-            // Сброс позиции при инициализации (на случай пулинга)
-            transform.localPosition = _originalLocalPosition;
+            // 🔽 Сбрасываем позицию через anchoredPosition
+            if (_rectTransform != null)
+                _rectTransform.anchoredPosition = _originalAnchoredPosition;
+                
             SetSelected(false, false);
         }
         
@@ -60,36 +65,41 @@ namespace View
             if (_isSelected == selected) return;
             _isSelected = selected;
 
-            // 🔼 Анимация подъёма/опускания по Y
-            if (animate)
+            if (animate && _rectTransform != null)
             {
-                transform.DOKill(); // Останавливаем предыдущие твины
+                transform.DOKill(); // Останавливаем все твины на трансформе
                 
-                var targetPosition = selected 
-                    ? _originalLocalPosition + Vector3.up * _selectLiftY 
-                    : _originalLocalPosition;
+                // 🔽 Рассчитываем целевую позицию для UI
+                var targetAnchoredPosition = selected 
+                    ? _originalAnchoredPosition + Vector2.up * _selectLiftY 
+                    : _originalAnchoredPosition;
                     
                 var targetScale = selected 
                     ? _originalScale * _hoverScale * 1.05f 
                     : _originalScale;
                 
-                // Анимируем позицию и масштаб одновременно
-                transform.DOMoveY(targetPosition.y, 0.2f).SetEase(Ease.OutBack);
-                transform.DOScale(targetScale, 0.2f).SetEase(Ease.OutBack);
+                // 🔽 Используем DOAnchorPosY для UI!
+                _rectTransform.DOAnchorPosY(targetAnchoredPosition.y, 0.2f)
+                    .SetEase(Ease.OutBack);
+                    
+                transform.DOScale(targetScale, 0.2f)
+                    .SetEase(Ease.OutBack);
             }
             else
             {
-                // Мгновенное применение без анимации
-                transform.localPosition = selected 
-                    ? _originalLocalPosition + Vector3.up * _selectLiftY 
-                    : _originalLocalPosition;
+                // 🔽 Мгновенное применение
+                if (_rectTransform != null)
+                {
+                    _rectTransform.anchoredPosition = selected 
+                        ? _originalAnchoredPosition + Vector2.up * _selectLiftY 
+                        : _originalAnchoredPosition;
+                }
                     
                 transform.localScale = selected 
                     ? _originalScale * _hoverScale * 1.05f 
                     : _originalScale;
             }
 
-            // 🎨 Подсветка цветом (опционально)
             if (_cardImage != null)
             {
                 var targetColor = selected ? new Color(1.2f, 1.2f, 1.2f, 1) : Color.white;
@@ -104,7 +114,7 @@ namespace View
         
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_cardImage == null || _isSelected) return; // Не масштабируем при ховере, если карта уже выбрана
+            if (_cardImage == null || _isSelected) return;
 
             transform.DOKill();
             transform.DOScale(_originalScale * _hoverScale, 0.15f).SetEase(Ease.OutBack);

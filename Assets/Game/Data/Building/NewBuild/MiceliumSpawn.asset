@@ -33,8 +33,8 @@ MonoBehaviour:
         cost:
           costs:
           - Type: 5
-            Amount: 1
+            Amount: 0
           - Type: 3
-            Amount: 1
+            Amount: 0
         type: 1
         amount: 4

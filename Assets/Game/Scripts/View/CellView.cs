@@ -42,11 +42,10 @@ public class CellView : MonoBehaviour
         
       _disposables = new CompositeDisposable();
       
-      // Настройка оверлей-рендерера: выше базы, но ниже хайлайта
       if (_overlayRenderer != null)
       {
           _overlayRenderer.sortingOrder = (_baseRenderer?.sortingOrder ?? 0) + 1;
-          _overlayRenderer.gameObject.SetActive(false); // по умолчанию скрыт
+          _overlayRenderer.gameObject.SetActive(false);
       }
    }
    
@@ -71,12 +70,12 @@ public class CellView : MonoBehaviour
 
        if (_overlayRenderer != null)
        {
-           _overlayRenderer.sortingOrder = calculatedOrder + 1;
+           _overlayRenderer.sortingOrder = calculatedOrder + 2;
        }
 
        if (_highlightRenderer != null)
        {
-           _highlightRenderer.sortingOrder = calculatedOrder + 2;
+           _highlightRenderer.sortingOrder = calculatedOrder + 3;
        }
 
    }
@@ -209,7 +208,15 @@ public class CellView : MonoBehaviour
 
    private void OnMouseDown()
    {
-      _onCellClick.OnNext(this);
+       if (UnityEngine.EventSystems.EventSystem.current != null &&
+           UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+       {
+           // Клик был по UI — игнорируем клик по клетке
+           return;
+       }
+       
+       _onCellClick.OnNext(this);
+      
    }
 
    private void OnDestroy()

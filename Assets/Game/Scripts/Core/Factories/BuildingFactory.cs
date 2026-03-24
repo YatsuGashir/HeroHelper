@@ -65,7 +65,7 @@ namespace Core.Factories
             }
             
             
-            if (_wandererCounter == 3)
+            if (_wandererCounter == 0)
             {
                 _wandererCounter = 0;
                 G.WandererManager.SpawnWandererAt(x, y);

@@ -44,6 +44,22 @@ public class TurnManager
 
         await UniTask.Delay(500);
         
+        GlobalIncidentSelector();
+        
+        G.Events.TurnEnded.OnNext(Unit.Default);
+        
+    }
+
+    private void GlobalIncidentSelector()
+    {
+        if (_currentTurn == 2)
+        {
+            G.IncidentManager.StartLongTermEvent(0);
+        }
+        if (_currentTurn == 8)
+        {
+            G.IncidentManager.StartLongTermEvent(1);
+        }
     }
     
     private async UniTask DrawPhaseAsync()
