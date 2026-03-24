@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: quarry
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: quarry
+  buildingName: "\u041A\u0430\u043C\u0435\u043D\u043E\u043B\u043E\u043C\u043D\u044F"
+  buildingIcon: {fileID: 8135663367076951168, guid: bc2debd184be44c47a0a9752218b0c90, type: 3}
+  allowedTerrainTypes: 2
+  requiredNeighborTag: 0
+  lifeCycle: 3
+  stage2Effect:
+    effects:
+    - rid: 2979482434545385562
+  stage3Effect:
+    effects:
+    - rid: 2979482434545385563
+    - rid: 2979482434545385564
+  buildingTags: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482434545385562
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        cost:
+          costs:
+          - Type: 1
+            Amount: 1
+        type: 2
+        amount: 2
+    - rid: 2979482434545385563
+      type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        affectedTag: -1
+        lifetimeChange: -1
+    - rid: 2979482434545385564
+      type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        Definition: {fileID: 11400000, guid: 542d1a270b5bee14e81204e34f899a99, type: 2}

@@ -6,6 +6,7 @@ namespace Core.Effects
     [Serializable]
     public abstract class GameEffectBase
     {
+        public virtual bool IsGlobal => false;
         public virtual bool IsInstant => false;
 
         public abstract void Apply(EffectContext context);
