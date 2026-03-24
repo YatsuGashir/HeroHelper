@@ -14,6 +14,8 @@ namespace Core.Effects
             GridSystem grid = null,
             Dictionary<ResourceType, int> currentResources = null)
         {
+            Debug.Log($"[Resolver] Called with {effects?.Count ?? 0} effects, building: {building?.buildingId ?? "null"}");
+            
             if (effects == null)
                 return new EffectResult();
             
@@ -24,6 +26,7 @@ namespace Core.Effects
 
             foreach (var effect in effects)
             {
+                Debug.Log($"[Resolver] Processing effect: {effect?.GetType().Name ?? "null"}");
                 if (effect == null) continue;
 
                 try

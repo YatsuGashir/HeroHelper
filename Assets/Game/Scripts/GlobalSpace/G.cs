@@ -34,6 +34,8 @@ namespace GlobalSpace
         public static SuccessorFaceBuilder SuccessorFaceBuilder { get;  set; }
         public static WandererManager WandererManager { get; private set; }
         public static AudioController AudioController { get; private set; }
+        public static GlobalProductionBonusManager ProductionBonusManager { get;  private set; }
+        public static LifetimeBonusManager LifetimeBonusManager { get; private set; } 
 
         
         public static void Initialize(GameConfig config)
@@ -55,6 +57,8 @@ namespace GlobalSpace
             HandManager = new HandManager();
             IncidentManager = new IncidentManager(Config);
             WandererManager = new WandererManager();
+            ProductionBonusManager = new GlobalProductionBonusManager();
+            LifetimeBonusManager = new LifetimeBonusManager();
 
         }
         

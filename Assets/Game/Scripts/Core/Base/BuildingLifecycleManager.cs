@@ -43,9 +43,7 @@ namespace Core.Base
                     if (stageChanged)
                     {
                         G.Events.BuildingStageChanged.OnNext(building);
-    
-                        // Также можно отправить CellChanged, если нужно перерисовать спрайт
-                        // G.Events.CellChanged.OnNext(...);
+
                     }
 
                     var effects = building.GetEffectDefinition()?.effects;
@@ -57,6 +55,24 @@ namespace Core.Base
                         _grid,
                         playerResources
                     );
+                    
+                        
+                        for (int i = 0; i < result.ResourceChanges.Count; i++)
+                        {
+                            var change = result.ResourceChanges[i];
+                            
+                            int globalBonus = G.ProductionBonusManager.GetBonusForBuilding(building, change.Type);
+        
+                            if (globalBonus != 0)
+                            {
+                                result.ResourceChanges[i] = new ResourceAmount(
+                                    change.Type, 
+                                    change.Amount + globalBonus
+                                );
+            
+                                Debug.Log($"[Bonus] {building.GetDefinition().buildingName} +{globalBonus} {change.Type}");
+                            }
+                        }
 
                     totalResourceChanges.AddRange(result.ResourceChanges);
                     totalCellChanges.AddRange(result.CellChanges);
@@ -67,7 +83,10 @@ namespace Core.Base
             }
             ApplyResults(totalResourceChanges, totalCellChanges, totalBuildingChanges);
         
+           
             G.TickModifierManager.Tick();
+            G.ProductionBonusManager?.Tick();
+            G.LifetimeBonusManager.Tick();
             
             G.Events.ResourceChanged.OnNext(G.ResourceManager.GetResources());
         }

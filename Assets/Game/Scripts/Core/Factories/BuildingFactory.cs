@@ -56,6 +56,14 @@ namespace Core.Factories
             var instance = new BuildingInstance();
             instance.Initialize(definition, x, y);
             
+            int bonus = G.LifetimeBonusManager.GetLifetimeBonusForBuilding(instance);
+            if (bonus != 0)
+            {
+                instance.remaingTime += bonus;
+        
+                Debug.Log($"[Bonus] {definition.buildingName} получил {bonus:+#;-#} к жизни. Осталось: {instance.remaingTime}");
+            }
+            
             
             if (_wandererCounter == 3)
             {
