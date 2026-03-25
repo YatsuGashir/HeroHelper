@@ -28,6 +28,9 @@ namespace GlobalSpace
         private async UniTaskVoid Start()
         {
 
+            RadioManager.Instance.StartRadio();
+            
+            
             G.Initialize(gameConfig);
             G.GridView= gridView;
 
