@@ -40,28 +40,24 @@ namespace Data
                 .Subscribe(OnCardClicked)
                 .AddTo(_disposables);
         }
-        private void OnCardClicked(CardView cardView) // измените сигнатуру, если нужно
+        private void OnCardClicked(CardView cardView)
         {
             var building = cardView.CardDefinition;
             if (building == null) return;
-
-            // Снимаем выделение с предыдущей карты
+            
             if (_selectedCardView != null)
             {
                 _selectedCardView.SetSelected(false);
             }
 
-            // Если кликнули по уже выбранному зданию — отменяем размещение
             if (_isPlacing && _selectedBuilding == building)
             {
                 ClearSelection();
             }
             else
             {
-                // Выбираем новое здание
                 SelectBuilding(building);
-        
-                // 🔔 Подсвечиваем карту визуально
+
                 cardView.SetSelected(true);
                 _selectedCardView = cardView;
             }

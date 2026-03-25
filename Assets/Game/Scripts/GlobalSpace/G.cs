@@ -52,7 +52,7 @@ namespace GlobalSpace
             PlacementManager = new PlacementManager();
             ResourceManager = new ResourceManager();
             SuccessionManager = new SuccessionManager();
-            SuccessorFaceBuilder = new SuccessorFaceBuilder(config.headSprites, config.faceSprites,  config.bodySprites);
+            SuccessorFaceBuilder = new SuccessorFaceBuilder(config.headSprites, config.eyeSprites, config.mountSprites,  config.bodySprites);
             TurnManager = new TurnManager();
             LifecycleManager = new BuildingLifecycleManager();
             DeckManager = new DeckManager();

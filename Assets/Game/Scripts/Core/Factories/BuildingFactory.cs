@@ -50,6 +50,7 @@ namespace Core.Factories
                 Debug.LogWarning($"Cannot place {definition.buildingName} at [{x},{y}]");
                 return null;
             }
+            G.TutorialSeq.placeFirstBuilding = true;
 
             var cell = G.GridSystem.GetCell(x, y);
             

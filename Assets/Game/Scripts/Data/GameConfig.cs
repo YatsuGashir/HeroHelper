@@ -23,7 +23,8 @@ namespace Data
 
         [Header("Successor Look variants")] 
         public List<Sprite> headSprites;
-        public List<Sprite> faceSprites;
+        public List<Sprite> eyeSprites;
+        public List<Sprite> mountSprites;
         public List<Sprite> bodySprites;
         
         [SerializeField] public WandererView wandererPrefab;

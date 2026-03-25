@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: ddd
   successorName: dddd
-  timeToDeath: 6
+  timeToDeath: 1
   successorDeck:
   - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
   - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}

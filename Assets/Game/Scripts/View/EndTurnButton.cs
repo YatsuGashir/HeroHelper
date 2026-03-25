@@ -25,6 +25,7 @@ namespace View
 
         private void OnButtonClick()
         {
+            G.TutorialSeq.turnPushing = true;
             button.interactable = false;
 
             G.Events.TurnEndRequested.OnNext(Unit.Default);

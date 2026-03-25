@@ -70,6 +70,9 @@ public class GameStartAnimation : MonoBehaviour
 
         await UniTask.Delay((int)(startDelay * 1000));
         
+        if(!G.TutorialSeq.tutorialComplete)
+            return;
+        
         for (int i = 0; i < slideElements.Count; i++)
         {
             if (slideElements[i] != null)

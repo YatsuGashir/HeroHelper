@@ -22,11 +22,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e31b9aaafbfd02b49879aa317c3f7227, type: 2}
   - {fileID: 11400000, guid: 8b92797d7630bd5488976d9a4c1b1b89, type: 2}
   - {fileID: 11400000, guid: 4eab12a46468076458dca36ce8b2a350, type: 2}
+  - {fileID: 11400000, guid: 287ee3d2a0a1b5444b48a4d87c3764a7, type: 2}
+  - {fileID: 11400000, guid: 2c5032d2a85f3d144a33f0c9efc37a4d, type: 2}
+  - {fileID: 11400000, guid: d690dd459ade1774fb7d08efb2caa5b7, type: 2}
+  - {fileID: 11400000, guid: 1089bdeb29c31d54884c8b69d28511bb, type: 2}
+  - {fileID: 11400000, guid: 621bc0bc0cb76a04fb47d74cf48a5220, type: 2}
+  - {fileID: 11400000, guid: 530108b6c5ef7d744a37b88898174824, type: 2}
+  - {fileID: 11400000, guid: c7e736f1c9c699e4f8c2918d62b72d55, type: 2}
+  - {fileID: 11400000, guid: ed3f2d040ea5141479dfbaa92fe4ede7, type: 2}
+  - {fileID: 11400000, guid: 924727c392f4c6345b79fa3699138834, type: 2}
+  - {fileID: 11400000, guid: 21f3af3bed1740248a927e69e70f78b0, type: 2}
+  - {fileID: 11400000, guid: 7ef89014afb7a5348bdd912a29b8a299, type: 2}
+  - {fileID: 11400000, guid: 80051a89c86c30d4ca703e08186d8cad, type: 2}
+  - {fileID: 11400000, guid: 47975b07d2fe4ac4cb88b532e34592b7, type: 2}
+  - {fileID: 11400000, guid: 305c8de81905b164583a294e4efdb02e, type: 2}
+  - {fileID: 11400000, guid: 744dd3e3bda636e4ebabdf76f45703b2, type: 2}
+  - {fileID: 11400000, guid: 70564df0bb321a64185096b140b1eeb3, type: 2}
   allIncidents:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 353f4985301412b4a8c5ee89504f3009, type: 2}
   terrainGenerationParams:
-    seed: 258136958
+    seed: 1604484147
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2
@@ -39,20 +55,24 @@ MonoBehaviour:
   gridWidth: 50
   gridHeight: 50
   headSprites:
-  - {fileID: -15010592504469569, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
-  - {fileID: -6817055215115558570, guid: f90457e7bb05166419d2988259d2d71f, type: 3}
-  - {fileID: 6501884530696578183, guid: 4913ca10cb0dd1341b4f0181b7fd3769, type: 3}
-  - {fileID: -4612184266790696760, guid: fdea41550e808014e9db1a321b51e655, type: 3}
-  - {fileID: -6561189182595476402, guid: 8776ae9064e2ebd48b649d91662adbbd, type: 3}
-  faceSprites:
-  - {fileID: 3339935832689807930, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
-  - {fileID: 2122089843114098278, guid: f1df103afdbf2234481f6f30bd83c243, type: 3}
-  - {fileID: -5343335289217629083, guid: 2681e7a4c5d5e0549b78af131cf20679, type: 3}
-  - {fileID: -7288421860349223093, guid: dc244cc51f83f9442a804761d4ebc688, type: 3}
-  - {fileID: 3526833687614617459, guid: 2966e1b43b0cee749b4d8fe99809a6e0, type: 3}
-  - {fileID: 7330501059305547962, guid: c64f26843aa83484ea2223e847557534, type: 3}
-  - {fileID: -7284879750280097606, guid: ff71dac0d4d80294195f2fd338cb51da, type: 3}
+  - {fileID: -3347084941786510219, guid: f62295b044a7381468f2b5db1852d03a, type: 3}
+  - {fileID: 6787268071357737398, guid: 213703f80f17e2a4b9e45c70d42db16d, type: 3}
+  - {fileID: 1650385540701430707, guid: 11dfbfcac3652114ca8160ad349fa3f3, type: 3}
+  eyeSprites:
+  - {fileID: 21300000, guid: 2e9a39d4a9d0c67459f8998ce4e3434e, type: 3}
+  - {fileID: 21300000, guid: ab53162f5041b4a4ea3294fbe1da0fff, type: 3}
+  - {fileID: 21300000, guid: 9e7ec3153c8525843a2eea0419a0b58b, type: 3}
+  - {fileID: 21300000, guid: 44867805b59bfb34a899fc32f124fe7d, type: 3}
+  - {fileID: 21300000, guid: 26c92c6c19d64e64082a2dfd40657b3e, type: 3}
+  mountSprites:
+  - {fileID: 21300000, guid: f84fb569d4999cb4094b3d8f476f61b3, type: 3}
+  - {fileID: 21300000, guid: c28d11f30a312b84abd2236d9e0204b0, type: 3}
+  - {fileID: 21300000, guid: dc590288603dc8a4280673734d9a3d3b, type: 3}
+  - {fileID: 21300000, guid: b379eddb83e09514bae713a7f8e5c1ee, type: 3}
+  - {fileID: 21300000, guid: e6d648c3ad89a134983f777431f30131, type: 3}
   bodySprites:
-  - {fileID: -1721480172531217584, guid: 88f2bf38b05405b4a8b0c636f06ad97f, type: 3}
+  - {fileID: 8473849341268683578, guid: 84349e1a3ae946041ba33c5ce730c749, type: 3}
+  - {fileID: 7328261252705808851, guid: 8c27cbeae04ea1c4d91ba0b2f67d06d4, type: 3}
+  - {fileID: 4961837318961326592, guid: d06d9f4bc80e5fd4e95efbd571273b88, type: 3}
   wandererPrefab: {fileID: 721983442143536304, guid: 95ad976433411a648942b9f596be50ea, type: 3}
   initialWandererCount: 5

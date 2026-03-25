@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de983e4adfec5db47aea2bea30eca48b, type: 3}
+  m_Name: SuccessorProfile 19
+  m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
+  successorId: eee
+  successorName: eeee
+  timeToDeath: 1
+  successorDeck:
+  - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
+  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
+  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  SuccessorEffect:
+    effects: []
+  references:
+    version: 2
+    RefIds: []

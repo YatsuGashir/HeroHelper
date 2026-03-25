@@ -44,6 +44,7 @@ namespace View
             
             _currentPortrait = G.SuccessorFaceBuilder.BuildSuccessor(successorState.CurrentProfile);
             _currentPortrait.transform.SetParent(successorAnchor, false);
+            _currentPortrait.transform.SetAsFirstSibling();
             
             if(!_isFirstRun)
                 await coronationAnimation.PlayCoronation(_currentPortrait, textFader);

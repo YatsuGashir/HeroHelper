@@ -50,7 +50,7 @@ namespace Core
             
             G.AudioController.SetLoop("SongRadio");
             
-            await G.TutorialSeq.TryStartTutorial();
+            //await G.TutorialSeq.TryStartTutorial();
         }
 
 
