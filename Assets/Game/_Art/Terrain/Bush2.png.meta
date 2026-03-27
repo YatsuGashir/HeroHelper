@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 5ba17e46ffaeb0248bda7864c37703af
+guid: 2b104ffc1cc2c2c448e864bf324717f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8107279963207232031
-    second: DewCollector-Dead_0
+      213: 2476417197399195537
+    second: Bush2_0
+  - first:
+      213: 2562802008524580959
+    second: Bush2_1
+  - first:
+      213: -6020750385568265123
+    second: Bush2_2
+  - first:
+      213: 1467306492692366653
+    second: Bush2_3
+  - first:
+      213: -7563888858907045546
+    second: Bush2_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 398
+  spritePixelsToUnits: 440
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DewCollector-Dead_0
+      name: Bush2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 323
-        height: 366
+        y: 227
+        width: 130
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e51462e3d72d7f80800000000000000
-      internalID: -8107279963207232031
+      spriteID: 19fb5a602500e5220800000000000000
+      internalID: 2476417197399195537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush2_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 291
+        width: 165
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58e3c339d6e09320800000000000000
+      internalID: 2562802008524580959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush2_2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 156
+        width: 131
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c48e27c6ff17ca0800000000000000
+      internalID: -6020750385568265123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush2_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 57
+        width: 100
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d358d812b7bec5410800000000000000
+      internalID: 1467306492692366653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush2_4
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 170
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6519f44782ba70790800000000000000
+      internalID: -7563888858907045546
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DewCollector-Dead_0: -8107279963207232031
+      Bush2_0: 2476417197399195537
+      Bush2_1: 2562802008524580959
+      Bush2_2: -6020750385568265123
+      Bush2_3: 1467306492692366653
+      Bush2_4: -7563888858907045546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
