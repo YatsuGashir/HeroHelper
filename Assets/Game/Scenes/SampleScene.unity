@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d3223fbbc2c214da87fb560a85722f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::View.BuildingViewSystem
-  buildingPrefab: {fileID: 5635854419065488235, guid: 5aae8e9e22fe3934580a98266aec3db0, type: 3}
+  buildingPrefab: {fileID: 6240580883425755631, guid: 5aae8e9e22fe3934580a98266aec3db0, type: 3}
 --- !u!1 &341693475
 GameObject:
   m_ObjectHideFlags: 0

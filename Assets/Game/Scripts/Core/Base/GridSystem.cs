@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace Core.Base
 {
@@ -21,6 +22,11 @@ namespace Core.Base
         public CellState[,] GetGridData()
         {
             return _grid;
+        }
+
+        public void SetCellTerrain(int x, int y, TerrainType terrainType)
+        {
+            _grid[x,y].terrainType = terrainType; ;
         }
 
         public CellState GetCell(int x, int y) => _grid[x, y];

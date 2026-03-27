@@ -137,32 +137,35 @@ public class CellView : MonoBehaviour
    {
        if (_overlayRenderer == null || library == null) return;
 
-       // Если тип не является оверлеем — скрываем рендерер
        if (!library.IsOverlayTerrain(overlayType))
        {
-           _overlayRenderer.gameObject.SetActive(false);
-           _overlayRenderer.sprite = null;
+           SetVisibleOverlay(false);
            return;
        }
-       
-       // Берём спрайт и показываем оверлей
+
        Sprite sprite = library.GetTerrainSprite(overlayType);
-       if (sprite != null)
+
+       _overlayRenderer.sprite = sprite;
+       _overlayRenderer.gameObject.SetActive(true);
+
+       if (overlayType == TerrainType.Forest)
        {
-           _overlayRenderer.sprite = sprite;
-           _overlayRenderer.color = Color.white;
-           _overlayRenderer.gameObject.SetActive(true);
-           if (overlayType == TerrainType.Forest)
-           {
-                _overlayRenderer.sharedMaterial = forestMaterial;
-           }
+           _overlayRenderer.sharedMaterial = forestMaterial;
        }
+       
    }
 
    public void SetVisibleOverlay(bool visible)
    {
+       if (_overlayRenderer == null) return;
+
        _overlayRenderer.gameObject.SetActive(visible);
-       _overlayRenderer.sprite = null;
+
+       if (!visible)
+       {
+           _overlayRenderer.sprite = null;
+           _overlayRenderer.sharedMaterial = null;
+       }
    }
    
    private void ResetVisuals()
@@ -226,4 +229,5 @@ public class CellView : MonoBehaviour
       _onCellHoverEnter.Dispose();
       _onCellHoverExit.Dispose();
    }
+   
 }

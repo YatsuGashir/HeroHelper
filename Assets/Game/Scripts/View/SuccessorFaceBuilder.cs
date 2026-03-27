@@ -73,10 +73,17 @@ namespace View
             mouthObj.transform.SetParent(successorObj.transform);
             
             
-            headObj.transform.localPosition = new Vector3(-22f, 274.7f, 0);
-            eyeObj.transform.localPosition = new Vector3(0f, 134f, 0);
-            mouthObj.transform.localPosition = new Vector3(0f, 71f, 0);
-            bodyObj.transform.localPosition = new Vector3(0f, 0f, 0);
+            RectTransform headRect = headObj.GetComponent<RectTransform>();
+            headRect.anchoredPosition = new Vector2(-22f, 259f);
+            
+            RectTransform eyeRect = eyeObj.GetComponent<RectTransform>();
+            eyeRect.anchoredPosition = new Vector2(0f, 134f);
+            
+            RectTransform mounthRect = mouthObj.GetComponent<RectTransform>();
+            mounthRect.anchoredPosition = new Vector2(0f, 71f);
+            
+            RectTransform bodyRect = bodyObj.GetComponent<RectTransform>();
+            bodyRect.anchoredPosition = new Vector2(0f, 0f);
             
             headObj.transform.localScale = new Vector3(1f, 1f, 1);
             eyeObj.transform.localScale = new Vector3(1f, 1f, 1f);

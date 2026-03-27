@@ -8,15 +8,18 @@ namespace View
 {
     public class BuildingViewSystem : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer buildingPrefab;
+        [SerializeField] private GameObject buildingPrefab;
 
         private CompositeDisposable _disposables = new CompositeDisposable();
+        private SpriteRenderer _spriteRenderer;
 
         public void Init()
         {
             G.Events.CellChanged
                 .Subscribe(OnCellChanged)
                 .AddTo(_disposables);
+            
+            _spriteRenderer = buildingPrefab.GetComponent<SpriteRenderer>();
         }
 
         private void OnCellChanged(CellUpdateEventData data)
@@ -37,11 +40,17 @@ namespace View
         private void SpawnBuilding(CellView cellView, BuildingInstance instance)
         {
             AudioManager.Instance.PlaySFX("SoundDust");
-            buildingPrefab.sprite = instance.GetDefinition().buildingIcon;
-            UpdateSortingOrder(cellView);
-            cellView.SetVisibleOverlay(false);
+
             var go = Instantiate(buildingPrefab, cellView.transform);
             go.transform.localPosition = Vector3.zero;
+
+            var sr = go.GetComponent<SpriteRenderer>();
+            sr.sprite = instance.GetDefinition().buildingIcon;
+
+            UpdateSortingOrder(cellView, sr);
+
+            cellView.SetVisibleOverlay(false);
+
             go.GetComponent<BuildingStatusView>().Init(instance);
         }
 
@@ -62,11 +71,10 @@ namespace View
         }
         
         private int _baseSortingOrder = 3; 
-        private void UpdateSortingOrder(CellView cellView)
+        private void UpdateSortingOrder(CellView cellView, SpriteRenderer sr)
         {
             int calculatedOrder = _baseSortingOrder - cellView.Y;
-
-            buildingPrefab.sortingOrder = calculatedOrder + 3; 
+            sr.sortingOrder = calculatedOrder + 3;
         }
     }
 }
