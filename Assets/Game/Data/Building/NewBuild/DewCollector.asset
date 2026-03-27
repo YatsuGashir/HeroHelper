@@ -10,29 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
-  m_Name: ruined quarry
+  m_Name: DewCollector
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
-  buildingId: ruined quarry
-  buildingName: "\u0420\u0430\u0437\u0440\u0443\u0448\u0438\u044F \u043A\u0430\u043C\u0435\u043D\u043E\u043B\u043E\u043C\u043D\u044F"
-  buildingIcon: {fileID: 21300000, guid: 22835aafe73964a4eb4ac833001d3a29, type: 3}
+  buildingId: DewCollector
+  buildingName: "\u0420\u043E\u0441\u043E\u0441\u0431\u043E\u0440\u043D\u0438\u043A"
+  buildingIcon: {fileID: 21300000, guid: 98675ca0819af2841b8f96af4467d761, type: 3}
   buildingCardICon: {fileID: 0}
   allowedTerrainTypes: 0
   requiredNeighborTag: 0
-  lifeCycle: 0
+  lifeCycle: 3
   stage2Effect:
-    effects: []
+    effects:
+    - rid: 2979482521206522002
   stage3Effect:
     effects:
-    - rid: 2979482434545385565
-  buildingTags: 10
+    - rid: 2979482521206522003
+  buildingTags: 3
   references:
     version: 2
     RefIds:
-    - rid: 2979482434545385565
+    - rid: 2979482521206522002
       type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
         cost:
-          costs: []
-        type: 2
-        amount: 1
+          costs:
+          - Type: 1
+            Amount: 2
+          - Type: 4
+            Amount: 2
+        type: 3
+        amount: 4
+    - rid: 2979482521206522003
+      type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+        Definition: {fileID: 11400000, guid: af36f2a68b14f11409c5325e62541d3b, type: 2}

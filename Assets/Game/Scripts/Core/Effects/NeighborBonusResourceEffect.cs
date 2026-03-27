@@ -37,7 +37,11 @@ namespace Core.Effects
         
         protected override string GetDefaultDescription()
         {
-            return $"Даёт {baseAmount}, а также выдаёт {bonusPerBuilding} {ResourseToText.ConvertToText(resourceType)} за каждую постройку с тегом {neighborTagFilter}";
+            if(neighborTagFilter != BuildingTag.None)
+                return $"Даёт {baseAmount}, а также выдаёт {bonusPerBuilding} {ResourseToText.ConvertToText(resourceType)} за каждую постройку с тегом {neighborTagFilter}";
+            if(bonusTerrainTypes.Length != 0)
+                return $"Даёт {baseAmount}, а также выдаёт {bonusPerTerrain} {ResourseToText.ConvertToText(resourceType)} за каждую клетку {bonusTerrainTypes}";
+            return "";
         }
 
         public override void Apply(EffectContext context)

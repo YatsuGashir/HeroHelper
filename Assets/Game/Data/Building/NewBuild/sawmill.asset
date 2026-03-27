@@ -15,50 +15,55 @@ MonoBehaviour:
   buildingId: sawmill
   buildingName: "\u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
   buildingIcon: {fileID: 21300000, guid: f395a63b025c1f24b89e8d45fdf0d3c3, type: 3}
+  buildingCardICon: {fileID: 0}
   allowedTerrainTypes: 8
-  requiredNeighborTag: 33
+  requiredNeighborTag: 1
   lifeCycle: 3
   stage2Effect:
     effects:
-    - rid: 2979482434545385556
-    - rid: 2979482434545385555
+    - rid: 2979482521206521980
+    - rid: 2979482521206521981
+    - rid: 2979482521206521985
   stage3Effect:
     effects:
-    - rid: 2979482434545385557
-    - rid: 2979482434545385558
-  buildingTags: 33
+    - rid: 2979482521206522001
+  buildingTags: 3
   references:
     version: 2
     RefIds:
-    - rid: 2979482434545385555
+    - rid: 2979482521206521980
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 1
+        amount: 2
+    - rid: 2979482521206521981
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 5
+        amount: 2
+    - rid: 2979482521206521985
       type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
+        description: 
         resourceType: 4
         baseAmount: 2
-        bonusPerBuilding: 1
-        bonusPerTerrain: 0
-        neighborTagFilter: 1
-        maxBuildingNeighbors: 0
-        bonusTerrainTypes: 
-        maxTerrainNeighbors: 0
-    - rid: 2979482434545385556
-      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
-      data:
-        type: 3
-        amount: 1
-    - rid: 2979482434545385557
-      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
-      data:
-        type: 3
-        amount: 1
-    - rid: 2979482434545385558
-      type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
-      data:
-        resourceType: 4
-        baseAmount: 10
-        bonusPerBuilding: 1
-        bonusPerTerrain: 3
+        bonusPerBuilding: 0
+        bonusPerTerrain: 1
         neighborTagFilter: 0
         maxBuildingNeighbors: 0
-        bonusTerrainTypes: 
+        bonusTerrainTypes: 08000000
         maxTerrainNeighbors: 0
+    - rid: 2979482521206522001
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        cost:
+          costs:
+          - Type: 1
+            Amount: 2
+          - Type: 5
+            Amount: 2
+        type: 4
+        amount: 3

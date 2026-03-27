@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: aaa
   successorName: aaa
-  timeToDeath: 2
+  timeToDeath: 6
   successorDeck:
+  - {fileID: 11400000, guid: af36f2a68b14f11409c5325e62541d3b, type: 2}
+  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
+  - {fileID: 11400000, guid: 3a80c39ff239b2946bba8611fba8ec02, type: 2}
   - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
+  - {fileID: 11400000, guid: 542d1a270b5bee14e81204e34f899a99, type: 2}
   - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
-  - {fileID: 11400000, guid: 3c133a8b280e2c54f8445bd865b23a46, type: 2}
-  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
-  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
-  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
+  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
+  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
   SuccessorEffect:
     effects:
     - rid: 2979482451622494315
@@ -32,6 +36,7 @@ MonoBehaviour:
     - rid: 2979482451622494296
       type: {class: TaggedResourceBonusEffect, ns: , asm: Assembly-CSharp}
       data:
+        description: 
         targetTag: 1
         resourceType: 1
         bonusAmount: 100
@@ -39,6 +44,7 @@ MonoBehaviour:
     - rid: 2979482451622494315
       type: {class: TaggedLifetimeBonusEffect, ns: , asm: Assembly-CSharp}
       data:
+        description: 
         targetTag: 1
-        lifetimeBonus: 10
+        lifetimeBonus: 1
         windowDuration: 6

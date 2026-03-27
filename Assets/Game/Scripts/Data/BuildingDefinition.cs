@@ -9,6 +9,7 @@ namespace Data
         public string buildingId;
         public string buildingName;
         public Sprite buildingIcon;
+        public Sprite buildingCardICon;
         
         [Header("Placement Rules")]
         public TerrainMask allowedTerrainTypes;

@@ -22,13 +22,9 @@ namespace Data
     {
         None = 0,
         Organic = 1 << 0,
-        Stone = 1 << 1,
-        Water = 1 << 2,
-        Crystal = 1 << 3,
-        Magic = 1 << 4,
-        Generator = 1 << 5,
-        Buffer = 1 << 6,
-        Converter = 1 << 7
+        Generator = 1 << 1,
+        Buffer = 1 << 2,
+        Ruins = 1 << 3
     }
 
     public enum BuildingStage

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995a472fae2fd6445b0ab777c64a7493, type: 3}
+  m_Name: TimeMonument
+  m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
+  buildingId: TimeMonument
+  buildingName: "\u041C\u043E\u043D\u0443\u043C\u0435\u043D\u0442 \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
+  buildingIcon: {fileID: 21300000, guid: b31f1d24c8cbd7748bd1f30204871ea9, type: 3}
+  buildingCardICon: {fileID: 0}
+  allowedTerrainTypes: 1
+  requiredNeighborTag: 0
+  lifeCycle: 5
+  stage2Effect:
+    effects:
+    - rid: 2979482521206522008
+  stage3Effect:
+    effects:
+    - rid: 2979482521206522007
+  buildingTags: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2979482521206522007
+      type: {class: selfdestruction, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+    - rid: 2979482521206522008
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 4
+        amount: 0
