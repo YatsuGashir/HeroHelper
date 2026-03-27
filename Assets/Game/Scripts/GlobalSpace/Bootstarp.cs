@@ -55,7 +55,7 @@ namespace GlobalSpace
             
 
             await UniTask.Yield();
-
+            AudioManager.Instance.PlaySFX("ambiend", 1.6f);
             Debug.Log("Игра успешно инициализирована.");
         }
 

@@ -36,6 +36,7 @@ namespace View
 
         private void SpawnBuilding(CellView cellView, BuildingInstance instance)
         {
+            AudioManager.Instance.PlaySFX("SoundDust");
             buildingPrefab.sprite = instance.GetDefinition().buildingIcon;
             UpdateSortingOrder(cellView);
             cellView.SetVisibleOverlay(false);
@@ -61,14 +62,11 @@ namespace View
         }
         
         private int _baseSortingOrder = 3; 
-        private void UpdateSortingOrder(CellView  cellView)
+        private void UpdateSortingOrder(CellView cellView)
         {
-       
             int calculatedOrder = _baseSortingOrder - cellView.Y;
-            
-            buildingPrefab.sortingOrder = calculatedOrder;
-                
 
+            buildingPrefab.sortingOrder = calculatedOrder + 3; 
         }
     }
 }

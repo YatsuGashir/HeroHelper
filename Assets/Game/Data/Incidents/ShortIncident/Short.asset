@@ -21,7 +21,7 @@ MonoBehaviour:
   incidentSprite: {fileID: 3526833687614617459, guid: 2966e1b43b0cee749b4d8fe99809a6e0, type: 3}
   durationType: 0
   turnsUntilTrigger: 0
-  chancePerTurn: 0.2
+  chancePerTurn: 0.01
   resourceLoss:
   - Type: 5
     Amount: 5

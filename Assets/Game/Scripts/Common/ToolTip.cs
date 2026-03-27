@@ -103,14 +103,14 @@ public class ToolTip : MonoBehaviour
         float pivotX = _rectTransform.pivot.x;
         float pivotY = _rectTransform.pivot.y;
 
-        // Clamp по X
+        // Clamp X
         position.x = Mathf.Clamp(
             position.x,
             size.x * pivotX,
             Screen.width - size.x * (1 - pivotX)
         );
 
-        // Clamp по Y
+        // Clamp Y
         position.y = Mathf.Clamp(
             position.y,
             size.y * pivotY,

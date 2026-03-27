@@ -44,8 +44,8 @@ public class TurnManager
 
         await UniTask.Delay(500);
         
-        GlobalIncidentSelector();
-        
+        //GlobalIncidentSelector();
+        AudioManager.Instance.PlaySFX("Voice1");
         G.Events.TurnEnded.OnNext(Unit.Default);
         
     }

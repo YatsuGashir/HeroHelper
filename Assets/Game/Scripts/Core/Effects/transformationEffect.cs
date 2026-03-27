@@ -7,6 +7,10 @@ public class TransformationEffect: GameEffectBase
 {
     public BuildingDefinition Definition;
     
+    protected override string GetDefaultDescription()
+    {
+        return $"Превращается в {Definition.buildingName}";
+    }
     public override void Apply(EffectContext context)
     {
         G.BuildingFactory.DestroyBuilding(context.X, context.Y, true);

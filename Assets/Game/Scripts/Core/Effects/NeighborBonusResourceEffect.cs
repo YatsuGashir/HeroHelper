@@ -34,6 +34,11 @@ namespace Core.Effects
         
         [Tooltip("Максимальное количество клеток ландшафта для учёта (0 = без лимита).")]
         public int maxTerrainNeighbors = 0;
+        
+        protected override string GetDefaultDescription()
+        {
+            return $"Даёт {baseAmount}, а также выдаёт {bonusPerBuilding} {ResourseToText.ConvertToText(resourceType)} за каждую постройку с тегом {neighborTagFilter}";
+        }
 
         public override void Apply(EffectContext context)
         {

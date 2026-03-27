@@ -12,6 +12,10 @@ namespace Core.Effects
         public ResourceType type;
         public int amount;
 
+        protected override string GetDefaultDescription()
+        {
+            return $"-{amount} {ResourseToText.ConvertToText(type)} каждый ход ";
+        }
         public override void Apply(EffectContext context)
         {
             Debug.Log("Applying produce resource");

@@ -23,6 +23,38 @@ public class LifetimeAdjustmentEffect : GameEffectBase
 
     public override bool IsGlobal => true;
     public override bool IsInstant => true;
+    
+    protected override string GetDefaultDescription()
+    {
+        string deltaText = lifetimeDelta >= 0 
+            ? $"+{lifetimeDelta}" 
+            : lifetimeDelta.ToString();
+        
+        string baseDesc = $"Время жизни: <color=#4CAF50>{deltaText} ход</color>";
+        
+        if (affectSpecificTag && targetTag != BuildingTag.None)
+        {
+            baseDesc += $" <color=#888>({targetTag})</color>";
+        }
+        else if (affectSpecificTag)
+        {
+            baseDesc += " <color=#888>(без тега)</color>";
+        }
+        var constraints = new System.Collections.Generic.List<string>();
+        
+        if (minLifetime > 0)
+            constraints.Add($"мин. {minLifetime}");
+        
+        if (maxLifetime > 0)
+            constraints.Add($"макс. {maxLifetime}");
+        
+        if (constraints.Count > 0)
+        {
+            baseDesc += $" <color=#666>[{string.Join(" | ", constraints)}]</color>";
+        }
+        
+        return baseDesc;
+    }
 
     public override void Apply(EffectContext context)
     {

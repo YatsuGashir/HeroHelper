@@ -109,6 +109,7 @@ namespace View
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            AudioManager.Instance.PlaySFX("figureHand", 0.25f);
             _onCardClick.OnNext(this);
         }
         

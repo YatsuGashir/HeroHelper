@@ -35,7 +35,7 @@ public class GameStartAnimation : MonoBehaviour
         if (_isAnimating) return;
         _isAnimating = true;
         await G.GameManager.StartNewRun();
-        
+        AudioManager.Instance.PlaySFX("Scope", 2f);
         if (SkipStartScreen) return;
 
         if (startButtonGroup != null)
@@ -70,8 +70,7 @@ public class GameStartAnimation : MonoBehaviour
 
         await UniTask.Delay((int)(startDelay * 1000));
         
-        if(!G.TutorialSeq.tutorialComplete)
-            return;
+        //if(!G.TutorialSeq.tutorialComplete)return;
         
         for (int i = 0; i < slideElements.Count; i++)
         {

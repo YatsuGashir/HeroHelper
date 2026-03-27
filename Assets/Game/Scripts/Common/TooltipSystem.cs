@@ -16,13 +16,13 @@ public class TooltipSystem : MonoBehaviour
         if (_current?.tooltip == null) return;
         
         _current.tooltip.SetText(content, header);
-        _current.tooltip.ShowAnimated(); // ← Анимированное появление
+        _current.tooltip.ShowAnimated();
     }
 
     public static void Hide()
     {
         if (_current?.tooltip == null) return;
-        
-        _current.tooltip.HideAnimated(); // ← Анимированное исчезновение
+
+        _current.tooltip.HideAnimated();
     }
 }

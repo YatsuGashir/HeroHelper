@@ -31,30 +31,60 @@ public class TutorialSeq: MonoBehaviour
 
     public async UniTask TryStartTutorial()
     {
+        await gameStartAnimation.PlayStartSequence(); 
         
-        await gameStartAnimation.PlayStartSequence();
-        slideElements[0].SlideIn();
+        slideElements[0].SlideIn(); 
+        
         tutorialCenterText.gameObject.SetActive(true);
-        await Say("Привет");
-        await Say("Чё как");
+        
+        await Say("Внемли… я — Калоплака, первый король");
+
+        await Say("власть наша кратка… но не должна быть глупа");
+
         slideElements[1].SlideIn();
-        await Say("Это здания");
-        await Say("Разыграй их");
+
+        await Say("здания — твоя опора");
+
+        await Say("выбери и размести их на земле");
+
         tutorialCenterText.gameObject.SetActive(false);
         await UniTask.WaitUntil(() => placeFirstBuilding);
+
         tutorialCenterText.gameObject.SetActive(true);
-        await Say("Отлично");
+
+        await Say("хорошо… ты начинаешь понимать");
+
         slideElements[2].SlideIn();
-        await Say("это твои ресурсы");
-        await Say("каждый ход твои постройки дают ресурсы");
+
+        await Say("это — ресурсы");
+
+        await Say("каждый ход постройки приносят их");
+
         slideElements[3].SlideIn();
-        await Say("Заверши ход, чтобы получить их");
+
+        await Say("заверши ход");
+
+        await Say("и прими последствия своих решений");
+
         tutorialCenterText.gameObject.SetActive(false);
         await UniTask.WaitUntil(() =>  turnPushing);
+
         tutorialCenterText.gameObject.SetActive(true);
-        await Say("Жизнь коротка, нужно будет выбрать наследников");
+
+        await Say("видишь… всё движется");
+
+        await Say("но ничто не длится вечно");
+
         slideElements[4].SlideIn();
-        await Say("Моя жизнь подходит к концу. выбери нового наследника");
+
+        await Say("наша жизнь коротка");
+
+        await Say("скоро тебе предстоит выбрать наследника");
+
+        await Say("каждый из них изменит ход событий");
+
+        await Say("выбирай… с умом");
+
         tutorialCenterText.gameObject.SetActive(false);
 
 

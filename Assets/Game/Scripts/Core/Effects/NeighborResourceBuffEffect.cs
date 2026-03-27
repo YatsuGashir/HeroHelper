@@ -35,6 +35,10 @@ public class NeighborResourceBuffEffect: GameEffectBase
         [Tooltip("Общее количество ресурса для разделения (работает только с splitTotalAmount).")]
         public int totalAmountToSplit = 50;
 
+        protected override string GetDefaultDescription()
+        {
+            return $"Даёт {amountPerNeighbor} {ResourseToText.ConvertToText(resourceType)} каждому зданию с тегом {targetTagFilter}.";
+        }
         public override void Apply(EffectContext context)
         {
             if (context.SourceBuilding == null) return;

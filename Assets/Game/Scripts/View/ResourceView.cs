@@ -73,6 +73,7 @@ namespace View
 
         private void UpdateVisuals(Dictionary<ResourceType, int> resources)
         {
+            AudioManager.Instance.PlaySFX("ResourcePlus", 0.1f);
             foreach (var slot in _slots)
             {
                 if (resources.TryGetValue(slot.Type, out int amount))
@@ -84,7 +85,7 @@ namespace View
                         PulseText(slot.RectValue);
                     }
 
-                    slot.TextValue.text =slot.Type.ToString() + amount.ToString();
+                    slot.TextValue.text =amount.ToString();
                     
                     if (slot.RootObject != null)
                         slot.RootObject.SetActive(true);

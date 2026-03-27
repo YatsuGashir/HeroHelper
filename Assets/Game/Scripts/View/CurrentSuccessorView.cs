@@ -17,7 +17,7 @@ namespace View
         private CompositeDisposable _disposables = new CompositeDisposable();
         private GameObject _currentPortrait;
 
-        private bool _isFirstRun = false;
+        public bool _isFirstRun = false;
 
         public void Init(SuccessionManager  successionManager)
         {
@@ -28,6 +28,8 @@ namespace View
             successionManager.OnSuccessorChanged
                 .Subscribe(SetPortrait)
                 .AddTo(_disposables);
+            
+            _isFirstRun = true;
         }
 
         private async void SetPortrait(SuccessorState successorState)
@@ -39,15 +41,19 @@ namespace View
                 await diedAnimation.PlayAnimation(portraitRect, textFader);
                 Destroy(_currentPortrait);
                 _currentPortrait = null;
-                _isFirstRun = false;
             }
             
             _currentPortrait = G.SuccessorFaceBuilder.BuildSuccessor(successorState.CurrentProfile);
             _currentPortrait.transform.SetParent(successorAnchor, false);
             _currentPortrait.transform.SetAsFirstSibling();
-            
-            if(!_isFirstRun)
-                await coronationAnimation.PlayCoronation(_currentPortrait, textFader);
+
+            if (_isFirstRun)
+            {
+                _isFirstRun = false;
+                return;
+            }
+            await coronationAnimation.PlayCoronation(_currentPortrait, textFader);
+
         }
 
         private void OnDestroy()

@@ -9,7 +9,17 @@ public class ModifyNeighborsLifetimeEffect: GameEffectBase
 
     public int lifetimeChange;
     
-    
+    protected override string GetDefaultDescription()
+    {
+        if (lifetimeChange > 0)
+        {
+            return $"продлевает жизнь всех построек с тегом {affectedTag} на {lifetimeChange} хода";
+        }
+        else
+        {
+            return $"сокращает жизнь всех построек с тегом {affectedTag} на {lifetimeChange} хода";
+        }
+    }
 public override void Apply(EffectContext context)
         {
             int x = context.SourceBuilding.x;

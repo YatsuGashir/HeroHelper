@@ -69,6 +69,8 @@ namespace View
                     crownRect.anchoredPosition = crownOffset;  // Позиция на голове
                     crownRect.localRotation = Quaternion.identity;
                 }
+                
+                AudioManager.Instance.PlaySFX("death");
             });
 
             // === ЭТАП 3: Падение ребёнка и короны (параллельно) ===
@@ -111,7 +113,6 @@ namespace View
                 }
             }
             crownRect.rotation = Quaternion.identity;
-            // Отскок ребёнка (если включён)
             if (addBounce)
             {
                 _animationSequence.Append(
@@ -128,13 +129,10 @@ namespace View
             {
                 _animationSequence.AppendCallback(() =>
                 {
-                    // 🔥 Сбрасываем локальное вращение ПОСЛЕ завершения анимации
                     crownRect.localRotation = Quaternion.identity;
-                    // Опционально: скрыть корону, если она не нужна до следующей сцены
-                    // crownRect.gameObject.SetActive(false);
                 });
             }
-
+            
             // === ЭТАП 4: Показ текста ===
             _animationSequence.AppendCallback(() =>
             {

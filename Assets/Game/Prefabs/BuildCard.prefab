@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::View.CardView
   _hoverScale: 1.1
+  _selectLiftY: 40
 --- !u!114 &2464677023712015895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrepareCardForTooltip
   tooltipTriger: {fileID: 2464677023712015895}
-  cardVIew: {fileID: 7610660530765565173}
+  cardView: {fileID: 7610660530765565173}

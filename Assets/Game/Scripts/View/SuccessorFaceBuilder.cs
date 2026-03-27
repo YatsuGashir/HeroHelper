@@ -37,6 +37,13 @@ namespace View
             successorObj.AddComponent<RectTransform>();
             successorObj.transform.localScale = new Vector3(0.23f, 0.23f, 0.23f);
             
+            var tooltip = successorObj.AddComponent<TooltipTrigerForUi>();
+            var prepare = new PrepareSuccessorForTooltip();
+            prepare.tooltipTriger = tooltip;
+            prepare.successorStatus = successorProfile;
+            
+            prepare.InitializeTooltip();
+            
             GameObject bodyObj = new GameObject("Body");
             GameObject headObj = new GameObject("Head");
             GameObject eyeObj = new GameObject("Eye");

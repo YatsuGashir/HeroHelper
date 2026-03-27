@@ -93,6 +93,7 @@ public async UniTask PlayCoronation(GameObject newPortrait, TextFader fader)
 
     // === ЭТАП 2: Трубы появляются и играют ===
     var trumpetTasks = new List<UniTask>();
+    AudioManager.Instance.PlaySFX("trumpet");
     for (int i = 0; i < trumpets.Count; i++)
     {
         if (trumpets[i] != null)
@@ -120,6 +121,7 @@ public async UniTask PlayCoronation(GameObject newPortrait, TextFader fader)
     if (textFader != null)
     {
         textFader.ShowText("Да здравствует король!");
+        AudioManager.Instance.PlaySFX("Hello1");
         await UniTask.Delay((int)(textDisplayDelay * 1000));
         textFader.HideText();
         await UniTask.Delay((int)(betweenPhasesDelay * 1000));
