@@ -5,6 +5,7 @@ using Data;
 using Core.Base;
 using Core.Successors;
 using Game.Scripts.Core.incidents;
+using UniRx;
 using UnityEngine;
 using View;
 
@@ -38,6 +39,9 @@ namespace GlobalSpace
         public static LifetimeBonusManager LifetimeBonusManager { get; private set; } 
         public static TextController TextController { get; set; }
         public static TutorialSeq TutorialSeq { get; set; }
+        
+        public static ResourcePreviewManager ResourcePreviewManager { get; private set; }
+        public static CompositeDisposable Disposables { get; } = new CompositeDisposable();
 
 
         public static void Initialize(GameConfig config)
@@ -61,6 +65,7 @@ namespace GlobalSpace
             WandererManager = new WandererManager();
             ProductionBonusManager = new GlobalProductionBonusManager();
             LifetimeBonusManager = new LifetimeBonusManager();
+            ResourcePreviewManager = new ResourcePreviewManager();
 
         }
         

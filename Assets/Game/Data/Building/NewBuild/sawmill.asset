@@ -48,7 +48,7 @@ MonoBehaviour:
       data:
         description: 
         resourceType: 4
-        baseAmount: 2
+        baseAmount: 3
         bonusPerBuilding: 0
         bonusPerTerrain: 1
         neighborTagFilter: 0
@@ -60,10 +60,6 @@ MonoBehaviour:
       data:
         description: 
         cost:
-          costs:
-          - Type: 1
-            Amount: 2
-          - Type: 5
-            Amount: 2
+          costs: []
         type: 4
-        amount: 3
+        amount: 1

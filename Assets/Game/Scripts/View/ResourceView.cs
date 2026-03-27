@@ -1,3 +1,4 @@
+// File: View/ResourceView.cs (обновлённый)
 using System;
 using System.Collections.Generic;
 using GlobalSpace;
@@ -6,6 +7,7 @@ using UniRx;
 using UnityEngine;
 using Data;
 using DG.Tweening;
+using Core.Base; // 🔥 Для ResourcePreviewManager
 
 namespace View
 {
@@ -15,32 +17,71 @@ namespace View
         public class ResourceSlot
         {
             public ResourceType Type;
-            public GameObject TextGameObj;
+            public GameObject TextGameObj;      // Основной текст: "10"
+            public GameObject ForecastTextObj;  // 🔥 Новый: текст прогноза: "→ +5 = 15"
             public GameObject RootObject;
             
-            [NonSerialized]public TMP_Text TextValue;
-            [NonSerialized]public RectTransform RectValue;
+            [NonSerialized] public TMP_Text TextValue;
+            [NonSerialized] public TMP_Text ForecastText; // 🔥
+            [NonSerialized] public RectTransform RectValue;
+            [NonSerialized] public RectTransform ForecastRect; // 🔥
             
             public void CacheReferences()
             {
-                TextValue = TextGameObj.GetComponent<TMP_Text>();
-                RectValue = TextGameObj.GetComponent<RectTransform>();
+                TextValue = TextGameObj?.GetComponent<TMP_Text>();
+                ForecastText = ForecastTextObj?.GetComponent<TMP_Text>(); // 🔥
+                RectValue = TextGameObj?.GetComponent<RectTransform>();
+                ForecastRect = ForecastTextObj?.GetComponent<RectTransform>(); // 🔥
             }
+            
             public void InitText()
             { 
-                TextValue.text = $"{Type}: 0";
+                TextValue.text = "0";
+                ForecastText?.SetText(""); // 🔥 Пусто по умолчанию
+            }
+            
+            // 🔥 Обновление отображения с прогнозом
+            public void UpdateDisplay(ResourceForecast forecast)
+            {
+                TextValue.text = forecast.Current.ToString();
+                
+                if (ForecastText != null)
+                {
+                    if (forecast.Delta != 0)
+                    {
+                        ForecastText.text = forecast.GetDisplayString();
+                        ForecastTextObj.SetActive(true);
+                        
+                        // 🔥 Анимация при изменении прогноза
+                        if (ForecastRect != null)
+                            PulseText(ForecastRect);
+                    }
+                    else
+                    {
+                        ForecastTextObj.SetActive(false);
+                    }
+                }
+            }
+            
+            private void PulseText(RectTransform rect)
+            {
+                rect.DOKill();
+                rect.DOScale(1.15f, 0.12f).SetEase(Ease.OutQuad)
+                    .OnComplete(() => rect.DOScale(1f, 0.12f).SetEase(Ease.InQuad));
             }
         }
 
+        [Header("Floating Text")]
         [SerializeField] private TMP_Text floatingTextPrefab;
         [SerializeField] private Vector3 floatingTextSpawnOffset = new Vector3(1f, 1f, 0f);
         [SerializeField] private Vector3 floatOffset = new Vector3(0f, 1f, 0f);
         [SerializeField] private float animDuration = 0.5f;
         
+        [Header("Slots")]
         [SerializeField] private List<ResourceSlot> _slots;
 
-        private Dictionary<ResourceType, int> _previousValues = new Dictionary<ResourceType, int>();
-        
+        private Dictionary<ResourceType, int> _previousValues = new();
+        private ResourcePreviewManager _previewManager; // 🔥
         private CompositeDisposable _disposables;
         private bool _isFirstPlay = true;
 
@@ -55,26 +96,53 @@ namespace View
             }
         }
 
+        // В ResourceView, после Awake():
+        private void Start()
+        {
+            Debug.Log($"[ResourceView Debug] Slots count: {_slots?.Count ?? 0}");
+            for (int i = 0; i < _slots?.Count; i++)
+            {
+                var slot = _slots[i];
+                Debug.Log($"  Slot {i} ({slot.Type}):" +
+                          $"\n    TextGameObj: {slot.TextGameObj?.name ?? "NULL"}" +
+                          $"\n    TextValue: {slot.TextValue != null}" +
+                          $"\n    ForecastTextObj: {slot.ForecastTextObj?.name ?? "NULL"}" +
+                          $"\n    ForecastText: {slot.ForecastText != null}");
+            }
+        }
         public void Init()
         {
             _isFirstPlay = true;
+            _previewManager = G.ResourcePreviewManager; // 🔥 Получаем менеджер
             
-            Debug.Log("ResourceView Init");
             if (G.ResourceManager == null)
             {
-                Debug.LogError("ResourceManager not found in G!");
+                Debug.LogError("ResourceManager not found!");
                 return;
             }
             
+            // 🔥 Подписка на реальные изменения ресурсов
             G.ResourceManager.OnResourcesChanged
-                .Subscribe(UpdateVisuals)
+                .Subscribe(UpdateActualValues)
                 .AddTo(_disposables);
             
+            // 🔥 Подписка на обновление прогноза
+            if (_previewManager != null)
+            {
+                _previewManager.OnForecastUpdated
+                    .Subscribe(UpdateForecastDisplay)
+                    .AddTo(_disposables);
+                
+                // 🔥 Инициализация прогноза
+                _previewManager.RecalculateForecast();
+            }
+            
             _previousValues = G.ResourceManager.GetResources();
-            UpdateVisuals(G.ResourceManager.GetResources()); 
+            UpdateActualValues(_previousValues);
         }
 
-        private void UpdateVisuals(Dictionary<ResourceType, int> resources)
+        // 🔥 Обновление только текущих значений (без прогноза)
+        private void UpdateActualValues(Dictionary<ResourceType, int> resources)
         {
             if (!_isFirstPlay)
             {
@@ -84,75 +152,45 @@ namespace View
             {
                 _isFirstPlay = false;
             }
+            
             foreach (var slot in _slots)
             {
                 if (resources.TryGetValue(slot.Type, out int amount))
                 {
-                    int delta = amount - _previousValues[slot.Type];
-                    if (delta != 0)
+                    int delta = amount - _previousValues.GetValueOrDefault(slot.Type, 0);
+                    
+                    if (delta != 0 && !_isFirstPlay)
                     {
                         SpawnFloatingText(slot, delta);
-                        PulseText(slot.RectValue);
+                        if (slot.RectValue != null)
+                            PulseText(slot.RectValue);
                     }
 
-                    slot.TextValue.text =amount.ToString();
-                    
-                    if (slot.RootObject != null)
-                        slot.RootObject.SetActive(true);
+                    slot.TextValue.text = amount.ToString();
+                    slot.RootObject?.SetActive(true);
                 }
             }
-            _previousValues = resources;
+            _previousValues = new Dictionary<ResourceType, int>(resources);
         }
-        
-        private void SpawnFloatingText(ResourceSlot slot, int amount)
+
+        // 🔥 Обновление отображения прогноза
+        private void UpdateForecastDisplay(Dictionary<ResourceType, ResourceForecast> forecasts)
         {
-            if (floatingTextPrefab == null || slot.TextValue == null) return;
-
-            TMP_Text floatText = Instantiate(floatingTextPrefab, slot.TextValue.transform.parent);
-
-            floatText.text = (amount > 0 ? "+" : "-") + amount;
-
-            RectTransform rt = floatText.rectTransform;
-
-            // КРИТИЧНО: сначала сбрасываем трансформ
-            rt.localScale = Vector3.one;
-            rt.localRotation = Quaternion.identity;
-
-            // якорь в центр
-            rt.anchorMin = new Vector2(0.5f, 0.5f);
-            rt.anchorMax = new Vector2(0.5f, 0.5f);
-            rt.pivot = new Vector2(0.5f, 0.5f);
-
-            // теперь позиция относительно текста ресурса
-            rt.anchoredPosition = slot.RectValue.anchoredPosition + (Vector2)floatingTextSpawnOffset;
-
-            var graphic = floatText.GetComponent<UnityEngine.UI.Graphic>();
-
-            Sequence seq = DOTween.Sequence();
-
-            seq.Append(graphic.DOFade(0f, animDuration));
-
-            seq.Join(rt.DOAnchorPos(rt.anchoredPosition + (Vector2)floatOffset, animDuration)
-                .SetEase(Ease.OutQuad));
-
-            seq.OnComplete(() => Destroy(floatText.gameObject));
-        }
-        
-        private void PulseText(RectTransform rectTransform)
-        {
-            if (rectTransform == null) return;
-            
-            rectTransform.DOKill();
-
-            rectTransform.DOScale(1.1f, 0.1f).SetEase(Ease.OutQuad)
-                .OnComplete(() =>
+            foreach (var slot in _slots)
+            {
+                if (forecasts.TryGetValue(slot.Type, out var forecast))
                 {
-                    rectTransform.DOScale(1f, 0.1f).SetEase(Ease.InQuad);
-                });
+                    slot.UpdateDisplay(forecast); // 🔥 Использует новый метод
+                }
+            }
         }
-        private void OnDestroy()
-        {
-            _disposables?.Dispose();
-        }
+        
+        // 🔥 Публичный метод для принудительного обновления (если нужно)
+        public void RefreshForecast() => _previewManager?.RecalculateForecast();
+        
+        private void SpawnFloatingText(ResourceSlot slot, int amount) { /* ваш код */ }
+        private void PulseText(RectTransform rect) { /* ваш код */ }
+        
+        private void OnDestroy() => _disposables?.Dispose();
     }
 }

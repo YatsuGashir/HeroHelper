@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Data;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace Core.Base
 {

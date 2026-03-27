@@ -53,7 +53,8 @@ namespace Core.Factories
             G.TutorialSeq.placeFirstBuilding = true;
 
             var cell = G.GridSystem.GetCell(x, y);
-            G.GridSystem.SetCellTerrain(x,y,TerrainType.Meadow);
+            if(definition.allowedTerrainTypes!= TerrainMask.Water)
+                G.GridSystem.SetCellTerrain(x,y,TerrainType.Meadow);
             var instance = new BuildingInstance();
             instance.Initialize(definition, x, y);
             

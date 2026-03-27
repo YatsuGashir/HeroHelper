@@ -20,10 +20,19 @@ MonoBehaviour:
   requiredNeighborTag: 0
   lifeCycle: 0
   stage2Effect:
-    effects: []
+    effects:
+    - rid: 2979482521206522044
   stage3Effect:
     effects: []
   buildingTags: 9
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2979482521206522044
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        cost:
+          costs: []
+        type: 3
+        amount: 1

@@ -33,6 +33,8 @@ namespace GlobalSpace
             
             
             G.Initialize(gameConfig);
+            await UniTask.Yield();
+            
             G.GridView= gridView;
 
             GameFlowFsm = new Fsm();

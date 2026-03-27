@@ -37,19 +37,17 @@ MonoBehaviour:
           costs:
           - Type: 1
             Amount: 2
-          - Type: 2
+          - Type: 3
             Amount: 2
         type: 5
-        amount: 2
+        amount: 5
     - rid: 2979482521206522005
       type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
         cost:
           costs:
-          - Type: 1
+          - Type: 3
             Amount: 1
-          - Type: 2
-            Amount: 2
         type: 5
-        amount: 5
+        amount: 3

@@ -22,9 +22,12 @@ MonoBehaviour:
   stage2Effect:
     effects:
     - rid: 2979482521206522009
+    - rid: 2979482521206522047
+    - rid: 2979482521206522048
   stage3Effect:
     effects:
     - rid: 2979482521206522010
+    - rid: 2979482521206522050
   buildingTags: 3
   references:
     version: 2
@@ -33,9 +36,9 @@ MonoBehaviour:
       type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
-        resourceType: 0
-        baseAmount: 4
-        bonusPerBuilding: 3
+        resourceType: 1
+        baseAmount: 2
+        bonusPerBuilding: 1
         bonusPerTerrain: 0
         neighborTagFilter: 1
         maxBuildingNeighbors: 0
@@ -45,3 +48,27 @@ MonoBehaviour:
       type: {class: selfdestruction, ns: , asm: Assembly-CSharp}
       data:
         description: 
+    - rid: 2979482521206522047
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 1
+        amount: 2
+    - rid: 2979482521206522048
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 5
+        amount: 2
+    - rid: 2979482521206522050
+      type: {class: NeighborResourceBuffEffect, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+        resourceType: 1
+        amountPerNeighbor: 2
+        includeSelf: 0
+        targetTagFilter: 3
+        targetTerrainTypes: 
+        maxTargets: 0
+        splitTotalAmount: 0
+        totalAmountToSplit: 50

@@ -22,10 +22,12 @@ MonoBehaviour:
   stage2Effect:
     effects:
     - rid: 2979482521206522008
+    - rid: 2979482521206522045
+    - rid: 2979482521206522046
   stage3Effect:
     effects:
     - rid: 2979482521206522007
-  buildingTags: 0
+  buildingTags: 4
   references:
     version: 2
     RefIds:
@@ -37,5 +39,17 @@ MonoBehaviour:
       type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
-        type: 4
-        amount: 0
+        type: 2
+        amount: 2
+    - rid: 2979482521206522045
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 1
+        amount: 2
+    - rid: 2979482521206522046
+      type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+        affectedTag: 0
+        lifetimeChange: -1

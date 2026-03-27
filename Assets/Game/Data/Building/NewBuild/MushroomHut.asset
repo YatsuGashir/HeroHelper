@@ -40,7 +40,7 @@ MonoBehaviour:
         description: 
         cost:
           costs:
-          - Type: 3
+          - Type: 1
             Amount: 2
           - Type: 5
             Amount: 2

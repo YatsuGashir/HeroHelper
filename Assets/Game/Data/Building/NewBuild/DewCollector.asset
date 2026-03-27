@@ -16,7 +16,7 @@ MonoBehaviour:
   buildingName: "\u0420\u043E\u0441\u043E\u0441\u0431\u043E\u0440\u043D\u0438\u043A"
   buildingIcon: {fileID: 21300000, guid: 98675ca0819af2841b8f96af4467d761, type: 3}
   buildingCardICon: {fileID: 0}
-  allowedTerrainTypes: 0
+  allowedTerrainTypes: 4
   requiredNeighborTag: 0
   lifeCycle: 3
   stage2Effect:
@@ -40,7 +40,7 @@ MonoBehaviour:
           - Type: 4
             Amount: 2
         type: 3
-        amount: 4
+        amount: 3
     - rid: 2979482521206522003
       type: {class: TransformationEffect, ns: , asm: Assembly-CSharp}
       data:

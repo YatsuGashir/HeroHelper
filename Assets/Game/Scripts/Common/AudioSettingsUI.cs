@@ -33,11 +33,11 @@ namespace View
             }
         }
 
-        private void Start()
+        /*private void Start()
         {
             InitializeSliders();
             SubscribeToSliders();
-        }
+        }*/
 
         private void InitializeSliders()
         {
