@@ -115,6 +115,7 @@ public class TextController: MonoBehaviour
             _visibleCharCount++;
             _currentTextField.text = _fullText.Substring(0, _visibleCharCount);
 
+            AudioManager.Instance.PlaySFX("bubble");
             await UniTask.Delay(TimeSpan.FromSeconds(speed), cancellationToken: _cts.Token);
         }
     }
