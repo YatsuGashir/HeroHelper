@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: sawmill
   buildingName: sawmill
-  buildingIcon: {fileID: 8980130189673016619, guid: d6ca1552c07f08743bbb00835534e276, type: 3}
+  buildingIcon: {fileID: 21300000, guid: f395a63b025c1f24b89e8d45fdf0d3c3, type: 3}
   allowedTerrainTypes: 8
   requiredNeighborTag: 0
   lifeCycle: 2
@@ -32,15 +32,18 @@ MonoBehaviour:
     - rid: 2979482340603724091
       type: {class: ReplaceTileType, ns: , asm: Assembly-CSharp}
       data:
+        description: 
         tileType: 16
         targetType: 1
         destroyBuildingsOnTop: 0
     - rid: 2979482340603724097
       type: {class: selfdestruction, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        description: 
     - rid: 2979482359937368153
       type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
+        description: 
         resourceType: 4
         baseAmount: 5
         bonusPerBuilding: 0

@@ -39,9 +39,9 @@ MonoBehaviour:
     useAutotile: 1
   - type: 2
     sprite:
-    - {fileID: 782591277426364175, guid: 35e0e3b16d9408e4388fa625b1bff9ed, type: 3}
-    - {fileID: 7072803557040705579, guid: 09d2ee7727425c64ea7630469fa0a69d, type: 3}
-    - {fileID: 6144497858149573267, guid: 5d73d4a793f31624b8acb82d39fd9346, type: 3}
+    - {fileID: 21300000, guid: 998fa5192758ea145bc47b27c58bc70c, type: 3}
+    - {fileID: 21300000, guid: 04afea3df8dd32c4faf263092752fc21, type: 3}
+    - {fileID: 21300000, guid: d9d8cee9ddb339e4a8bd1dc63f73954e, type: 3}
     autoTileSprites: []
     useAutotile: 1
   - type: 4
@@ -51,8 +51,8 @@ MonoBehaviour:
     useAutotile: 0
   - type: 8
     sprite:
-    - {fileID: 4129560487790404355, guid: f68c19707cd3cd943bbaaeeef8b92c5c, type: 3}
-    - {fileID: -1619544403879945242, guid: 79af47878f5b8cd409e5bd6152fb53bf, type: 3}
-    - {fileID: 7382720709556204231, guid: 46ba3923006f1144e9109967f96dbae0, type: 3}
+    - {fileID: 21300000, guid: f68c19707cd3cd943bbaaeeef8b92c5c, type: 3}
+    - {fileID: 21300000, guid: 339816308aec9b74cb40e36f71e902cc, type: 3}
+    - {fileID: 21300000, guid: a8fe470e7fc14d94bad032d178b46427, type: 3}
     autoTileSprites: []
     useAutotile: 0
