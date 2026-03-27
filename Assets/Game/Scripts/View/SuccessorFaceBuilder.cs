@@ -73,7 +73,7 @@ namespace View
             mouthObj.transform.SetParent(successorObj.transform);
             
             
-            headObj.transform.localPosition = new Vector3(-22f, 259f, 0);
+            headObj.transform.localPosition = new Vector3(-22f, 274.7f, 0);
             eyeObj.transform.localPosition = new Vector3(0f, 134f, 0);
             mouthObj.transform.localPosition = new Vector3(0f, 71f, 0);
             bodyObj.transform.localPosition = new Vector3(0f, 0f, 0);
