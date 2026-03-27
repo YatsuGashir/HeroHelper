@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Data.BuildingDefinition
   buildingId: ' sporovik'
   buildingName: ' sporovik'
-  buildingIcon: {fileID: 7123678952786107388, guid: 24d23fc2b9d50064381141196eebf96a, type: 3}
+  buildingIcon: {fileID: 21300000, guid: 24d23fc2b9d50064381141196eebf96a, type: 3}
   allowedTerrainTypes: 1
   requiredNeighborTag: 0
   lifeCycle: 2
@@ -32,11 +32,13 @@ MonoBehaviour:
     - rid: 2979482359937368065
       type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
       data:
+        description: 
         affectedTag: 0
         lifetimeChange: 2
     - rid: 2979482359937368066
       type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
+        description: 
         cost:
           costs:
           - Type: 5
@@ -45,4 +47,5 @@ MonoBehaviour:
         amount: 2
     - rid: 2979482359937368067
       type: {class: selfdestruction, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        description: 
