@@ -2547,6 +2547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520216065}
+  - component: {fileID: 520216066}
   m_Layer: 5
   m_Name: Res
   m_TagString: Untagged
@@ -2575,6 +2576,21 @@ RectTransform:
   m_AnchoredPosition: {x: -283, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &520216066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520216064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: "\u042D\u0442\u043E \u0434\u0435\u0440\u0435\u0432\u043E"
+  showDelay: 0.3
 --- !u!1 &547421546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,6 +3038,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644176100}
   m_CullTransparentMesh: 1
+--- !u!114 &671906749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4312818096958833184, guid: ed79eab5d3b103f4eb11856a939c3a75, type: 3}
+  m_PrefabInstance: {fileID: 1246546289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &677943901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,6 +3058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677943902}
+  - component: {fileID: 677943903}
   m_Layer: 5
   m_Name: Res (1)
   m_TagString: Untagged
@@ -3059,6 +3087,21 @@ RectTransform:
   m_AnchoredPosition: {x: -125, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &677943903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677943901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: "\u042D\u0442\u043E \u043A\u0430\u043C\u0435\u043D\u044C"
+  showDelay: 0.3
 --- !u!1 &715115195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +3247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 749687983}
+  - component: {fileID: 749687984}
   m_Layer: 5
   m_Name: Res (3)
   m_TagString: Untagged
@@ -3232,6 +3276,21 @@ RectTransform:
   m_AnchoredPosition: {x: 164, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &749687984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749687982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: "\u042D\u0442\u043E \u0432\u043E\u0434\u0430"
+  showDelay: 0.3
 --- !u!1 &750301007
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,6 +4315,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073387043}
   m_CullTransparentMesh: 1
+--- !u!114 &1087950969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528958555794286248, guid: ed79eab5d3b103f4eb11856a939c3a75, type: 3}
+  m_PrefabInstance: {fileID: 1246546289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1099364056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5669,6 +5739,7 @@ MonoBehaviour:
   SkipStartScreen: 0
   startButtonGroup: {fileID: 471907903}
   mainMenuSprite: {fileID: 1257691368}
+  startScreenCanvas: {fileID: 471907906}
   mainCamera: {fileID: 519420031}
   cameraTargetPosition: {x: 20, y: 20, z: -10}
   cameraZoomDuration: 1
@@ -6085,6 +6156,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1488928582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2701958212999995995, guid: ed79eab5d3b103f4eb11856a939c3a75, type: 3}
+  m_PrefabInstance: {fileID: 1246546289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1499117040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,6 +6928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792033392}
+  - component: {fileID: 1792033393}
   m_Layer: 5
   m_Name: Res (4)
   m_TagString: Untagged
@@ -6874,6 +6957,21 @@ RectTransform:
   m_AnchoredPosition: {x: 309, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1792033393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792033391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: "\u042D\u0442\u043E \u0435\u0434\u0430"
+  showDelay: 0.3
 --- !u!1 &1794187297
 GameObject:
   m_ObjectHideFlags: 0
@@ -7581,6 +7679,7 @@ GameObject:
   - component: {fileID: 1966445293}
   - component: {fileID: 1966445292}
   - component: {fileID: 1966445294}
+  - component: {fileID: 1966445295}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -7789,6 +7888,21 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 89ddd2248987aeb45baeeda4d7b55f13, type: 3}
     - {fileID: 8300000, guid: 2a9e3a3467de95a4b9e16b2bb09859a5, type: 3}
     - {fileID: 8300000, guid: f9eeba408e1ab8e4f89cdf19530adb2c, type: 3}
+--- !u!114 &1966445295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966445290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8de1e8da9e7644996553cd78691206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::View.AudioSettingsUI
+  masterSlider: {fileID: 1087950969}
+  musicSlider: {fileID: 671906749}
+  sfxSlider: {fileID: 1488928582}
 --- !u!1 &1987890479
 GameObject:
   m_ObjectHideFlags: 0
@@ -7798,6 +7912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1987890480}
+  - component: {fileID: 1987890481}
   m_Layer: 5
   m_Name: Res (2)
   m_TagString: Untagged
@@ -7826,6 +7941,21 @@ RectTransform:
   m_AnchoredPosition: {x: 18, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1987890481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987890479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8d31739b9d624ab63f85b72a1f96b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
+  header: 
+  content: "\u042D\u0442\u043E \u0441\u043F\u043E\u0440\u044B"
+  showDelay: 0.3
 --- !u!1 &2019932848
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,6 +8511,7 @@ MonoBehaviour:
   successorSelectionUI: {fileID: 1041029489}
   featureCandidatesView: {fileID: 1794187299}
   endTurnButton: {fileID: 1411868852}
+  audioSettingsUI: {fileID: 1966445295}
 --- !u!4 &2057371368
 Transform:
   m_ObjectHideFlags: 0

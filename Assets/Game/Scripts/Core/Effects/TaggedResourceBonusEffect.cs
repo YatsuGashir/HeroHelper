@@ -14,6 +14,10 @@ public class TaggedResourceBonusEffect: GameEffectBase
     public override bool IsGlobal => true;
     public override bool IsInstant => false;
 
+    protected override string GetDefaultDescription()
+    {
+        return $"+ {bonusAmount} {resourceType} для построек с тегом {targetTag} ";
+    }
     public override void Apply(EffectContext context)
     {
         G.ProductionBonusManager.ActiveBonuses.Add(new TaggedResourceBonus

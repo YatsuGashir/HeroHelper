@@ -12,6 +12,7 @@ public class GameStartAnimation : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private CanvasGroup startButtonGroup;
     [SerializeField] private SpriteRenderer mainMenuSprite;
+    [SerializeField] private Canvas startScreenCanvas;
     
     [Header("Camera")]
     [SerializeField] private Camera mainCamera;
@@ -86,7 +87,7 @@ public class GameStartAnimation : MonoBehaviour
         await UniTask.Delay((int)((slideElements.Count * slideDelayBetween + 0.5f) * 1000));
         
         _isAnimating = false;
-
+        startScreenCanvas.gameObject.SetActive(false);
         //await G.GameManager.StartNewRun();
     }
 

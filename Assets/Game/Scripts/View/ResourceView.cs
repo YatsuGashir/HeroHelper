@@ -42,6 +42,7 @@ namespace View
         private Dictionary<ResourceType, int> _previousValues = new Dictionary<ResourceType, int>();
         
         private CompositeDisposable _disposables;
+        private bool _isFirstPlay = true;
 
         private void Awake()
         {
@@ -56,6 +57,8 @@ namespace View
 
         public void Init()
         {
+            _isFirstPlay = true;
+            
             Debug.Log("ResourceView Init");
             if (G.ResourceManager == null)
             {
@@ -73,7 +76,14 @@ namespace View
 
         private void UpdateVisuals(Dictionary<ResourceType, int> resources)
         {
-            AudioManager.Instance.PlaySFX("ResourcePlus", 0.1f);
+            if (!_isFirstPlay)
+            {
+                AudioManager.Instance.PlaySFX("ResourcePlus", 0.1f);
+            }
+            else
+            {
+                _isFirstPlay = false;
+            }
             foreach (var slot in _slots)
             {
                 if (resources.TryGetValue(slot.Type, out int amount))

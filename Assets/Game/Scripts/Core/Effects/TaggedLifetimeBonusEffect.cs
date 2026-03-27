@@ -13,6 +13,11 @@ public class TaggedLifetimeBonusEffect: GameEffectBase
     public override bool IsGlobal => true;
     public override bool IsInstant => false;
 
+    protected override string GetDefaultDescription()
+    {
+        string tagInfo = targetTag != BuildingTag.None ? $"с тегом {targetTag}" : "все здания";
+        return $"Постройки с тегом {tagInfo} получают {lifetimeBonus:+#;-#} к жизни при постройке";
+    }
     public override void Apply(EffectContext context)
     {
         G.LifetimeBonusManager.ActiveBonuses.Add(new TaggedLifetimeBonus

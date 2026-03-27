@@ -20,6 +20,7 @@ namespace GlobalSpace
         [SerializeField] private SuccessorSelectionUI successorSelectionUI;
         [SerializeField] private FeatureCandidatesView featureCandidatesView;
         [SerializeField] private EndTurnButton endTurnButton;
+        [SerializeField] private AudioSettingsUI audioSettingsUI;
 
         public Fsm GameFlowFsm { get; private set; }
         
@@ -56,6 +57,7 @@ namespace GlobalSpace
 
             await UniTask.Yield();
             AudioManager.Instance.PlaySFX("ambiend", 1.6f);
+            audioSettingsUI.Init(AudioManager.Instance);
             Debug.Log("Игра успешно инициализирована.");
         }
 

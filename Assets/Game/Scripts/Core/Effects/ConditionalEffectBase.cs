@@ -7,7 +7,7 @@ namespace Core.Effects
     public abstract class ConditionalEffectBase: GameEffectBase
     {
         public ResourceCost cost;
-
+        
         public override void Apply(EffectContext context)
         {
             if (HasEnoughResources(context))
