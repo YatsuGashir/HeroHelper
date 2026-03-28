@@ -44,6 +44,21 @@ namespace View
             
             prepare.InitializeTooltip();
             
+            GameObject bodyContainer = new GameObject("BodyContainer");
+            bodyContainer.transform.SetParent(successorObj.transform);
+
+            RectTransform containerRect = bodyContainer.AddComponent<RectTransform>();
+            containerRect.anchoredPosition = Vector2.zero;
+            containerRect.sizeDelta = new Vector2(400, 400);
+            containerRect.pivot = new Vector2(0.5f, 0.5f);
+            containerRect.localScale = Vector3.one;
+
+            var rectMask = bodyContainer.AddComponent<RectMask2D>();
+            var i = rectMask.softness;
+            i.y = 80;
+            rectMask.softness = i;
+            
+            
             GameObject bodyObj = new GameObject("Body");
             GameObject headObj = new GameObject("Head");
             GameObject eyeObj = new GameObject("Eye");
@@ -51,27 +66,30 @@ namespace View
             
             Image headRenderer = headObj.AddComponent<Image>();
             headRenderer.sprite = headSprite;
-            headRenderer.SetNativeSize();
-            
-            
+            ApplySpritePivot(headRenderer);
+
             Image eyeRenderer = eyeObj.AddComponent<Image>();
             eyeRenderer.sprite = eyeSprite;
-            eyeRenderer.SetNativeSize();
-            
+            ApplySpritePivot(eyeRenderer);
+
             Image mounthRenderer = mouthObj.AddComponent<Image>();
             mounthRenderer.sprite = mouthSprite;
-            mounthRenderer.SetNativeSize();
-    
+            ApplySpritePivot(mounthRenderer);
+
             Image bodyRenderer = bodyObj.AddComponent<Image>();
             bodyRenderer.sprite = bodySprite;
-            bodyRenderer.SetNativeSize();
+            ApplySpritePivot(bodyRenderer);
             
             
-            bodyObj.transform.SetParent(successorObj.transform);
+            bodyObj.transform.SetParent(bodyContainer.transform);
             headObj.transform.SetParent(successorObj.transform);
             eyeObj.transform.SetParent(successorObj.transform);
             mouthObj.transform.SetParent(successorObj.transform);
             
+            headRenderer.SetNativeSize();
+            eyeRenderer.SetNativeSize();
+            mounthRenderer.SetNativeSize();
+            bodyRenderer.SetNativeSize();
             
             RectTransform headRect = headObj.GetComponent<RectTransform>();
             headRect.anchoredPosition = new Vector2(-22f, 259f);
@@ -90,13 +108,23 @@ namespace View
             mouthObj.transform.localScale = new Vector3(1f, 1f, 1f);
             bodyObj.transform.localScale = new Vector3(1f, 1f, 1f);
             
-
-
-           // bodyRenderer.sortingOrder = 0;
-           // headRenderer.sortingOrder = 1;
-           // faceRenderer.sortingOrder = 2;
-    
+            
             return successorObj;
+        }
+        
+        private void ApplySpritePivot(Image image)
+        {
+            if (image.sprite == null) return;
+
+            RectTransform rt = image.rectTransform;
+            Sprite sprite = image.sprite;
+
+            Vector2 normalizedPivot = new Vector2(
+                sprite.pivot.x / sprite.rect.width,
+                sprite.pivot.y / sprite.rect.height
+            );
+
+            rt.pivot = normalizedPivot;
         }
     }
 }
