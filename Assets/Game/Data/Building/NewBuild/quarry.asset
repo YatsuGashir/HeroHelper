@@ -21,7 +21,9 @@ MonoBehaviour:
   lifeCycle: 3
   stage2Effect:
     effects:
-    - rid: 2979482434545385562
+    - rid: 2979482540170018827
+    - rid: 2979482540170018825
+    - rid: 2979482540170018826
   stage3Effect:
     effects:
     - rid: 2979482434545385563
@@ -30,18 +32,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2979482434545385562
-      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
-      data:
-        description: 
-        cost:
-          costs:
-          - Type: 1
-            Amount: 2
-          - Type: 4
-            Amount: 2
-        type: 2
-        amount: 3
     - rid: 2979482434545385563
       type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -53,3 +43,23 @@ MonoBehaviour:
       data:
         description: 
         Definition: {fileID: 11400000, guid: 542d1a270b5bee14e81204e34f899a99, type: 2}
+    - rid: 2979482540170018825
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 4
+        amount: 2
+    - rid: 2979482540170018826
+      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        cost:
+          costs: []
+        type: 2
+        amount: 3
+    - rid: 2979482540170018827
+      type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+      data:
+        description: 
+        type: 1
+        amount: 2

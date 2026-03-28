@@ -34,7 +34,7 @@ namespace Core.Successors
             _availableProfiles = G.Config.allSuccessors;
             foreach (var profile in _availableProfiles)
             {
-                profile.GenerateVisualSeed();
+                profile.GenerateAll();
             }
         }
         

@@ -64,8 +64,6 @@ public class TutorialSeq: MonoBehaviour
 
         await Say("заверши ход");
 
-        await Say("и прими последствия своих решений");
-
         tutorialCenterText.gameObject.SetActive(false);
         await UniTask.WaitUntil(() =>  turnPushing);
 
@@ -83,7 +81,7 @@ public class TutorialSeq: MonoBehaviour
 
         await Say("каждый из них изменит ход событий");
 
-        await Say("выбирай… с умом");
+        await Say("выбирай… с умом, а пока я ещё не умер, просто продолжай ходить дальше");
 
         tutorialCenterText.gameObject.SetActive(false);
 

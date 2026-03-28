@@ -51,5 +51,5 @@ MonoBehaviour:
       type: {class: ModifyNeighborsLifetimeEffect, ns: , asm: Assembly-CSharp}
       data:
         description: 
-        affectedTag: 0
+        affectedTag: -1
         lifetimeChange: -1

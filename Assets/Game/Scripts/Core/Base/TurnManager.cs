@@ -44,7 +44,7 @@ public class TurnManager
 
         await UniTask.Delay(500);
         
-        //GlobalIncidentSelector();
+        GlobalIncidentSelector();
         AudioManager.Instance.PlaySFX("Voice1");
         G.Events.TurnEnded.OnNext(Unit.Default);
         
@@ -52,13 +52,17 @@ public class TurnManager
 
     private void GlobalIncidentSelector()
     {
-        if (_currentTurn == 2)
+        if (_currentTurn == 5)
         {
             G.IncidentManager.StartLongTermEvent(0);
         }
-        if (_currentTurn == 8)
+        if (_currentTurn == 10)
         {
             G.IncidentManager.StartLongTermEvent(1);
+        }
+        if (_currentTurn == 15)
+        {
+            G.IncidentManager.StartLongTermEvent(2);
         }
     }
     

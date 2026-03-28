@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Data;
 using GlobalSpace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using View;
 
 namespace Core
@@ -91,7 +92,6 @@ namespace Core
             
             Debug.Log("[GameManager] New run started!");
         }
-        
         public async UniTask RestartRun(GridView gridView)
         {
             // Если нужно полностью переинициализировать сетку:
@@ -100,5 +100,7 @@ namespace Core
             
             await StartNewRun();
         }
+        
+
     }
 }

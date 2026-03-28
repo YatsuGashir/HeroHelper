@@ -38,7 +38,7 @@ MonoBehaviour:
         description: 
         resourceType: 1
         baseAmount: 2
-        bonusPerBuilding: 1
+        bonusPerBuilding: 2
         bonusPerTerrain: 0
         neighborTagFilter: 1
         maxBuildingNeighbors: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
       data:
         description: 
         resourceType: 1
-        amountPerNeighbor: 2
+        amountPerNeighbor: 3
         includeSelf: 0
         targetTagFilter: 3
         targetTerrainTypes: 

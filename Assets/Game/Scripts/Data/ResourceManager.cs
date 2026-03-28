@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Data;
+using GlobalSpace;
 using UniRx;
 using UnityEngine;
 
@@ -13,6 +14,17 @@ namespace Core.Base
         private readonly Subject<Dictionary<ResourceType, int>> _onResourcesChanged = new Subject<Dictionary<ResourceType, int>>();
         
         public IObservable<Dictionary<ResourceType, int>> OnResourcesChanged => _onResourcesChanged;
+
+        public event Action OnGameOver;
+        private bool _isGameOver = false;
+        
+        private void TriggerGameOver()
+        {
+            if (_isGameOver) return;
+
+            _isGameOver = true;
+            OnGameOver?.Invoke();
+        }
 
         public ResourceManager()
         {
@@ -69,7 +81,11 @@ namespace Core.Base
                 if (!_resources.ContainsKey(resource.Type)) continue;
             
                 _resources[resource.Type] -= resource.Amount;
-                if (_resources[resource.Type] < 0) _resources[resource.Type] = 0;
+                if (_resources[resource.Type] < 0)
+                {
+                    TriggerGameOver();
+                    _resources[resource.Type] = 0;
+                }
                 _onResourcesChanged.OnNext(new Dictionary<ResourceType, int>(_resources));
             }
 
@@ -107,6 +123,7 @@ namespace Core.Base
 
                 if (newValue < 0)
                 {
+                    TriggerGameOver();
                     Debug.Log($"Ресурс {type} не может быть отрицательным ({_resources[type]} + {delta}). Установлено в 0.");
                     newValue = 0;
 

@@ -12,6 +12,7 @@ namespace Data
         //public Sprite portrait;
         
         public int FaceSeed { get; private set; }
+        public int NameSeed { get; private set; }
         
         public void GenerateVisualSeed()
         {
@@ -21,6 +22,21 @@ namespace Data
             }
         }
 
+        public void GenerateNameSeed()
+        {
+            if (NameSeed == 0)
+            {
+                NameSeed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+            }
+        }
+        
+        public void GenerateAll()
+        {
+            GenerateVisualSeed();
+            GenerateNameSeed();
+            successorName = SuccessorNameGenerator.GenerateName(NameSeed);
+        }
+        
         public int timeToDeath;
         
         public List<BuildingDefinition> successorDeck;

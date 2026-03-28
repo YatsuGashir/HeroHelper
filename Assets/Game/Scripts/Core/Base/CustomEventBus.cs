@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Core.incidents;
 using Data;
@@ -38,6 +39,18 @@ namespace Core.Base
 
         public void Dispose()
         {
+            CellChanged.OnCompleted();
+            BuildingDied.OnCompleted();
+            BuildingStageChanged.OnCompleted();
+            ResourceChanged.OnCompleted();
+            HandUpdated.OnCompleted();
+            TurnStarted.OnCompleted();
+            TurnEnded.OnCompleted();
+            GridGenerated.OnCompleted();
+            DisasterOccurred.OnCompleted();
+            TurnEndRequested.OnCompleted();
+            Ticked.OnCompleted();
+
             CellChanged.Dispose();
             BuildingDied.Dispose();
             BuildingStageChanged.Dispose();

@@ -1,4 +1,5 @@
 using Data;
+using DG.Tweening;
 using GlobalSpace;
 using UniRx;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace View
     public class BuildingViewSystem : MonoBehaviour
     {
         [SerializeField] private GameObject buildingPrefab;
+        
+        [SerializeField] private Transform cameraTransform;
 
         private CompositeDisposable _disposables = new CompositeDisposable();
         private SpriteRenderer _spriteRenderer;
@@ -52,6 +55,23 @@ namespace View
             cellView.SetVisibleOverlay(false);
 
             go.GetComponent<BuildingStatusView>().Init(instance);
+            
+            ShakeCamera();
+        }
+        
+        private void ShakeCamera()
+        {
+            if (cameraTransform == null) return;
+
+            cameraTransform
+                .DOShakePosition(
+                    duration: 0.15f,
+                    strength: 0.03f,
+                    vibrato: 3,
+                    randomness: 50,
+                    snapping: false,
+                    fadeOut: true
+                );
         }
 
         private void ClearBuilding(CellView cellView)

@@ -5,11 +5,12 @@ using GlobalSpace;
 using TMPro;
 using UnityEngine;
 
-public class TextController: MonoBehaviour
+public class TextController : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _defaultCharSpeed = 0.05f;
-    [SerializeField] private float _confirmCooldown = 0.1f; // ← НОВОЕ: задержка после подтверждения
+    [SerializeField] private float _confirmCooldown = 0.1f;
+    [SerializeField] private bool _richTextSupport = true;
 
     private TextMeshProUGUI _currentTextField;
     private string _fullText;
@@ -17,7 +18,7 @@ public class TextController: MonoBehaviour
     private bool _isWriting;
     private bool _skipRequested;
     private bool _confirmRequested;
-    private float _lastConfirmTime; // ← НОВОЕ: время последнего подтверждения
+    private float _lastConfirmTime;
     
     private CancellationTokenSource _cts;
 
@@ -36,8 +37,7 @@ public class TextController: MonoBehaviour
     private void Update()
     {
         if (_currentTextField == null) return;
-
-        // ← НОВОЕ: игнорируем ввод, если недавно было подтверждение
+        
         if (Time.time - _lastConfirmTime < _confirmCooldown)
             return;
 
@@ -59,7 +59,7 @@ public class TextController: MonoBehaviour
         _skipRequested = false;
         _confirmRequested = false;
         _isWriting = false;
-        _lastConfirmTime = 0f; // ← НОВОЕ: сбрасываем кулдаун
+        _lastConfirmTime = 0f;
         _currentTextField = null;
     }
 
@@ -71,7 +71,6 @@ public class TextController: MonoBehaviour
             return;
         }
 
-        // ← НОВОЕ: сбрасываем ввод перед началом нового текста
         _skipRequested = false;
         _confirmRequested = false;
         _lastConfirmTime = 0f;
@@ -88,18 +87,23 @@ public class TextController: MonoBehaviour
         _isWriting = false;
         await WaitForConfirm();
 
-        // ← НОВОЕ: записываем время подтверждения и добавляем микро-задержку
         _lastConfirmTime = Time.time;
         _confirmRequested = false;
         _currentTextField = null;
-        
-        // Микро-пауза, чтобы «остыл» ввод
+
         await UniTask.Delay(TimeSpan.FromSeconds(_confirmCooldown), cancellationToken: _cts.Token);
     }
 
     private async UniTask TypeTextInternal(float speed)
     {
         _currentTextField.text = string.Empty;
+        
+        if (string.IsNullOrEmpty(_fullText))
+        {
+            _visibleCharCount = 0;
+            return;
+        }
+
         int totalChars = _fullText.Length;
 
         while (_visibleCharCount < totalChars)
@@ -113,19 +117,21 @@ public class TextController: MonoBehaviour
             }
 
             _visibleCharCount++;
-            _currentTextField.text = _fullText.Substring(0, _visibleCharCount);
+            
+            int safeCount = Mathf.Min(_visibleCharCount, totalChars);
+            _currentTextField.text = _fullText.Substring(0, safeCount);
 
             AudioManager.Instance.PlaySFX("bubble");
             await UniTask.Delay(TimeSpan.FromSeconds(speed), cancellationToken: _cts.Token);
         }
+        _currentTextField.text = _fullText;
+        _visibleCharCount = totalChars;
     }
 
     private async UniTask WaitForConfirm()
     {
-        // ← НОВОЕ: ждём подтверждения, но с защитой от «залипания»
         while (!_confirmRequested)
         {
-            // Если поле стало null (например, сцена сменилась) — выходим
             if (_currentTextField == null)
                 return;
                 

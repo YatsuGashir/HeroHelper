@@ -40,6 +40,7 @@ namespace View
             
             _animationSequence?.Kill();
             
+            AudioManager.Instance.DuckMusic(0.1f, 5f, 0.3f);
             var completionSource = new UniTaskCompletionSource();
             
             _animationSequence = DOTween.Sequence();

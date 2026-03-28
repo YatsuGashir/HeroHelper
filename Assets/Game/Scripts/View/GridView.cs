@@ -175,6 +175,14 @@ namespace View
             _disposables?.Dispose();
             ClearPool();
         }
+        
+        public void Clear()
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
     
     public class CellUpdateEventData

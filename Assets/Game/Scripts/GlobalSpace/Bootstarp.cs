@@ -1,7 +1,9 @@
+using System;
 using Core.StateMachine;
 using Cysharp.Threading.Tasks;
 using Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using View;
 
 namespace GlobalSpace
@@ -28,7 +30,7 @@ namespace GlobalSpace
         
         private async UniTaskVoid Start()
         {
-
+            _isRestarting = false;
             RadioManager.Instance.StartRadio();
             
             
@@ -60,6 +62,7 @@ namespace GlobalSpace
             await UniTask.Yield();
             AudioManager.Instance.PlaySFX("ambiend", 1.6f);
             audioSettingsUI.Init(AudioManager.Instance);
+            
             Debug.Log("Игра успешно инициализирована.");
         }
 
@@ -67,6 +70,23 @@ namespace GlobalSpace
         {
             // Раскомментируйте, когда создадите состояния
             // GameFlowFsm.AddState(new GameplayState(GameFlowFsm, this));
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                RestartScene();
+            }
+        }
+        private static bool _isRestarting = false;
+
+        public void RestartScene()
+        {
+            if (_isRestarting) return;
+
+            _isRestarting = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OnDestroy()

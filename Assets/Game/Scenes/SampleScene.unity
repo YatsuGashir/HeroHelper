@@ -1125,8 +1125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -11, y: -57}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.00002193451, y: -17.366001}
+  m_SizeDelta: {x: 1083.005, y: 34.732}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286722701
 MonoBehaviour:
@@ -1182,8 +1182,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1442,10 +1442,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2144322919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -11, y: -421}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.000018119812, y: 139}
+  m_SizeDelta: {x: 1153.854, y: 73.20801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342291250
 MonoBehaviour:
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -416.0808, y: -16.868887, z: -437.37796, w: 0}
+  m_margin: {x: -0.6550983, y: -16.868887, z: -1.0648193, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3685,7 +3685,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a2497ab1e25f9be44898d756677f8513, type: 3}
   - {fileID: 8300000, guid: 6505294c677ef7647803a1887216260a, type: 3}
   shufflePlaylist: 0
-  delayBetweenTracks: 3
+  delayBetweenTracks: 5
   fadeDuration: 1
   useAudioManager: 1
   fallbackOutputGroup: {fileID: -8345667304076461450, guid: 49714a61425344746a163b13a487340c, type: 2}
@@ -4175,9 +4175,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1318755104}
-        m_TargetAssemblyTypeName: GameStartAnimation, Assembly-CSharp
-        m_MethodName: OnStartButtonClick
+      - m_Target: {fileID: 750301008}
+        m_TargetAssemblyTypeName: TutorialSeq, Assembly-CSharp
+        m_MethodName: nStartButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

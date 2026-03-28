@@ -12,24 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de983e4adfec5db47aea2bea30eca48b, type: 3}
   m_Name: SuccessorProfile 20
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
-  successorId: eee
-  successorName: eeee
-  timeToDeath: 1
+  successorId: aaa
+  successorName: aaa
+  timeToDeath: 6
   successorDeck:
-  - {fileID: 11400000, guid: 9b0e42352e2d8a4469eb054e045db717, type: 2}
-  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
-  - {fileID: 11400000, guid: 532615aef7fab5d4e8229d858dfa2cdf, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
-  - {fileID: 11400000, guid: 1b58e14a1a5a326428bea51924f98ecd, type: 2}
+  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
+  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
+  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
+  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
+  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
+  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
   SuccessorEffect:
-    effects: []
+    effects:
+    - rid: 2979482451622494315
+    - rid: 2979482451622494296
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2979482451622494296
+      type: {class: TaggedResourceBonusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+        targetTag: 1
+        resourceType: 1
+        bonusAmount: 3
+        duration: 6
+    - rid: 2979482451622494315
+      type: {class: TaggedLifetimeBonusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        description: 
+        targetTag: 1
+        lifetimeBonus: 1
+        windowDuration: 6

@@ -45,6 +45,9 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, SoundList> soundDictionary;
     private Coroutine currentFadeRoutine;
     private bool isPaused = false;
+    
+    private Coroutine _currentDuckRoutine;
+    private float _preDuckMusicVolume = -1f; // Запоминаем громкость до приглушения
 
     // Ключи параметров микшера (должны совпадать с Exposed Parameters в Audio Mixer)
     private const string MASTER_VOLUME_PARAM = "MasterVol";
@@ -314,6 +317,102 @@ public class AudioManager : MonoBehaviour
     {
         float vol = mute ? 0f : 1f;
         SetMasterVolume(vol);
+    }
+    
+        /// <summary>
+    /// Плавно приглушает музыку на указанное время, затем возвращает громкость.
+    /// </summary>
+    /// <param name="duckAmount">Насколько приглушить (0...1). 0.3 = 30% от текущей громкости.</param>
+    /// <param name="duration">Сколько секунд держать приглушённой.</param>
+    /// <param name="fadeTime">Время плавного перехода (в обе стороны).</param>
+    public void DuckMusic(float duckAmount, float duration, float fadeTime = 0.3f)
+    {
+        // Если уже идёт приглушение — перезапускаем таймер (опционально)
+        if (_currentDuckRoutine != null)
+            StopCoroutine(_currentDuckRoutine);
+        
+        _currentDuckRoutine = StartCoroutine(DuckMusicRoutine(duckAmount, duration, fadeTime));
+    }
+
+    private IEnumerator DuckMusicRoutine(float duckAmount, float duration, float fadeTime)
+    {
+        duckAmount = Mathf.Clamp01(duckAmount);
+        fadeTime = Mathf.Max(0f, fadeTime);
+        
+        // Запоминаем текущую целевую громкость музыки (из PlayerPrefs)
+        float targetVolume = GetMusicVolume();
+        _preDuckMusicVolume = targetVolume;
+        
+        // === FADE OUT: приглушаем ===
+        float timer = 0f;
+        float startVol = _activeMusicSource.volume;
+        float endVol = targetVolume * duckAmount;
+        
+        while (timer < fadeTime)
+        {
+            timer += Time.unscaledDeltaTime;
+            float t = timer / fadeTime;
+            _activeMusicSource.volume = Mathf.Lerp(startVol, endVol, t);
+            _secondaryMusicSource.volume = Mathf.Lerp(startVol, endVol, t);
+            yield return null;
+        }
+        
+        // === HOLD: держим приглушённой ===
+        yield return new WaitForSecondsRealtime(duration);
+        
+        // === FADE IN: возвращаем громкость ===
+        timer = 0f;
+        startVol = _activeMusicSource.volume;
+        endVol = _preDuckMusicVolume;
+        
+        while (timer < fadeTime)
+        {
+            timer += Time.unscaledDeltaTime;
+            float t = timer / fadeTime;
+            _activeMusicSource.volume = Mathf.Lerp(startVol, endVol, t);
+            _secondaryMusicSource.volume = Mathf.Lerp(startVol, endVol, t);
+            yield return null;
+        }
+        
+        // Фиксируем финальную громкость
+        _activeMusicSource.volume = endVol;
+        _secondaryMusicSource.volume = endVol;
+        _preDuckMusicVolume = -1f;
+        _currentDuckRoutine = null;
+    }
+
+    /// <summary>
+    /// Экстренно отменяет приглушение и возвращает музыку к нормальной громкости.
+    /// </summary>
+    public void StopDuckingMusic(float fadeTime = 0.3f)
+    {
+        if (_currentDuckRoutine != null)
+            StopCoroutine(_currentDuckRoutine);
+        
+        if (_preDuckMusicVolume >= 0f)
+        {
+            StartCoroutine(RestoreMusicVolumeRoutine(_preDuckMusicVolume, fadeTime));
+            _preDuckMusicVolume = -1f;
+            _currentDuckRoutine = null;
+        }
+    }
+
+    private IEnumerator RestoreMusicVolumeRoutine(float targetVolume, float fadeTime)
+    {
+        float timer = 0f;
+        float startVol = _activeMusicSource.volume;
+        
+        while (timer < fadeTime)
+        {
+            timer += Time.unscaledDeltaTime;
+            float t = timer / fadeTime;
+            _activeMusicSource.volume = Mathf.Lerp(startVol, targetVolume, t);
+            _secondaryMusicSource.volume = Mathf.Lerp(startVol, targetVolume, t);
+            yield return null;
+        }
+        
+        _activeMusicSource.volume = targetVolume;
+        _secondaryMusicSource.volume = targetVolume;
     }
 
 // ======================
