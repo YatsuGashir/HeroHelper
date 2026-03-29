@@ -13,9 +13,30 @@ MonoBehaviour:
   m_Name: SuccessorProfile 8
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: aaa
-  successorName: aaa
+  successorName: "\u0421\u0438\u043D\u044F\u043A \"\u0418\u0441\u0442\u0438\u043D\u043D\u044B\u0439\""
   timeToDeath: 6
   successorDeck:
+  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
+  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
+  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
+  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
+  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
+  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
+  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
+  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
+  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
+  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
+  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
+  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
+  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
+  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
+  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
+  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
+  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
+  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
+  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
   - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
   - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
   - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
@@ -34,8 +55,8 @@ MonoBehaviour:
       type: {class: TaggedResourceBonusEffect, ns: , asm: Assembly-CSharp}
       data:
         description: 
-        targetTag: 1
-        resourceType: 1
+        targetTag: 3
+        resourceType: 5
         bonusAmount: 3
         duration: 6
     - rid: 2979482451622494315

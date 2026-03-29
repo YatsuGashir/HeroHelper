@@ -8,7 +8,7 @@ public class IncidentBar : MonoBehaviour
         [Header("Components")]
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private TMP_Text _timerText;
-        [SerializeField] private Slider _progressSlider;
+        //[SerializeField] private Slider _progressSlider;
 
         private ActiveIncident _currentIncident;
 
@@ -38,15 +38,15 @@ public class IncidentBar : MonoBehaviour
             int remaining = _currentIncident.TurnsRemaining;
 
             if (_timerText != null)
-                _timerText.text = $"Осталось ходов: {remaining}";
+                _timerText.text = $"{remaining}";
             
             float progress = 1f - ((float)remaining / total);
 
             if (total <= 0) progress = 1f;
             progress = Mathf.Clamp01(progress);
 
-            if (_progressSlider != null)
-                _progressSlider.value = progress;
+            //if (_progressSlider != null)
+                //_progressSlider.value = progress;
 
         }
         

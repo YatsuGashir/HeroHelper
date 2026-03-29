@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingId: sawmill
   buildingName: "\u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
   buildingIcon: {fileID: 21300000, guid: f395a63b025c1f24b89e8d45fdf0d3c3, type: 3}
-  buildingCardICon: {fileID: 0}
+  buildingCardICon: {fileID: -1178549766393696409, guid: 7ba66ae47b526d64c86f45010d5f8778, type: 3}
   allowedTerrainTypes: 8
   requiredNeighborTag: 1
   lifeCycle: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
     - rid: 2979482521206521985
   stage3Effect:
     effects:
-    - rid: 2979482521206522001
+    - rid: 2979482563998908491
   buildingTags: 3
   references:
     version: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
       data:
         description: 
         type: 1
-        amount: 2
+        amount: 3
     - rid: 2979482521206521981
       type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
@@ -48,18 +48,22 @@ MonoBehaviour:
       data:
         description: 
         resourceType: 4
-        baseAmount: 4
+        baseAmount: 3
         bonusPerBuilding: 0
         bonusPerTerrain: 1
         neighborTagFilter: 0
         maxBuildingNeighbors: 0
         bonusTerrainTypes: 08000000
         maxTerrainNeighbors: 0
-    - rid: 2979482521206522001
-      type: {class: ProduceResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
+    - rid: 2979482563998908491
+      type: {class: NeighborBonusResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
-        cost:
-          costs: []
-        type: 4
-        amount: 1
+        resourceType: 0
+        baseAmount: 1
+        bonusPerBuilding: 0
+        bonusPerTerrain: 1
+        neighborTagFilter: 0
+        maxBuildingNeighbors: 0
+        bonusTerrainTypes: 08000000
+        maxTerrainNeighbors: 0

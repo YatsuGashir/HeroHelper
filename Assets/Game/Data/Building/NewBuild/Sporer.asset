@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingId: Sporer
   buildingName: "\u0421\u043F\u043E\u0440\u043E\u0432\u0438\u043A"
   buildingIcon: {fileID: 21300000, guid: 24d23fc2b9d50064381141196eebf96a, type: 3}
-  buildingCardICon: {fileID: 0}
+  buildingCardICon: {fileID: -2253599163479155052, guid: b642b9ea1c25b9a4fb225644b993af2e, type: 3}
   allowedTerrainTypes: 1
   requiredNeighborTag: 0
   lifeCycle: 4
@@ -37,8 +37,8 @@ MonoBehaviour:
       data:
         description: 
         resourceType: 1
-        baseAmount: 2
-        bonusPerBuilding: 2
+        baseAmount: 3
+        bonusPerBuilding: 1
         bonusPerTerrain: 0
         neighborTagFilter: 1
         maxBuildingNeighbors: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
       type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
-        type: 1
+        type: 2
         amount: 2
     - rid: 2979482521206522048
       type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}

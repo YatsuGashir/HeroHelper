@@ -30,7 +30,7 @@ ScriptedImporter:
     ignoreMipmapLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 1
+    spriteMode: 2
     spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
@@ -97,8 +97,8 @@ ScriptedImporter:
   layeredSpriteImportData:
   - name: "\u0421\u043B\u043E\u0439 9"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.20662184, y: 0.8407211}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -119,8 +119,8 @@ ScriptedImporter:
     spritePosition: {x: 288, y: 199}
   - name: "\u0421\u043B\u043E\u0439 7"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6127541, y: 0.08774145}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:

@@ -52,9 +52,9 @@ public class TurnManager
 
     private void GlobalIncidentSelector()
     {
-        if (_currentTurn == 5)
+        if (_currentTurn == 2)
         {
-            G.IncidentManager.StartLongTermEvent(0);
+            G.IncidentManager.StartLongTermEvent(2);
         }
         if (_currentTurn == 10)
         {

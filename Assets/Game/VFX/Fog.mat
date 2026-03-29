@@ -57,6 +57,7 @@ Material:
     - Fog_Size_2: 30.22
     - Speed: 1
     - _EnableExternalAlpha: 0
+    - _Fog_Size2: 24.1
     m_Colors:
     - Color_2: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     - Speed: {r: 0.01, g: 0, b: 0, a: 0}

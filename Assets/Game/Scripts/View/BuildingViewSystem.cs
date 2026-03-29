@@ -15,6 +15,7 @@ namespace View
 
         private CompositeDisposable _disposables = new CompositeDisposable();
         private SpriteRenderer _spriteRenderer;
+        private ParticleSystem _particleSystem;
 
         public void Init()
         {
@@ -23,6 +24,7 @@ namespace View
                 .AddTo(_disposables);
             
             _spriteRenderer = buildingPrefab.GetComponent<SpriteRenderer>();
+            _particleSystem = buildingPrefab.GetComponent<ParticleSystem>();
         }
 
         private void OnCellChanged(CellUpdateEventData data)
@@ -56,6 +58,7 @@ namespace View
 
             go.GetComponent<BuildingStatusView>().Init(instance);
             
+            _particleSystem.Play();
             ShakeCamera();
         }
         
@@ -90,11 +93,11 @@ namespace View
             }
         }
         
-        private int _baseSortingOrder = 3; 
+        private int _baseSortingOrder = 2; 
         private void UpdateSortingOrder(CellView cellView, SpriteRenderer sr)
         {
             int calculatedOrder = _baseSortingOrder - cellView.Y;
-            sr.sortingOrder = calculatedOrder + 3;
+            sr.sortingOrder = calculatedOrder +2;
         }
     }
 }

@@ -95,7 +95,7 @@ namespace View
 
             var go = Instantiate(cardPrefab, cardsContainer);
             go.transform.localPosition = Vector3.zero;
-            go.sprite = card.buildingIcon;
+            go.sprite = card.buildingCardICon;
             go.name = $"Card_{card.name}";
 
             var cardView = go.GetComponent<CardView>();

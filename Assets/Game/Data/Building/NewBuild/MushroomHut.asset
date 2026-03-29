@@ -15,7 +15,7 @@ MonoBehaviour:
   buildingId: MushroomHut
   buildingName: "\u0433\u0440\u0438\u0431\u043D\u0430\u044F \u0445\u0438\u0436\u0438\u043D\u0430"
   buildingIcon: {fileID: 21300000, guid: 75281d2de67fbe348a64603073ac732d, type: 3}
-  buildingCardICon: {fileID: 0}
+  buildingCardICon: {fileID: -332413640719964675, guid: 3b5adb5dd4c1a56478c68509f90d6f81, type: 3}
   allowedTerrainTypes: 1
   requiredNeighborTag: 1
   lifeCycle: 4
@@ -54,5 +54,5 @@ MonoBehaviour:
       type: {class: ConsumeResourceEffect, ns: Core.Effects, asm: Assembly-CSharp}
       data:
         description: 
-        type: 1
+        type: 3
         amount: 2

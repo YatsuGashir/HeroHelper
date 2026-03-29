@@ -22,32 +22,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae4c0807d0e567a429e16bf1ea4291e6, type: 2}
   - {fileID: 11400000, guid: 05ce929e394ca3b48bad38852740e3d5, type: 2}
   - {fileID: 11400000, guid: 1bcb07f6518eb4e4581c0e80e3e564bb, type: 2}
-  - {fileID: 11400000, guid: f3ba72406900c5e4e9f6867a61767030, type: 2}
-  - {fileID: 11400000, guid: be546f1af817e7943b7d7825d27bf0dc, type: 2}
-  - {fileID: 11400000, guid: f1d05e1ddfaa5ef4c8b5341137a35215, type: 2}
-  - {fileID: 11400000, guid: ee721315bae4492498582d5dcf1104db, type: 2}
-  - {fileID: 11400000, guid: 6bffbf87d3c044f4590a3bff93191ce8, type: 2}
-  - {fileID: 11400000, guid: 85dad4fb96817b44a98da9c6729e4277, type: 2}
-  - {fileID: 11400000, guid: 3e1c656151bf4254593b1cacb5530ad3, type: 2}
-  - {fileID: 11400000, guid: 1a2de73e633e3274fb7b4a6ad46ddc4e, type: 2}
-  - {fileID: 11400000, guid: 71621c46736ee314096c67bcc538ecac, type: 2}
-  - {fileID: 11400000, guid: f24a424ccbef68d4f8b2ba3dd1d2693f, type: 2}
-  - {fileID: 11400000, guid: 29d4b3caaecefbd4aa0e7d534e7bb1be, type: 2}
-  - {fileID: 11400000, guid: 5c06663b03408384ab82f955d536b8e6, type: 2}
-  - {fileID: 11400000, guid: 47554afb33a43bf4a8b56ec7c0c0d28d, type: 2}
-  - {fileID: 11400000, guid: c6d5da1de4443fd46b1396469bd65963, type: 2}
-  - {fileID: 11400000, guid: 808df4bff2ea7e94bb7214e1f1ccf4a4, type: 2}
-  - {fileID: 11400000, guid: 6459c2d845a2e0d4ebdabdb2714dd19e, type: 2}
+  - {fileID: 11400000, guid: 2984cfec944a84c4c88278e9348c00be, type: 2}
+  - {fileID: 11400000, guid: b5bae2fa5b0b8134093a8b3b7ba6b34e, type: 2}
+  - {fileID: 11400000, guid: 0e3b6f0bd737aa944a4471aa55c61ae3, type: 2}
+  - {fileID: 11400000, guid: a234e9cc8da4aaf49916582ad59bbfcb, type: 2}
+  - {fileID: 11400000, guid: 8077e57dd0705cf4ebec06ccfda81f77, type: 2}
+  - {fileID: 11400000, guid: d79b37086ebbef14fa3a1de6c9ec09c7, type: 2}
+  - {fileID: 11400000, guid: ffde0d00485447e4a850de1a80306bce, type: 2}
+  - {fileID: 11400000, guid: 5a10cdc9d45b97749b00676b41474827, type: 2}
+  - {fileID: 11400000, guid: d1a9e62cb68967242980752884a217ee, type: 2}
+  - {fileID: 11400000, guid: 2dff3fcdd41890542ae4983ce725d3de, type: 2}
   allIncidents:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 146691d17a8e551458e9b1c0e1a0d8c0, type: 2}
   - {fileID: 11400000, guid: 4e783eb67f81a334eb3f98efccc6cb71, type: 2}
   terrainGenerationParams:
-    seed: 1116112002
+    seed: 229393326
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2
-    waterThreshold: 0.75
+    waterThreshold: 0.65
     stoneNoiseScale: 0.37
     stoneThreshold: 0.73
     stoneClusterMin: 2

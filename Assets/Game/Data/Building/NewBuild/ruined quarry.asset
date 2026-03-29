@@ -35,4 +35,4 @@ MonoBehaviour:
         cost:
           costs: []
         type: 2
-        amount: 2
+        amount: 1

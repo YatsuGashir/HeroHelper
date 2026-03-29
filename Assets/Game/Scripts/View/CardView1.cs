@@ -49,7 +49,7 @@ namespace View
             
             if (_cardImage != null && card != null)
             {
-                _cardImage.sprite = card.buildingIcon;
+                _cardImage.sprite = card.buildingCardICon;
                 _cardImage.color = Color.white;
             }
             
