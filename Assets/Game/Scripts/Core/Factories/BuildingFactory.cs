@@ -66,7 +66,7 @@ namespace Core.Factories
                 Debug.Log($"[Bonus] {definition.buildingName} получил {bonus:+#;-#} к жизни. Осталось: {instance.remaingTime}");
             }
             
-            
+           /* 
             if (_wandererCounter == 0)
             {
                 _wandererCounter = 0;
@@ -75,7 +75,7 @@ namespace Core.Factories
             else
             {
                 _wandererCounter++;
-            }
+            }*/
 
             cell.building = instance;
             cell.isOccupied = true;

@@ -55,7 +55,7 @@ public class TurnManager
     {
         if (_currentTurn == 2)
         {
-            G.IncidentManager.StartLongTermEvent(2);
+            G.IncidentManager.StartLongTermEvent(0);
         }
         if (_currentTurn == 10)
         {

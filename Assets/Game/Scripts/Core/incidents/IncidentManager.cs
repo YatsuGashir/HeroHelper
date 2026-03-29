@@ -91,6 +91,7 @@ namespace Game.Scripts.Core.incidents
 
         public void StartLongTermEvent(int index)
         {
+            AudioManager.Instance.PlaySFX("GlobalEventWarning");
             var data= _allLongIncidents[index];
             if (data.durationType != IncidentType.Incoming) return;
 
@@ -107,6 +108,7 @@ namespace Game.Scripts.Core.incidents
 
         private void ApplyConsequences(IncidentData data)
         {
+            AudioManager.Instance.PlaySFX("GlobalEvent");
             Debug.Log("Применяем дебафф");
             if (data.resourceLoss != null && data.resourceLoss.Count > 0)
             {

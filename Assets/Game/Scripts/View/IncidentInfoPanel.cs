@@ -72,12 +72,12 @@ namespace View
                 image.color = Color.clear;
             string lossDescription = FormatResourceLoss(data.resourceLoss);
             
-            if (resourceLossText != null)
+            /*if (resourceLossText != null)
             {
                 resourceLossText.text = lossDescription;
                 resourceLossText.color = Color.red;
                 resourceLossText.gameObject.SetActive(!string.IsNullOrEmpty(lossDescription) && lossDescription != "Нет прямых потерь ресурсов");
-            }
+            }*/
 
             if (descriptionText != null)
             {

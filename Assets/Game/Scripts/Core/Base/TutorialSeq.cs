@@ -49,15 +49,19 @@ public class TutorialSeq: MonoBehaviour
         
         tutorialCenterText.gameObject.SetActive(true);
         
-        await Say("Внемли… я — Калоплака, первый король");
+        await Say("А сейчас, ваше величество, я обязан зачитать вам послание от Первого Короля!");
 
-        await Say("власть наша кратка… но не должна быть глупа");
+        await Say("Внемли, спора! Аз есмь Калfплака, князь первейший!");
+
+        await Say("Правление наше скоротечно. Но не подобно ему быть бездумным");
 
         slideElements[1].SlideIn();
 
-        await Say("здания — твоя опора");
+        await Say("Вотчина твоя – есть власть твоя");
 
-        await Say("выбери и размести их на земле");
+        await Say("Дабы узреть подробности, укажи на вотчину свою");
+
+        await Say("Избери и размести их на свои земли");
 
         tutorialCenterText.gameObject.SetActive(false);
 
@@ -69,7 +73,7 @@ public class TutorialSeq: MonoBehaviour
         if (completed == 1) // таймаут
         {
             tutorialCenterText.gameObject.SetActive(true);
-            await Say("не спеши… выбери карту и размести её на поле");
+            await Say("Не спеши. Возьми фишку и укажи место");
             tutorialCenterText.gameObject.SetActive(false);
         }
         
@@ -77,36 +81,36 @@ public class TutorialSeq: MonoBehaviour
 
         tutorialCenterText.gameObject.SetActive(true);
 
-        await Say("хорошо… ты начинаешь понимать");
+        await Say("Добро… Разумение в тебе зачинается");
 
         slideElements[2].SlideIn();
 
-        await Say("это — ресурсы");
+        await Say("Сие твои богатства");
 
-        await Say("каждый ход постройки приносят их");
+        await Say("Каждый ход вотчина несёт их и забирает");
 
         slideElements[3].SlideIn();
 
-        await Say("заверши ход");
+        await Say("Окончи ход");
 
         tutorialCenterText.gameObject.SetActive(false);
         await UniTask.WaitUntil(() =>  turnPushing);
 
         tutorialCenterText.gameObject.SetActive(true);
 
-        await Say("видишь… всё движется");
+        await Say("Узри. Всё движется");
 
-        await Say("но ничто не длится вечно");
+        await Say("но ничто не пребывает вечно");
 
         slideElements[4].SlideIn();
 
-        await Say("наша жизнь коротка");
+        await Say("житие наше краткое.");
 
-        await Say("скоро тебе предстоит выбрать наследника");
+        await Say("Вскоре надлежит тебе указати избранника на наследие");
 
-        await Say("каждый из них изменит ход событий");
+        await Say("Каждый из них оборотит бытие люда простого");
 
-        await Say("выбирай… с умом, а пока я ещё не умер, просто продолжай ходить дальше");
+        await Say("Доколе не слёг ещё, правь мудро и по правде");
 
         CompleteTutorial();
         

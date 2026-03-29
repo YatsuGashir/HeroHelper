@@ -150,6 +150,7 @@ namespace View
 
         private void ShowGameOverScreen()
         {
+            AudioManager.Instance.PlaySFX("gameOver");
             gameOverScreen.SetActive(true);
         }
 
