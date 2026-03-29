@@ -58,7 +58,10 @@ namespace View
 
             go.GetComponent<BuildingStatusView>().Init(instance);
             
-            _particleSystem.Play();
+            if (_particleSystem != null)
+            {
+                _particleSystem.Play(); // Вызываем только если компонент есть
+            }
             ShakeCamera();
         }
         

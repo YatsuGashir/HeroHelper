@@ -12,15 +12,19 @@ namespace View
     public class HandView : MonoBehaviour
     {
         [Header("Настройки")]
-        [SerializeField] private Image cardPrefab;
-        [SerializeField] private Transform cardsContainer;
-        [SerializeField] private float cardSpacing = 1.2f;
-        [SerializeField] private Vector3 cardOffset = new Vector3(0, 0, -0.1f);
+        [SerializeField] private Image _cardPrefab;
+        [SerializeField] private List<CardSlot> _cardSlots = new List<CardSlot>();
+        
+        [Header("Fallback (если слотов меньше чем карт)")]
+        [SerializeField] private Transform _overflowContainer;
+        [SerializeField] private float _overflowSpacing = 1.2f;
 
-        private CompositeDisposable _disposables = new CompositeDisposable();
+        private CompositeDisposable _disposables;
         private HandManager _handManager;
-        private List<Image> _cardViews = new List<Image>();
-
+        
+        // 🔥 Словарь: уникальный ключ экземпляра → слот
+        // Ключ формируется как "buildingId_instanceIndex_instanceHash"
+        private readonly Dictionary<string, CardSlot> _cardSlotMap = new Dictionary<string, CardSlot>();
 
         public void Init(HandManager handManager)
         {
@@ -28,138 +32,154 @@ namespace View
             _disposables = new CompositeDisposable();
             
             _handManager.HandCards
-                .Subscribe(cards => 
-                {
-                    RefreshHand(); 
-                })
+                .Subscribe(_ => RefreshHand())
                 .AddTo(_disposables);
-            
-/*
-            _handManager.HandCards
-                .Subscribe(OnHandCardsChanged)
-                .AddTo(_disposables);
-
-            _handManager.OnCardAdded
-                .Subscribe(OnCardAdded)
-                .AddTo(_disposables);
-
-            _handManager.OnCardRemoved
-                .Subscribe(OnCardRemoved)
-                .AddTo(_disposables);
-
-            _handManager.OnHandCleared
-                .Subscribe(_ => OnHandCleared())
-                .AddTo(_disposables);*/
 
             RefreshHand();
         }
 
-        private void OnHandCardsChanged(List<BuildingDefinition> cards)
+        /// <summary>
+        /// Генерирует уникальный ключ для экземпляра карты в руке
+        /// </summary>
+        private string GetCardInstanceKey(BuildingDefinition cardDef, int instanceIndex)
         {
-            RefreshHand();
-        }
-
-        private void OnCardAdded(BuildingDefinition card)
-        {
-            SpawnCard(card);
-            UpdateCardsPosition();
-        }
-
-        private void OnCardRemoved(BuildingDefinition card)
-        {
-            RemoveCardView(card);
-            UpdateCardsPosition();
-        }
-
-        private void OnHandCleared()
-        {
-            ClearAllCards();
+            // Используем хеш объекта + индекс, чтобы отличать одинаковые ассеты
+            return $"{cardDef.buildingId}_{instanceIndex}_{cardDef.GetHashCode()}";
         }
 
         private void RefreshHand()
         {
-            ClearAllCards();
+            var cards = _handManager.GetAllCards(); // List<BuildingDefinition>
             
-            var cards = _handManager.GetAllCards();
-            foreach (var card in cards)
+            // 1. Собираем множество активных ключей, чтобы понять, что удалять
+            var activeKeys = new HashSet<string>();
+            for (int i = 0; i < cards.Count; i++)
             {
-                SpawnCard(card);
+                string key = GetCardInstanceKey(cards[i], i);
+                activeKeys.Add(key);
             }
             
-            UpdateCardsPosition();
+            // 2. Удаляем слоты, карт в которых больше нет в руке
+            var toRemove = new List<string>();
+            foreach (var kvp in _cardSlotMap)
+            {
+                if (!activeKeys.Contains(kvp.Key) && kvp.Value != null)
+                {
+                    kvp.Value.Clear();
+                    toRemove.Add(kvp.Key);
+                }
+            }
+            foreach (var key in toRemove)
+                _cardSlotMap.Remove(key);
+
+            // 3. Добавляем новые карты в свободные слоты
+            for (int i = 0; i < cards.Count; i++)
+            {
+                var card = cards[i];
+                string key = GetCardInstanceKey(card, i);
+                
+                // Если карта уже имеет слот — пропускаем
+                if (_cardSlotMap.ContainsKey(key))
+                    continue;
+
+                // Ищем первый свободный слот
+                CardSlot freeSlot = FindFirstFreeSlot();
+                
+                if (freeSlot != null)
+                {
+                    freeSlot.AssignCard(_cardPrefab, card);
+                    _cardSlotMap[key] = freeSlot;
+                }
+                else
+                {
+                    // Слоты кончились — спавним в "переполнение"
+                    SpawnOverflowCard(card, i - _cardSlots.Count);
+                }
+            }
         }
 
-        private void SpawnCard(BuildingDefinition card)
+        private CardSlot FindFirstFreeSlot()
         {
-            if (card == null || cardPrefab == null) return;
+            for (int i = 0; i < _cardSlots.Count; i++)
+            {
+                if (_cardSlots[i] != null && !_cardSlots[i].IsOccupied)
+                    return _cardSlots[i];
+            }
+            return null;
+        }
 
-            var go = Instantiate(cardPrefab, cardsContainer);
-            go.transform.localPosition = Vector3.zero;
+        private void SpawnOverflowCard(BuildingDefinition card, int index)
+        {
+            if (_overflowContainer == null || card == null) return;
+            
+            var go = Instantiate(_cardPrefab, _overflowContainer);
+            go.transform.localPosition = new Vector3(index * _overflowSpacing, 0, -index * 0.1f);
             go.sprite = card.buildingCardICon;
-            go.name = $"Card_{card.name}";
+            go.name = $"Card_Overflow_{card.name}_{index}";
 
             var cardView = go.GetComponent<CardView>();
-            if (cardView == null)
-            {
-                cardView = go.AddComponent<CardView>();
-            }
+            if (cardView == null) cardView = go.AddComponent<CardView>();
             cardView.Init(card);
-
-            _cardViews.Add(go);
             
-            G.PlacementManager?.RegisterCard(cardView);
+            GlobalSpace.G.PlacementManager?.RegisterCard(cardView);
         }
 
-        private void RemoveCardView(BuildingDefinition card)
+        private void ClearAllSlots()
         {
-            foreach (var cardView in _cardViews)
+            foreach (var slot in _cardSlots)
+                slot?.Clear();
+            
+            if (_overflowContainer != null)
             {
-                if (cardView == null) continue;
-                
-                var cardViewComponent = cardView.GetComponent<CardView>();
-                if (cardViewComponent != null && cardViewComponent.CardDefinition == card)
-                {
-                    _cardViews.Remove(cardView);
-                    Destroy(cardView.gameObject);
-                    return;
-                }
+                foreach (Transform child in _overflowContainer)
+                    Destroy(child.gameObject);
+            }
+            
+            // 🔥 Очищаем словарь привязок
+            _cardSlotMap.Clear();
+        }
+
+        /// <summary>
+        /// Найти слот по карте (для анимаций, выделения)
+        /// </summary>
+        public CardSlot GetSlotForCard(BuildingDefinition card, int instanceIndex)
+        {
+            string key = GetCardInstanceKey(card, instanceIndex);
+            return _cardSlotMap.TryGetValue(key, out var slot) ? slot : null;
+        }
+
+        /// <summary>
+        /// Освободить слот для карты (например, при взятии карты в игру)
+        /// </summary>
+        public void ReleaseCard(BuildingDefinition card, int instanceIndex)
+        {
+            string key = GetCardInstanceKey(card, instanceIndex);
+            if (_cardSlotMap.TryGetValue(key, out var slot) && slot != null)
+            {
+                slot.Clear();
+                _cardSlotMap.Remove(key);
             }
         }
 
-        private void ClearAllCards()
-        {
-            foreach (var cardView in _cardViews)
-            {
-                if (cardView != null)
-                {
-                    Destroy(cardView.gameObject);
-                }
-            }
-            _cardViews.Clear();
-        }
-
-        private void UpdateCardsPosition()
-        {
-            for (int i = 0; i < _cardViews.Count; i++)
-            {
-                if (_cardViews[i] != null)
-                {
-                    float x = (i - _cardViews.Count / 2f) * cardSpacing;
-                    _cardViews[i].transform.localPosition = new Vector3(x, 0, i * cardOffset.z);
-                }
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _disposables?.Dispose();
-        }
+        private void OnDestroy() => _disposables?.Dispose();
 
         public void Cleanup()
         {
             _disposables?.Dispose();
             _disposables = new CompositeDisposable();
-            ClearAllCards();
+            ClearAllSlots();
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Debug: Show Card Mapping")]
+        private void DebugMapping()
+        {
+            Debug.Log($"[HandView] Mapped: {_cardSlotMap.Count} cards");
+            foreach (var kvp in _cardSlotMap)
+            {
+                Debug.Log($"  {kvp.Key} → {kvp.Value?.name ?? "null"}");
+            }
+        }
+#endif
     }
 }

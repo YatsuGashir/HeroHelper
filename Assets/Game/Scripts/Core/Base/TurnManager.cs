@@ -30,6 +30,7 @@ public class TurnManager
 
     public async UniTask EndTurnAsync()
     {
+        AudioManager.Instance.PlaySFX("Clock", 0.6f);
         Debug.Log($"=== ЗАВЕРШЕНИЕ ХОДА {_currentTurn} ===");
 
         _lifecycleManager.ProcessEndOfTurn();
