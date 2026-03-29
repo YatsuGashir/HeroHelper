@@ -38,7 +38,7 @@ namespace View
             string stageName = instance.stage.ToString();
             int timeLeft = instance.remaingTime;
         
-            statusText.text = $"{stageName}\n осталось времени: {timeLeft}";
+            statusText.text = $"{timeLeft}";
         }
     
         public void Clear()

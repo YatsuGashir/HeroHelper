@@ -15,7 +15,9 @@ namespace Core.Base
         
         public IObservable<Dictionary<ResourceType, int>> OnResourcesChanged => _onResourcesChanged;
 
-        public event Action OnGameOver;
+        private readonly Subject<Unit> _onGameOver = new Subject<Unit>();
+        public IObservable<Unit> OnGameOver => _onGameOver;
+        
         private bool _isGameOver = false;
         
         private void TriggerGameOver()
@@ -23,7 +25,7 @@ namespace Core.Base
             if (_isGameOver) return;
 
             _isGameOver = true;
-            OnGameOver?.Invoke();
+            _onGameOver.OnNext(Unit.Default);
         }
 
         public ResourceManager()

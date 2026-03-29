@@ -71,6 +71,8 @@ namespace View
             }
         }
 
+        [SerializeField] private GameObject gameOverScreen;
+        
         [Header("Floating Text")]
         [SerializeField] private TMP_Text floatingTextPrefab;
         [SerializeField] private Vector3 floatingTextSpawnOffset = new Vector3(1f, 1f, 0f);
@@ -139,6 +141,16 @@ namespace View
             
             _previousValues = G.ResourceManager.GetResources();
             UpdateActualValues(_previousValues);
+            
+            G.ResourceManager.OnGameOver
+                .Subscribe(_ => ShowGameOverScreen())
+                .AddTo(_disposables);
+
+        }
+
+        private void ShowGameOverScreen()
+        {
+            gameOverScreen.SetActive(true);
         }
 
         // 🔥 Обновление только текущих значений (без прогноза)

@@ -31,6 +31,8 @@ namespace Core.Base
         public Subject<Unit> TurnEndRequested { get; } = new Subject<Unit>();
         public Subject<BuildingInstance> Ticked { get; } = new Subject<BuildingInstance>();
         
+
+        
         //ообытия инцидентов
         public Subject<ActiveIncident> LongIncidentUpdated { get; } = new Subject<ActiveIncident>();
         public Subject<ActiveIncident> LongIncidentResolved { get; }  = new Subject<ActiveIncident>();

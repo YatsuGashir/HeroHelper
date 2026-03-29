@@ -18,14 +18,26 @@ public class TutorialSeq: MonoBehaviour
     [HideInInspector] public bool turnPushing = false;
     
     [HideInInspector] public bool tutorialComplete = false;
+    
+    private const string TutorialCompleteKey = "TUTORIAL_COMPLETE";
 
     private void Awake()
     {
         G.TutorialSeq = this;
+
+        tutorialComplete = false;
+        //tutorialComplete = PlayerPrefs.GetInt(TutorialCompleteKey, 0) == 1;
+
         tutorialCenterText.gameObject.SetActive(false);
     }
     public async void nStartButtonClick()
     {
+        if (tutorialComplete)
+        {
+            gameStartAnimation.PlayStartSequence();
+            return;
+        }
+
         await TryStartTutorial();
     }
 
@@ -48,6 +60,19 @@ public class TutorialSeq: MonoBehaviour
         await Say("выбери и размести их на земле");
 
         tutorialCenterText.gameObject.SetActive(false);
+
+        var waitForAction = UniTask.WaitUntil(() => placeFirstBuilding);
+        var timeout = UniTask.Delay(TimeSpan.FromSeconds(5));
+
+        var completed = await UniTask.WhenAny(waitForAction, timeout);
+
+        if (completed == 1) // таймаут
+        {
+            tutorialCenterText.gameObject.SetActive(true);
+            await Say("не спеши… выбери карту и размести её на поле");
+            tutorialCenterText.gameObject.SetActive(false);
+        }
+        
         await UniTask.WaitUntil(() => placeFirstBuilding);
 
         tutorialCenterText.gameObject.SetActive(true);
@@ -83,9 +108,21 @@ public class TutorialSeq: MonoBehaviour
 
         await Say("выбирай… с умом, а пока я ещё не умер, просто продолжай ходить дальше");
 
+        CompleteTutorial();
+        
         tutorialCenterText.gameObject.SetActive(false);
 
 
+    }
+    
+    private void CompleteTutorial()
+    {
+        tutorialComplete = true;
+
+        PlayerPrefs.SetInt(TutorialCompleteKey, 1);
+        PlayerPrefs.Save();
+
+        Debug.Log("Tutorial completed and saved");
     }
     
     public async UniTask Say( string text)
