@@ -38,9 +38,9 @@ namespace Core.Effects
         protected override string GetDefaultDescription()
         {
             if(neighborTagFilter != BuildingTag.None)
-                return $"Даёт {baseAmount}, а также выдаёт {bonusPerBuilding} {ResourseToText.ConvertToText(resourceType)} за каждую постройку с тегом {neighborTagFilter}";
+                return $"Даёт {baseAmount} {ResourseToText.ConvertToText(resourceType)}, а также выдаёт {bonusPerBuilding} {ResourseToText.ConvertToText(resourceType)} за каждую постройку с тегом {neighborTagFilter}";
             if(bonusTerrainTypes.Length != 0)
-                return $"Даёт {baseAmount}, а также выдаёт {bonusPerTerrain} {ResourseToText.ConvertToText(resourceType)} за каждую клетку {bonusTerrainTypes}";
+                return $"Даёт {baseAmount} {ResourseToText.ConvertToText(resourceType)}, а также выдаёт {bonusPerTerrain} {ResourseToText.ConvertToText(resourceType)} за каждую клетку {bonusTerrainTypes}";
             return "";
         }
 

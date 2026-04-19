@@ -22,10 +22,10 @@ MonoBehaviour:
     \u043F\u0440\u043E\u0432\u043E\u0437\u0433\u043B\u0430\u0448\u0430\u0435\u0442\u0441\u044F
     \u0441\u0442\u0440\u043E\u0433\u0438\u0439 \u0443\u0447\u0451\u0442 \u0437\u0430\u0440\u0430\u0436\u0451\u043D\u043D\u044B\u0445
     \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 \u0438 \u0438\u0445 \u0441\u0440\u043E\u0447\u043D\u0430\u044F
-    \u0443\u0442\u0438\u043B\u0438\u0437\u0430\u0446\u0438\u044F."
-  incidentSprite: {fileID: -2190828563271380868, guid: def15c4b87a4c3048a982a71e2658225, type: 3}
+    \u0443\u0442\u0438\u043B\u0438\u0437\u0430\u0446\u0438\u044F  -10 \u0441\u043F\u043E\u0440"
+  incidentSprite: {fileID: 2879120290109456895, guid: 3d88c4ee22efbe242a3f92c2415c6eec, type: 3}
   durationType: 1
-  turnsUntilTrigger: 3
+  turnsUntilTrigger: 5
   chancePerTurn: 0
   resourceLoss:
   - Type: 1

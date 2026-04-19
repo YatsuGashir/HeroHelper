@@ -36,8 +36,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5decd2b30cc4245478f08ae98b12674c, type: 2}
   - {fileID: 11400000, guid: 146691d17a8e551458e9b1c0e1a0d8c0, type: 2}
   - {fileID: 11400000, guid: 4e783eb67f81a334eb3f98efccc6cb71, type: 2}
+  - {fileID: 11400000, guid: 2cfe6581ed4b8db43aef92ec0d6ccf51, type: 2}
   terrainGenerationParams:
-    seed: 229393326
+    seed: 1320696098
     baseNoiseScale: 0.2
     forestThreshold: 0.6
     waterNoiseScale: 0.2

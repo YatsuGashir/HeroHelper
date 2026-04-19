@@ -6,7 +6,7 @@ public class selfdestruction: GameEffectBase
 {
     protected override string GetDefaultDescription()
     {
-        return $"Уничтожеается при наступлении ";
+        return $"Уничтожеается при наступлении фазы ";
     }
     public override void Apply(EffectContext context)
     {

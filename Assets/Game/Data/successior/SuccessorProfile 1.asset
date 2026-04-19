@@ -13,23 +13,9 @@ MonoBehaviour:
   m_Name: SuccessorProfile 1
   m_EditorClassIdentifier: Assembly-CSharp::Data.SuccessorProfile
   successorId: aaa
-  successorName: "\u041E\u0431\u0430\u0431\u043E\u043A \"\u0411\u0443\u0440\u0430\u044F\""
-  timeToDeath: 6
+  successorName: " \"\u0414\u043E\u043C\u0430\u0448\u043D\u044F\u044F\""
+  timeToDeath: 5
   successorDeck:
-  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
-  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
-  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
-  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
-  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
-  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
-  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
-  - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
-  - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
-  - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}
-  - {fileID: 11400000, guid: 0ba6bc9f37bad8a4c91c63b532e0eeba, type: 2}
-  - {fileID: 11400000, guid: 478f2d119ded24e448253929779a443f, type: 2}
-  - {fileID: 11400000, guid: eabf17328b7d1884f98433677c9d3323, type: 2}
-  - {fileID: 11400000, guid: b5e370d02970e604e8146bce597ed5f2, type: 2}
   - {fileID: 11400000, guid: f49e918bd1a0a7140adab13c9b102071, type: 2}
   - {fileID: 11400000, guid: b92a636239b11b049a4335a72cea5953, type: 2}
   - {fileID: 11400000, guid: 9599561c7a2544748ab8536fcac0432d, type: 2}

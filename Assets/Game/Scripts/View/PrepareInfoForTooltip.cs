@@ -65,7 +65,7 @@ public class PrepareInfoForTooltip : MonoBehaviour
         // Если поле называется иначе в BuildingDefinition, поправьте доступ к нему.
         if (definition.GetType().GetProperty("lifeCycle") != null) 
         {
-             sb.AppendLine($"Время жизни: <color=#888>{definition.lifeCycle}с</color>");
+             sb.AppendLine($"Время жизни: <color=#888>{definition.lifeCycle} ходов</color>");
         }
         else
         {
