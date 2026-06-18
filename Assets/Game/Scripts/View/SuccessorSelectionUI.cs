@@ -16,6 +16,7 @@ namespace View
         [SerializeField] private GameObject _selectionPanel;
         [SerializeField] private SuccessorCardView _cardPrefab;
         [SerializeField] private List<Transform> _cardsContainers;
+        [SerializeField] private GameObject nextTurnButton;
         
         private SuccessionManager _successionManager;
         private CompositeDisposable _disposables;
@@ -47,14 +48,16 @@ namespace View
             }
             
             _selectionPanel.SetActive(true);
-            Time.timeScale = 0;
+            nextTurnButton.SetActive(false);
+            //Time.timeScale = 0;
         }
 
         private void OnCandidateChosen(SuccessorProfile chosen)
         {
             _successionManager.ConfirmSelection(chosen);
             _selectionPanel.SetActive(false);
-            Time.timeScale = 1; 
+            nextTurnButton.SetActive(true);
+            //Time.timeScale = 1; 
         }
         
         private void ClearCards()

@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
   header: 
-  content: "\u042D\u0442\u043E \u0434\u0435\u0440\u0435\u0432\u043E"
+  content: "\u042D\u0442\u043E \u0441\u043F\u043E\u0440\u044B"
   showDelay: 0.3
 --- !u!1 &547421546
 GameObject:
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
   header: 
-  content: "\u042D\u0442\u043E \u0432\u043E\u0434\u0430"
+  content: "\u042D\u0442\u043E \u0434\u0435\u0440\u0435\u0432\u043E"
   showDelay: 0.3
 --- !u!1 &750301007
 GameObject:
@@ -4863,6 +4863,7 @@ MonoBehaviour:
   - {fileID: 1445946643}
   - {fileID: 2136824287}
   - {fileID: 1499117041}
+  nextTurnButton: {fileID: 259351296}
 --- !u!1 &1073387043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9937,7 +9938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigerForUi
   header: 
-  content: "\u042D\u0442\u043E \u0441\u043F\u043E\u0440\u044B"
+  content: "\u042D\u0442\u043E \u0432\u043E\u0434\u0430"
   showDelay: 0.3
 --- !u!1 &2019932848
 GameObject:

@@ -94,7 +94,6 @@ namespace Core
         }
         public async UniTask RestartRun(GridView gridView)
         {
-            // Если нужно полностью переинициализировать сетку:
             // _isInitialized = false;
             // Initialize(gridView);
             

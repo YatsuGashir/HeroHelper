@@ -11,6 +11,7 @@ namespace Core.incidents
         [Header("Info")]
         public string incidentId;
         public string incidentName;
+        [TextArea]
         public string description;
         public Sprite incidentSprite;
         

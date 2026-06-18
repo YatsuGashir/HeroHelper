@@ -93,7 +93,7 @@ namespace Core.Base
 
         }
         
-                public void ApplyChanges(List<ResourceAmount> changes)
+        public void ApplyChanges(List<ResourceAmount> changes)
         {
             if (changes == null || changes.Count == 0) return;
 

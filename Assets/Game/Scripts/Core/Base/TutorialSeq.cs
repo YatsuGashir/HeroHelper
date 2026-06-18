@@ -25,8 +25,8 @@ public class TutorialSeq: MonoBehaviour
     {
         G.TutorialSeq = this;
 
-        tutorialComplete = false;
-        //tutorialComplete = PlayerPrefs.GetInt(TutorialCompleteKey, 0) == 1;
+        //tutorialComplete = false;
+        tutorialComplete = PlayerPrefs.GetInt(TutorialCompleteKey, 0) == 1;
 
         tutorialCenterText.gameObject.SetActive(false);
     }
@@ -35,6 +35,10 @@ public class TutorialSeq: MonoBehaviour
         if (tutorialComplete)
         {
             gameStartAnimation.PlayStartSequence();
+            foreach (var slideElement in slideElements)
+                slideElement.SlideIn();
+            tutorialCenterText.gameObject.SetActive(false);
+            CompleteTutorial();
             return;
         }
 
@@ -57,9 +61,9 @@ public class TutorialSeq: MonoBehaviour
 
         slideElements[1].SlideIn();
 
-        await Say("Вотчина твоя – есть власть твоя");
+        await Say("Здания твои есть основа королевства");
 
-        await Say("Дабы узреть подробности, укажи на вотчину свою");
+        await Say("Дабы узреть подробности, наведи курсор свой на них");
 
         await Say("Избери и размести их на свои земли");
 
@@ -81,13 +85,13 @@ public class TutorialSeq: MonoBehaviour
 
         tutorialCenterText.gameObject.SetActive(true);
 
-        await Say("Добро… Разумение в тебе зачинается");
+        await Say("Добро, да начнётся твой королевство");
 
         slideElements[2].SlideIn();
 
         await Say("Сие твои богатства");
 
-        await Say("Каждый ход вотчина несёт их и забирает");
+        await Say("Каждый ход королевство несёт их и забирает");
 
         slideElements[3].SlideIn();
 
@@ -106,11 +110,11 @@ public class TutorialSeq: MonoBehaviour
 
         await Say("житие наше краткое.");
 
-        await Say("Вскоре надлежит тебе указати избранника на наследие");
+        await Say("Вскоре надлежит тебе выбрать избранника на наследие");
 
-        await Say("Каждый из них оборотит бытие люда простого");
+        await Say("Каждый из них изменит бытие люда простого");
 
-        await Say("Доколе не слёг ещё, правь мудро и по правде");
+        await Say("Доколе королевство не падёт, правь мудро и по правде");
 
         CompleteTutorial();
         

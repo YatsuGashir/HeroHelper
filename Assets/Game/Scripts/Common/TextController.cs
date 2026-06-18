@@ -80,15 +80,13 @@ public class TextController : MonoBehaviour
         _visibleCharCount = 0;
         _isWriting = true;
         
-        // 🔥 Важно: включаем поддержку Rich Text в компоненте TMP
         if (_richTextSupport)
         {
             _currentTextField.richText = true;
         }
         
-        // 🔥 Сбрасываем видимые символы через TMP-свойство
         _currentTextField.maxVisibleCharacters = 0;
-        _currentTextField.text = _fullText; // Сразу задаём полный текст с тегами
+        _currentTextField.text = _fullText;
         
         float speed = (charSpeed > 0f) ? charSpeed : _defaultCharSpeed;
 
@@ -111,15 +109,13 @@ public class TextController : MonoBehaviour
             _visibleCharCount = 0;
             return;
         }
-
-        // 🔥 Получаем количество ВИДИМЫХ символов (игнорируя теги)
+        
         int totalVisibleChars = TMP_Utils.GetVisibleCharacterCount(_fullText);
 
         while (_visibleCharCount < totalVisibleChars)
         {
             if (_skipRequested)
             {
-                // 🔥 Показываем весь текст сразу
                 _currentTextField.maxVisibleCharacters = int.MaxValue;
                 _visibleCharCount = totalVisibleChars;
                 _skipRequested = false;
@@ -128,10 +124,8 @@ public class TextController : MonoBehaviour
 
             _visibleCharCount++;
             
-            // 🔥 Используем maxVisibleCharacters вместо Substring!
             _currentTextField.maxVisibleCharacters = _visibleCharCount;
 
-            // 🔥 Опционально: проигрываем звук только для видимых символов (не тегов)
             if (ShouldPlaySoundForChar(_visibleCharCount))
             {
                 AudioManager.Instance.PlaySFX("bubble");
@@ -140,16 +134,11 @@ public class TextController : MonoBehaviour
             await UniTask.Delay(TimeSpan.FromSeconds(speed), cancellationToken: _cts.Token);
         }
         
-        // Гарантируем, что весь текст виден в конце
         _currentTextField.maxVisibleCharacters = int.MaxValue;
     }
 
-    // 🔥 Вспомогательный метод: проверять ли звук для текущего символа
-    // (можно упростить, если звук нужен для каждого шага)
     private bool ShouldPlaySoundForChar(int visibleIndex)
     {
-        // Простая эвристика: не играть звук на тегах
-        // Для точной работы нужен парсинг, но для большинства случаев достаточно этого
         return true; 
     }
 
@@ -167,7 +156,6 @@ public class TextController : MonoBehaviour
     }
 }
 
-// 🔥 Вспомогательный класс для подсчёта видимых символов с учётом тегов
 public static class TMP_Utils
 {
     public static int GetVisibleCharacterCount(string richText)
@@ -191,11 +179,10 @@ public static class TMP_Utils
             }
             else if (!inTag)
             {
-                // 🔥 Учитываем суррогатные пары (эмодзи и т.д.)
                 if (char.IsHighSurrogate(c) && i + 1 < richText.Length && char.IsLowSurrogate(richText[i + 1]))
                 {
                     count++;
-                    i++; // Пропускаем следующий символ, т.к. это часть пары
+                    i++;
                 }
                 else
                 {

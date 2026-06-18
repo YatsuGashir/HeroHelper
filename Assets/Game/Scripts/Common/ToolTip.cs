@@ -50,11 +50,10 @@ public class ToolTip : MonoBehaviour
             headerField.gameObject.SetActive(true);
             headerField.text = header;
         }
-
+        
         contentField.text = content;
-
-        int headerLength = headerField.text.Length;
-        int contentLength = contentField.text.Length;
+        int headerLength = header?.Length ?? 0;
+        int contentLength = content?.Length ?? 0;
 
         layoutElement.enabled =
             (headerLength > characterWrapLimit || contentLength > characterWrapLimit);
@@ -96,28 +95,40 @@ public class ToolTip : MonoBehaviour
     {
         if (!gameObject.activeSelf) return;
 
-        Vector2 position = Input.mousePosition;
-        position += positionOffset;
-        Vector2 size = _rectTransform.rect.size;
+        RectTransform parentRect = transform.parent as RectTransform;
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas == null) return;
 
-        float pivotX = _rectTransform.pivot.x;
-        float pivotY = _rectTransform.pivot.y;
+        Camera cam = canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera;
 
-        // Clamp X
-        position.x = Mathf.Clamp(
-            position.x,
-            size.x * pivotX,
-            Screen.width - size.x * (1 - pivotX)
-        );
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                parentRect,
+                Input.mousePosition,
+                cam,
+                out Vector2 localPoint))
+        {
+            localPoint += positionOffset;
+            
+            Vector2 size = _rectTransform.rect.size;
+            Rect parentRect2 = parentRect.rect;
 
-        // Clamp Y
-        position.y = Mathf.Clamp(
-            position.y,
-            size.y * pivotY,
-            Screen.height - size.y * (1 - pivotY)
-        );
+            float pivotX = _rectTransform.pivot.x;
+            float pivotY = _rectTransform.pivot.y;
 
-        transform.position = position;
+            localPoint.x = Mathf.Clamp(
+                localPoint.x,
+                parentRect2.xMin + size.x * pivotX,
+                parentRect2.xMax - size.x * (1 - pivotX)
+            );
+
+            localPoint.y = Mathf.Clamp(
+                localPoint.y,
+                parentRect2.yMin + size.y * pivotY,
+                parentRect2.yMax - size.y * (1 - pivotY)
+            );
+
+            _rectTransform.localPosition = localPoint;
+        }
     }
 
     private void OnDestroy()

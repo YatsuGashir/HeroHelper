@@ -95,33 +95,13 @@ namespace Core.Base
             List<CellChange> cells,
             List<BuildingChange> buildings)
         {
-            foreach (var r in resources)
-            {
-                Debug.Log("add res" + r.Type + " to " + r.Amount );
-                G.ResourceManager.AddResource(r.Type, r.Amount);
-            }
-
-            /*foreach (var c in cells)
-        {
-            var cell = _grid.GetCell(c.X, c.Y);
-
-            if (c.newTerrain != null)
-                cell.terrainType = c.newTerrain.Value;
-
-            G.Events.CellChanged.OnNext(new CellUpdateEventData
-            {
-                X = c.x,
-                Y = c.y,
-                State = cell
-            });
-        }*/
+            if (resources.Count > 0)
+                G.ResourceManager.ApplyChanges(resources); // ← вместо цикла с AddResource
 
             foreach (var b in buildings)
             {
                 if (b.Destroy)
-                {
                     G.BuildingFactory.DestroyBuilding(b.X, b.Y);
-                }
             }
         }
 

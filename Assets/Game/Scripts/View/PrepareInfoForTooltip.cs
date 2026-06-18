@@ -18,7 +18,6 @@ public class PrepareInfoForTooltip : MonoBehaviour
     
     private void Start()
     {
-        // Если валидно, но контент еще не заполнен (например, инициализация произошла позже)
         if (IsValid() && string.IsNullOrEmpty(tooltipTriger.Content))
             InitializeTooltip();
     }
@@ -54,22 +53,19 @@ public class PrepareInfoForTooltip : MonoBehaviour
 
     private void InitializeTooltip()
     {
-        // Получаем определение здания
         var definition = buildingStatusView.MyBuilding.Definition;
         
         tooltipTriger.Header = definition.buildingName;
 
         var sb = new StringBuilder();
 
-        // Примечание: Если у здания нет поля lifeCycle, замените на актуальное (например, Health или Level)
-        // Если поле называется иначе в BuildingDefinition, поправьте доступ к нему.
+
         if (definition.GetType().GetProperty("lifeCycle") != null) 
         {
              sb.AppendLine($"Время жизни: <color=#888>{definition.lifeCycle} ходов</color>");
         }
         else
         {
-             // Пример альтернативы, если lifeCycle нет, но есть Stage (из старого скрипта)
              sb.AppendLine($"Уровень/Стадия: <color=#888>{buildingStatusView.MyBuilding.stage}</color>");
         }
         
@@ -78,9 +74,9 @@ public class PrepareInfoForTooltip : MonoBehaviour
         // Попытка получить эффекты (адаптируйте названия полей под вашу BuildingDefinition)
         // В скрипте карты это stage2Effect и stage3Effect. 
         // Если у здания структура иная, измените доступ к свойствам ниже.
-        AppendEffectsSection(sb, "Стадия 2:", definition.stage2Effect?.effects);
+        AppendEffectsSection(sb, "Стадия 1:", definition.stage2Effect?.effects);
         
-        AppendEffectsSection(sb, "Стадия 3:", definition.stage3Effect?.effects);
+        AppendEffectsSection(sb, "Стадия 2:", definition.stage3Effect?.effects);
         
         sb.AppendLine();
 

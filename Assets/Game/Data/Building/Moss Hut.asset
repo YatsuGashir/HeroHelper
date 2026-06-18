@@ -15,6 +15,7 @@ MonoBehaviour:
   buildingId: Moss Hut
   buildingName: Moss Hut
   buildingIcon: {fileID: 21300000, guid: 75281d2de67fbe348a64603073ac732d, type: 3}
+  buildingCardICon: {fileID: 0}
   allowedTerrainTypes: 5
   requiredNeighborTag: 0
   lifeCycle: 2
@@ -24,7 +25,7 @@ MonoBehaviour:
   stage3Effect:
     effects:
     - rid: 2979482340603723856
-  buildingTags: 33
+  buildingTags: 1
   references:
     version: 2
     RefIds:
